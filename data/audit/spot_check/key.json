@@ -1,0 +1,562 @@
+{
+ "chk-001": {
+  "stratum": "verified_pass_train",
+  "id": "s:20F#00-005",
+  "verifier_verdict": "pass"
+ },
+ "chk-002": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0026"
+ },
+ "chk-003": {
+  "stratum": "verified_pass_holdout",
+  "id": "sch2:cl15#00-003",
+  "verifier_verdict": "pass"
+ },
+ "chk-004": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0123"
+ },
+ "chk-005": {
+  "stratum": "verified_fail",
+  "id": "s:26G#00-001",
+  "verifier_verdict": "fail"
+ },
+ "chk-006": {
+  "stratum": "verified_pass_holdout",
+  "id": "sch2:cl14#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-007": {
+  "stratum": "verified_pass_train",
+  "id": "s:30#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-008": {
+  "stratum": "verified_pass_holdout",
+  "id": "sch2:cl14#00-003",
+  "verifier_verdict": "pass"
+ },
+ "chk-009": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0033"
+ },
+ "chk-010": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0291"
+ },
+ "chk-011": {
+  "stratum": "verified_fail",
+  "id": "s:49A#00-001",
+  "verifier_verdict": "fail"
+ },
+ "chk-012": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0028"
+ },
+ "chk-013": {
+  "stratum": "verified_pass_holdout",
+  "id": "s:26WL#00-006",
+  "verifier_verdict": "pass"
+ },
+ "chk-014": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0031"
+ },
+ "chk-015": {
+  "stratum": "verified_pass_train",
+  "id": "s:80TD#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-016": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0117"
+ },
+ "chk-017": {
+  "stratum": "verified_pass_train",
+  "id": "s:66#00-006",
+  "verifier_verdict": "pass"
+ },
+ "chk-018": {
+  "stratum": "verified_pass_train",
+  "id": "s:6S#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-019": {
+  "stratum": "verified_pass_train",
+  "id": "s:98B#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-020": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0106"
+ },
+ "chk-021": {
+  "stratum": "verified_pass_train",
+  "id": "sch1:app3#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-022": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0225"
+ },
+ "chk-023": {
+  "stratum": "verified_fail",
+  "id": "s:42#00-002",
+  "verifier_verdict": "fail"
+ },
+ "chk-024": {
+  "stratum": "verified_fail",
+  "id": "sch1:app3#00-012",
+  "verifier_verdict": "fail"
+ },
+ "chk-025": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0025"
+ },
+ "chk-026": {
+  "stratum": "verified_pass_train",
+  "id": "s:26W#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-027": {
+  "stratum": "verified_pass_train",
+  "id": "s:20K#00-004",
+  "verifier_verdict": "pass"
+ },
+ "chk-028": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0136"
+ },
+ "chk-029": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0024"
+ },
+ "chk-030": {
+  "stratum": "verified_pass_train",
+  "id": "s:6#04-008",
+  "verifier_verdict": "pass"
+ },
+ "chk-031": {
+  "stratum": "verified_pass_train",
+  "id": "s:46#00-003",
+  "verifier_verdict": "pass"
+ },
+ "chk-032": {
+  "stratum": "verified_fail",
+  "id": "sch2:cl4#00-001",
+  "verifier_verdict": "fail"
+ },
+ "chk-033": {
+  "stratum": "verified_pass_train",
+  "id": "s:20G#00-004",
+  "verifier_verdict": "pass"
+ },
+ "chk-034": {
+  "stratum": "verified_fail",
+  "id": "s:21U#00-002",
+  "verifier_verdict": "fail"
+ },
+ "chk-035": {
+  "stratum": "verified_fail",
+  "id": "s:6C#00-006",
+  "verifier_verdict": "fail"
+ },
+ "chk-036": {
+  "stratum": "verified_pass_train",
+  "id": "s:35#00-003",
+  "verifier_verdict": "pass"
+ },
+ "chk-037": {
+  "stratum": "verified_pass_train",
+  "id": "s:5B#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-038": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0279"
+ },
+ "chk-039": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0220"
+ },
+ "chk-040": {
+  "stratum": "verified_fail",
+  "id": "s:27#00-001",
+  "verifier_verdict": "fail"
+ },
+ "chk-041": {
+  "stratum": "verified_pass_train",
+  "id": "s:6S#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-042": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0030"
+ },
+ "chk-043": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0010"
+ },
+ "chk-044": {
+  "stratum": "verified_fail",
+  "id": "s:7C#00-001",
+  "verifier_verdict": "fail"
+ },
+ "chk-045": {
+  "stratum": "verified_pass_train",
+  "id": "s:21F#00-003",
+  "verifier_verdict": "pass"
+ },
+ "chk-046": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0039"
+ },
+ "chk-047": {
+  "stratum": "verified_pass_train",
+  "id": "s:21H#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-048": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0118"
+ },
+ "chk-049": {
+  "stratum": "verified_pass_train",
+  "id": "s:73#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-050": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0040"
+ },
+ "chk-051": {
+  "stratum": "verified_fail",
+  "id": "s:20G#00-002",
+  "verifier_verdict": "fail"
+ },
+ "chk-052": {
+  "stratum": "verified_fail",
+  "id": "s:43#00-005",
+  "verifier_verdict": "fail"
+ },
+ "chk-053": {
+  "stratum": "verified_pass_holdout",
+  "id": "sch2:cl10#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-054": {
+  "stratum": "verified_pass_holdout",
+  "id": "sch2:cl15#00-004",
+  "verifier_verdict": "pass"
+ },
+ "chk-055": {
+  "stratum": "verified_pass_train",
+  "id": "s:63#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-056": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0034"
+ },
+ "chk-057": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0004"
+ },
+ "chk-058": {
+  "stratum": "verified_fail",
+  "id": "s:23C#00-004",
+  "verifier_verdict": "fail"
+ },
+ "chk-059": {
+  "stratum": "verified_pass_train",
+  "id": "s:21J#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-060": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0042"
+ },
+ "chk-061": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0022"
+ },
+ "chk-062": {
+  "stratum": "verified_pass_train",
+  "id": "s:6U#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-063": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0029"
+ },
+ "chk-064": {
+  "stratum": "verified_pass_train",
+  "id": "s:32#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-065": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0011"
+ },
+ "chk-066": {
+  "stratum": "verified_pass_holdout",
+  "id": "s:26WQ#00-012",
+  "verifier_verdict": "pass"
+ },
+ "chk-067": {
+  "stratum": "verified_pass_train",
+  "id": "s:6#01-004",
+  "verifier_verdict": "pass"
+ },
+ "chk-068": {
+  "stratum": "verified_pass_holdout",
+  "id": "sch2:cl13#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-069": {
+  "stratum": "verified_fail",
+  "id": "s:36B#00-002",
+  "verifier_verdict": "fail"
+ },
+ "chk-070": {
+  "stratum": "verified_pass_train",
+  "id": "s:6D#00-005",
+  "verifier_verdict": "pass"
+ },
+ "chk-071": {
+  "stratum": "verified_pass_train",
+  "id": "s:21NA#00-005",
+  "verifier_verdict": "pass"
+ },
+ "chk-072": {
+  "stratum": "verified_fail",
+  "id": "s:6C#00-005",
+  "verifier_verdict": "fail"
+ },
+ "chk-073": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0032"
+ },
+ "chk-074": {
+  "stratum": "verified_fail",
+  "id": "s:99A#00-001",
+  "verifier_verdict": "fail"
+ },
+ "chk-075": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0036"
+ },
+ "chk-076": {
+  "stratum": "verified_pass_holdout",
+  "id": "sch2:cl6#00-003",
+  "verifier_verdict": "pass"
+ },
+ "chk-077": {
+  "stratum": "verified_fail",
+  "id": "sch2:cl16#00-001",
+  "verifier_verdict": "fail"
+ },
+ "chk-078": {
+  "stratum": "verified_pass_holdout",
+  "id": "s:26WQ#00-005",
+  "verifier_verdict": "pass"
+ },
+ "chk-079": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0285"
+ },
+ "chk-080": {
+  "stratum": "verified_pass_train",
+  "id": "sch1:app9#00-009",
+  "verifier_verdict": "pass"
+ },
+ "chk-081": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0207"
+ },
+ "chk-082": {
+  "stratum": "verified_pass_holdout",
+  "id": "s:26WS#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-083": {
+  "stratum": "verified_pass_train",
+  "id": "s:13H#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-084": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0050"
+ },
+ "chk-085": {
+  "stratum": "verified_pass_train",
+  "id": "s:33A#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-086": {
+  "stratum": "verified_pass_train",
+  "id": "sch1:app1#00-007",
+  "verifier_verdict": "pass"
+ },
+ "chk-087": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0005"
+ },
+ "chk-088": {
+  "stratum": "verified_fail",
+  "id": "s:5B#00-001",
+  "verifier_verdict": "fail"
+ },
+ "chk-089": {
+  "stratum": "verified_pass_train",
+  "id": "s:21R#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-090": {
+  "stratum": "verified_pass_train",
+  "id": "s:6D#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-091": {
+  "stratum": "verified_pass_holdout",
+  "id": "s:26WL#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-092": {
+  "stratum": "verified_pass_train",
+  "id": "s:20E#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-093": {
+  "stratum": "verified_fail",
+  "id": "s:16B#00-010",
+  "verifier_verdict": "fail"
+ },
+ "chk-094": {
+  "stratum": "verified_pass_holdout",
+  "id": "s:26XF#00-005",
+  "verifier_verdict": "pass"
+ },
+ "chk-095": {
+  "stratum": "verified_pass_holdout",
+  "id": "s:26XE#00-002",
+  "verifier_verdict": "pass"
+ },
+ "chk-096": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0027"
+ },
+ "chk-097": {
+  "stratum": "verified_pass_train",
+  "id": "s:21G#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-098": {
+  "stratum": "verified_pass_train",
+  "id": "s:20K#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-099": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0023"
+ },
+ "chk-100": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0141"
+ },
+ "chk-101": {
+  "stratum": "verified_pass_train",
+  "id": "s:6FA#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-102": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0017"
+ },
+ "chk-103": {
+  "stratum": "verified_pass_train",
+  "id": "s:22F#00-004",
+  "verifier_verdict": "pass"
+ },
+ "chk-104": {
+  "stratum": "verified_pass_train",
+  "id": "s:13F#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-105": {
+  "stratum": "verified_fail",
+  "id": "s:26WF#00-006",
+  "verifier_verdict": "fail"
+ },
+ "chk-106": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0105"
+ },
+ "chk-107": {
+  "stratum": "verified_pass_train",
+  "id": "s:20E#00-004",
+  "verifier_verdict": "pass"
+ },
+ "chk-108": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0044"
+ },
+ "chk-109": {
+  "stratum": "verified_fail",
+  "id": "s:26WE#00-006",
+  "verifier_verdict": "fail"
+ },
+ "chk-110": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0064"
+ },
+ "chk-111": {
+  "stratum": "verified_fail",
+  "id": "s:13G#00-002",
+  "verifier_verdict": "fail"
+ },
+ "chk-112": {
+  "stratum": "paraphrase_scenario",
+  "id": "s_para-0069"
+ },
+ "chk-113": {
+  "stratum": "verified_pass_holdout",
+  "id": "s:26WC#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-114": {
+  "stratum": "verified_fail",
+  "id": "s:76#00-002",
+  "verifier_verdict": "fail"
+ },
+ "chk-115": {
+  "stratum": "neg_unverifiable",
+  "id": "s_neg-0035"
+ },
+ "chk-116": {
+  "stratum": "verified_fail",
+  "id": "s:95A#00-003",
+  "verifier_verdict": "fail"
+ },
+ "chk-117": {
+  "stratum": "verified_fail",
+  "id": "s:100#00-002",
+  "verifier_verdict": "fail"
+ },
+ "chk-118": {
+  "stratum": "verified_pass_train",
+  "id": "s:21U#00-001",
+  "verifier_verdict": "pass"
+ },
+ "chk-119": {
+  "stratum": "verified_pass_train",
+  "id": "sch1:app1#00-008",
+  "verifier_verdict": "pass"
+ },
+ "chk-120": {
+  "stratum": "verified_fail",
+  "id": "s:32#00-001",
+  "verifier_verdict": "fail"
+ }
+}

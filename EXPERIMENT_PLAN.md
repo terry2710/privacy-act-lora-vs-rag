@@ -1,0 +1,79 @@
+# Experiment Plan (pre-registered)
+
+This plan was committed before any fine-tuning run or evaluation of any arm. Changes made after this commit are recorded under *Deviations* with a date and a reason; the original text is not edited.
+
+## Question
+
+On a fixed, verified QA benchmark built from the *Privacy Act 1988* (Cth), what do LoRA fine-tuning and retrieval-augmented generation each contribute to accuracy, faithful citation and latency for a 1.5B-parameter instruction model, on facts it was trained on, on held-out phrasings of those facts, and on provisions it never saw?
+
+## Arms
+
+| Arm | Model | Retrieval |
+|---|---|---|
+| A0 | Qwen2.5-1.5B-Instruct | none |
+| A1 | Qwen2.5-1.5B-Instruct + LoRA | none |
+| A2 | Qwen2.5-1.5B-Instruct | top-k chunks from the full Act |
+| A3 (optional) | Qwen2.5-1.5B-Instruct + LoRA | top-k chunks from the full Act |
+
+All arms share one system prompt, chat template, decoding configuration (greedy where the runtime supports it, maximum 256 new tokens), quantisation level and hardware. The RAG index contains the whole Act, including H1 and H2; access to text absent from the weights is the property under test.
+
+## Evaluation sets
+
+| Set | Role |
+|---|---|
+| S-mem (150) | Trained facts, trained phrasing |
+| S-para (298) | Trained facts, held-out phrasing; paired with S-mem by fact |
+| dev-para (100) | Model selection only; never used for reported results |
+| H1-clean (138) | Part IIIC excluding the five items tagged `parallel_to_train` |
+| H1-parallel (5) | Reported separately |
+| H2 (76) | Schedule 2 |
+| S-neg (50) | False premises |
+
+## Metrics
+
+- **Accuracy**: 0 (wrong), 1 (partly correct), 2 (correct and complete), scored by an LLM judge against the reference answer.
+- **Groundedness and fabricated content**: judged per answer.
+- **Citation hit**: the provision in the answer's `[Source: …]` tag equals the reference provision (programmatic).
+- **Non-existent citation rate**: any provision cited, in the tag or in the text, that does not exist in the parsed table of contents (programmatic).
+- **Wrong-existing citation rate**: the tagged provision exists but is not the reference provision.
+- **Premise correction (S-neg)**: the answer states that the Act contains no such provision or mechanism and does not invent one.
+- **Latency**: server-side retrieval, prefill, generation and total time; reported as median and 95th percentile.
+- **Memorisation gap**: Δmem = Acc(S-mem) − Acc(S-para), computed over facts present in both sets.
+
+## Hypotheses
+
+Primary:
+
+- **H1.** On S-para, accuracy orders as A0 < A1 < A2.
+- **H3.** On H1-clean and H2 combined, A1's rate of non-existent or wrong-existing citations exceeds A0's: fine-tuning teaches the citation format without the knowledge behind it.
+
+Secondary:
+
+- **H2.** A1's memorisation gap is positive, and is larger for the one-phrasing ablation than for the two-phrasing model.
+- **H4.** A0 scores higher on H1-clean than on H2, reflecting pre-training exposure to Part IIIC.
+- **H5.** A2's total latency exceeds A1's, and the difference is dominated by prefill of the retrieved context rather than by retrieval itself.
+
+Exploratory (reported descriptively):
+
+- **H6.** On H1-parallel, A1 reproduces the s 44 content but cites s 44 rather than s 26WU.
+- **H7.** On S-neg, A2 corrects false premises more often than A1.
+- A3 relative to A1 and A2 on every set.
+
+## Model selection
+
+LoRA hyperparameters are chosen by citation-hit rate on dev-para, with validation loss as a secondary signal. No evaluation set other than dev-para is scored before the final configuration is fixed.
+
+## Judging
+
+The primary judge belongs to a different model family from the QA generator. A second judge from another family scores a stratified calibration sample of about 150 answers, drawn first from A0 and A2 and topped up with A1 answers once the fine-tuned model exists. The full run proceeds only if inter-judge Cohen's κ ≥ 0.6 on that sample. The author adjudicates the disagreements, and the adjudicated sample is used to estimate the primary judge's error rate. If κ < 0.6, the rubric is revised and recalibrated, and the revision is recorded under *Deviations*. The same dual-review procedure, with author adjudication of disagreements, is used for the data spot check described in `DATA_CARD.md`.
+
+## Statistics
+
+- Paired bootstrap over items (10,000 resamples) for accuracy differences, with 95% confidence intervals.
+- McNemar's test for binary outcomes (citation hit, premise correction).
+- Holm–Bonferroni correction across the primary hypotheses; secondary and exploratory results are reported without correction and labelled as such.
+- A hypothesis is supported when the 95% interval of the relevant difference excludes zero in the predicted direction, after correction where it applies.
+
+## Deviations
+
+None yet.

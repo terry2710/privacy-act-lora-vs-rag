@@ -26,6 +26,9 @@ Usage: palr <command> [args]
   eval-build         Deduplicate, audit semantic leakage and build evaluation sets
   para-dry [args]    Plan paraphrase test question generation
   para [args]        Generate S-para and dev-para paraphrase questions
+  spot-export        Export the blind human spot-check sheet
+  audit [args]       Run dual-model review of the spot-check sample (use --limit N for a pilot)
+  audit-score        Combine model agreement and human adjudication into the final report
 EOF
 }
 
@@ -114,6 +117,18 @@ EOF
   para)
     need_py
     "$PY" -m privacy_bench.qa.paraphrase "$@"
+    ;;
+  spot-export)
+    need_py
+    "$PY" -m privacy_bench.qa.spot_check export "$@"
+    ;;
+  audit)
+    need_py
+    "$PY" -m privacy_bench.qa.audit run "$@"
+    ;;
+  audit-score)
+    need_py
+    "$PY" -m privacy_bench.qa.audit score "$@"
     ;;
   models-anthropic)
     need_py

@@ -1,0 +1,27 @@
+prompt_version: audit-v1
+
+auditors:
+  claude:
+    provider: anthropic
+    model: claude-opus-5-5
+    effort: low
+    max_tokens: 4000
+  gpt:
+    provider: openai
+    model: gpt-5.5-2026-04-23
+    reasoning_effort: low
+    max_output_tokens: 4000
+
+run:
+  max_workers: 4
+  max_retries: 5
+  seed: 20261005
+
+paths:
+  sheet: data/audit/spot_check/sheet.csv
+  key: data/audit/spot_check/key.json
+  cache_dir: data/audit/spot_check/audit_cache
+  results: data/audit/spot_check/audit_results.jsonl
+  adjudication: data/audit/spot_check/adjudication.csv
+  adjudication_key: data/audit/spot_check/adjudication_key.json
+  report: data/audit/spot_check/results.json

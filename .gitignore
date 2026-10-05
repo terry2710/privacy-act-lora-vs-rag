@@ -16,4 +16,5 @@ data/qa/cache/
 data/qa/verify_cache/
 data/qa/embed_cache/
 data/qa/paraphrase_cache/
+data/audit/spot_check/audit_cache/
 .commit_msgs/
