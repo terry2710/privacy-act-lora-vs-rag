@@ -1,0 +1,293 @@
+{
+  "docx_sha256": "877b0f717e01d69b071ac3a93a48019bf8a9073322b751fb9b8553f1583bdf7d",
+  "by_split": {
+    "train": {
+      "sections": 287,
+      "chars": 455325,
+      "quota": 1076
+    },
+    "holdout_h1": {
+      "sections": 28,
+      "chars": 43842,
+      "quota": 150
+    },
+    "excluded": {
+      "sections": 12,
+      "chars": 15789,
+      "quota": 0
+    },
+    "holdout_h2": {
+      "sections": 26,
+      "chars": 24404,
+      "quota": 80
+    }
+  },
+  "by_unit": {
+    "Part I": {
+      "sections": 8,
+      "chars": 4964,
+      "quota": 13,
+      "chars_per_item": 382
+    },
+    "Part II": {
+      "sections": 37,
+      "chars": 109664,
+      "quota": 210,
+      "chars_per_item": 522
+    },
+    "Part III": {
+      "sections": 18,
+      "chars": 23459,
+      "quota": 60,
+      "chars_per_item": 391
+    },
+    "Part IIIA": {
+      "sections": 67,
+      "chars": 106220,
+      "quota": 225,
+      "chars_per_item": 472
+    },
+    "Part IIIB": {
+      "sections": 25,
+      "chars": 25450,
+      "quota": 65,
+      "chars_per_item": 392
+    },
+    "Part IIIC": {
+      "sections": 28,
+      "chars": 43842,
+      "quota": 150,
+      "chars_per_item": 292
+    },
+    "Part IV": {
+      "sections": 21,
+      "chars": 30033,
+      "quota": 75,
+      "chars_per_item": 400
+    },
+    "Part V": {
+      "sections": 47,
+      "chars": 63713,
+      "quota": 155,
+      "chars_per_item": 411
+    },
+    "Part VI": {
+      "sections": 13,
+      "chars": 9491,
+      "quota": 24,
+      "chars_per_item": 395
+    },
+    "Part VIA": {
+      "sections": 0,
+      "chars": 0,
+      "quota": 0,
+      "chars_per_item": null
+    },
+    "Part VIB": {
+      "sections": 12,
+      "chars": 24873,
+      "quota": 63,
+      "chars_per_item": 395
+    },
+    "Part VII": {
+      "sections": 8,
+      "chars": 5424,
+      "quota": 14,
+      "chars_per_item": 387
+    },
+    "Part VIII": {
+      "sections": 6,
+      "chars": 2642,
+      "quota": 7,
+      "chars_per_item": 377
+    },
+    "Part IX": {
+      "sections": 11,
+      "chars": 16418,
+      "quota": 40,
+      "chars_per_item": 410
+    },
+    "Sch 1": {
+      "sections": 14,
+      "chars": 32974,
+      "quota": 125,
+      "chars_per_item": 264
+    },
+    "Sch 2": {
+      "sections": 26,
+      "chars": 24404,
+      "quota": 80,
+      "chars_per_item": 305
+    }
+  },
+  "masked_line_total": 32,
+  "source_review": [
+    {
+      "uid": "s:2A",
+      "title": "Objects of this Act",
+      "action": "mask",
+      "hits": [
+        "Schedule 2"
+      ],
+      "masked": [
+        "(2) This section does not apply to Schedule 2.",
+        "Note: See also clause 1 of Schedule 2 (objects)."
+      ]
+    },
+    {
+      "uid": "s:3",
+      "title": "Saving of certain State and Territory laws",
+      "action": "mask",
+      "hits": [
+        "Schedule 2"
+      ],
+      "masked": [
+        "(2) This section does not apply to Schedule 2.",
+        "Note: See also clause 21 of Schedule 2 (saving of other laws)."
+      ]
+    },
+    {
+      "uid": "s:5A",
+      "title": "Extension to external Territories",
+      "action": "mask",
+      "hits": [
+        "Schedule 2"
+      ],
+      "masked": [
+        "(2) This section does not apply to Schedule 2."
+      ]
+    },
+    {
+      "uid": "s:5B",
+      "title": "Extra territorial operation of Act",
+      "action": "mask",
+      "hits": [
+        "Schedule 2"
+      ],
+      "masked": [
+        "(5) This section does not apply to Schedule 2."
+      ]
+    },
+    {
+      "uid": "s:6",
+      "title": "Interpretation",
+      "action": "mask",
+      "hits": [
+        "26WE",
+        "26X",
+        "Part IIIC",
+        "eligible data breach"
+      ],
+      "masked": [
+        "at risk from an eligible data breach has the meaning given by section 26WE.",
+        "eligible data breach has the meaning given by Division 2 of Part IIIC.",
+        "eligible data breach declaration means a declaration under subsection 26X(1)."
+      ]
+    },
+    {
+      "uid": "s:7",
+      "title": "Acts and practices of agencies, organisations etc.",
+      "action": "false_positive",
+      "hits": [
+        "Schedule 2"
+      ],
+      "masked": []
+    },
+    {
+      "uid": "s:12B",
+      "title": "Severability—additional effect of this Act",
+      "action": "mask",
+      "hits": [
+        "Schedule 2"
+      ],
+      "masked": [
+        "(9) This section does not apply to Schedule 2.",
+        "Note: See also clauses 4 and 5 of Schedule 2 (constitutional basis and additional operation)."
+      ]
+    },
+    {
+      "uid": "s:13",
+      "title": "Interferences with privacy",
+      "action": "mask",
+      "hits": [
+        "26WH",
+        "26WK",
+        "26WL",
+        "26WR",
+        "Part IIIC",
+        "eligible data breaches"
+      ],
+      "masked": [
+        "Notification of eligible data breaches etc.",
+        "(4A) If an entity (within the meaning of Part IIIC) contravenes subsection 26WH(2), 26WK(2), 26WL(3) or 26WR(10), the contravention is taken to be an act that is an interference with the privacy of an individual."
+      ]
+    },
+    {
+      "uid": "s:13K",
+      "title": "Civil penalty provision for which infringement notices or compliance notices can be issued",
+      "action": "mask",
+      "hits": [
+        "26WK",
+        "eligible data breach",
+        "eligible data breaches"
+      ],
+      "masked": [
+        "Civil penalty provision for non-compliant eligible data breach statement",
+        "(2) An entity contravenes this subsection if:",
+        "(a) the entity prepares a statement under section 26WK (eligible data breaches); and",
+        "(b) the statement does not comply with subsection 26WK(3)."
+      ]
+    },
+    {
+      "uid": "s:33C",
+      "title": "Commissioner may conduct an assessment relating to the Australian Privacy Principles etc.",
+      "action": "mask",
+      "hits": [
+        "Part IIIC",
+        "eligible data breaches"
+      ],
+      "masked": [
+        "(ca) the ability of an entity subject to Part IIIC to comply with that Part, including the extent to which the entity has processes and procedures in place to:",
+        "(i) assess suspected eligible data breaches; and",
+        "(ii) provide notice of eligible data breaches to the Commissioner and to individuals at risk from such breaches;"
+      ]
+    },
+    {
+      "uid": "s:80TB",
+      "title": "Monitoring powers",
+      "action": "mask",
+      "hits": [
+        "26WU",
+        "eligible data breaches"
+      ],
+      "masked": [
+        "(a) subsection 26WU(3) (power to obtain information and documents relating to eligible data breaches);"
+      ]
+    },
+    {
+      "uid": "s:96",
+      "title": "Review by the Administrative Review Tribunal",
+      "action": "mask",
+      "hits": [
+        "26WL",
+        "26WQ",
+        "26WR",
+        "Part IIIC"
+      ],
+      "masked": [
+        "(ba) a decision under subsection 26WQ(7) to refuse an application for a declaration;",
+        "(bb) a decision to make a declaration under paragraph 26WQ(1)(d);",
+        "(bc) a decision under subsection 26WR(1) to give a direction;",
+        "(2A) An application under paragraph (1)(ba) may only be made by:",
+        "(a) the entity that made the application for a declaration; or",
+        "(b) if another entity's compliance with subsection 26WL(2) is affected by the decision to refuse the application for a declaration—that other entity.",
+        "(2B) An application under paragraph (1)(bb) may only be made by:",
+        "(a) the entity to whom notice of the declaration was given; or",
+        "(b) if another entity's compliance with subsection 26WL(2) is affected by the declaration—that other entity.",
+        "(2C) An application under paragraph (1)(bc) may only be made by the entity to whom the direction was given.",
+        "(2D) For the purposes of subsections (2A), (2B) and (2C), entity has the same meaning as in Part IIIC."
+      ]
+    }
+  ],
+  "unused_source_review": []
+}

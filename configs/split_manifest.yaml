@@ -9,31 +9,36 @@ source:
   compilation_date: 2026-06-04
   source_url: https://www.legislation.gov.au/C2004A03712/2026-06-04
   docx: data/raw/privacy_act_1988.docx
-  docx_sha256: null
+  docx_sha256: 877b0f717e01d69b071ac3a93a48019bf8a9073322b751fb9b8553f1583bdf7d
   toc: data/raw/toc.txt
   corpus_note: The LoRA QA generation and the RAG index are both built from this single DOCX.
   licence: CC BY 4.0 (Federal Register of Legislation) - verify before release
 
 units:
-  Part I:    {split: train, facts: 15}
+  Part I:    {split: train, facts: 13}
   Part II:   {split: train, facts: 210}
-  Part III:  {split: train, facts: 75}
+  Part III:  {split: train, facts: 60}
   Part IIIA: {split: train, facts: 225}
-  Part IIIB: {split: train, facts: 85}
+  Part IIIB: {split: train, facts: 65}
   Part IIIC: {split: holdout_h1, questions: 150}
-  Part IV:   {split: train, facts: 80}
-  Part V:    {split: train, facts: 150}
-  Part VI:   {split: train, facts: 30}
+  Part IV:   {split: train, facts: 75}
+  Part V:    {split: train, facts: 155}
+  Part VI:   {split: train, facts: 24}
   Part VIA:  {split: excluded, reason: "Structural mirror of Part IIIC Division 5 (declaration, authorisation, disclosure offence); training on it would leak H1 content"}
-  Part VIB:  {split: train, facts: 75}
-  Part VII:  {split: train, facts: 15}
-  Part VIII: {split: train, facts: 10}
-  Part IX:   {split: train, facts: 35}
-  Sch 1:     {split: train, facts: 150}
-  Sch 2:     {split: holdout_h2, questions: 100}
+  Part VIB:  {split: train, facts: 63}
+  Part VII:  {split: train, facts: 14}
+  Part VIII: {split: train, facts: 7}
+  Part IX:   {split: train, facts: 40}
+  Sch 1:     {split: train, facts: 125}
+  Sch 2:     {split: holdout_h2, questions: 80}
 
 section_overrides:
   - {uid: "s:94A", split: excluded, reason: "Pointer provision to Schedule 2 (H2)"}
+
+allocation:
+  min_per_section: 1
+  guide_weight: 0.3
+  guide_title_pattern: '^(Guide to this|Simplified outline)'
 
 qa:
   train_phrasings_per_fact: 2
@@ -48,7 +53,7 @@ eval:
   s_para:   {source: s_mem, phrasings_per_fact: 2}
   dev_para: {source: train, facts: 100, disjoint_from: s_mem, phrasings_per_fact: 1}
   h1:       {source: holdout_h1, questions: 150, tag_divisions: ["5"]}
-  h2:       {source: holdout_h2, questions: 100}
+  h2:       {source: holdout_h2, questions: 80}
   s_neg:    {questions: 50}
 
 dedup:
@@ -57,14 +62,29 @@ dedup:
   cross_fact_max_cosine: 0.92
 
 leakage:
-  holdout_uid_patterns: ['^s:26W', '^s:26X', '^sch2:']
+  holdout_uid_patterns: ['^s:26W[A-Z]', '^s:26X', '^sch2:']
   holdout_citation_patterns:
-    - '\bs(?:ection)?\s*26W[A-Z]?\b'
-    - '\bs(?:ection)?\s*26X[A-H]?\b'
-    - '\bSch(?:edule)?\s*2\b'
+    - '\b26W[A-Z]+\b'
+    - '\b26X[A-H]?\b'
+    - '\bPart\s+IIIC\b'
+    - '\bSch(?:edule)?\s*2\b(?!\s+to\s+the\b)'
   holdout_terms:
     - eligible data breach
     - notifiable data breach
     - serious invasion of privacy
     - statutory tort
+  source_review:
+    "s:7":
+      action: false_positive
+      reason: Paragraphs (A)-(C) refer to Schedules 1 and 2 to the Freedom of Information Act 1982, not to this Act
+    "s:13K":
+      action: mask
+      reason: Subsection (2) imposes a civil penalty for a non-compliant s 26WK statement (H1 content)
+      blocks:
+        - {from: "Civil penalty provision for non-compliant eligible data breach statement", to: "(b) the statement does not comply"}
+    "s:96":
+      action: mask
+      reason: Subsections (2A)-(2D) set standing to seek review of Part IIIC decisions and are unintelligible without them
+      blocks:
+        - {from: "(2A)", to: "(2D)"}
   target_hits: 0
