@@ -19,6 +19,9 @@ Usage: palr <command> [args]
   models-openai      List OpenAI models available to the API key
   status             Show git status and the latest commits
   commit <name>      Commit staged changes with .commit_msgs/<name>.txt
+  verify-dry [args]  Plan QA verification without calling the API
+  verify [args]      Run QA verification with the second LLM
+  verify-report      Summarise the latest verification report
 EOF
 }
 
@@ -67,6 +70,28 @@ print(f"requested={r['requested']}")
 print(f"accepted={r['accepted']}")
 print(f"rejected_by_reason={r['rejected_by_reason']}")
 print(f"shortfall_jobs={len(r['shortfall'])} missing={sum(s['quota'] - s['accepted'] for s in r['shortfall'])}")
+print(f"usage={r['usage']}")
+EOF
+    ;;
+  verify-dry)
+    need_py
+    "$PY" -m privacy_bench.qa.verify --dry-run "$@"
+    ;;
+  verify)
+    need_py
+    "$PY" -m privacy_bench.qa.verify "$@"
+    ;;
+  verify-report)
+    need_py
+    "$PY" - <<'EOF'
+import json
+r = json.load(open("data/audit/verification_report.json"))
+print(f"model={r['verifier_model']} prompt={r['verifier_prompt_version']} hash={r['verifier_prompt_hash']}")
+for split, stats in r["by_split"].items():
+    print(f"{split}: {stats}")
+print(f"issues={r['issues']}")
+low = {u: s["pass_rate"] for u, s in r["by_unit"].items() if s["pass_rate"] < 0.9}
+print(f"units_below_90pct={low}")
 print(f"usage={r['usage']}")
 EOF
     ;;

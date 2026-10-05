@@ -1,0 +1,109 @@
+{
+  "verifier_model": "gpt-5.4-mini-2026-03-17",
+  "verifier_reasoning_effort": "low",
+  "verifier_prompt_version": "qa-verify-v1",
+  "verifier_prompt_hash": "a7717183dc26",
+  "by_split": {
+    "train": {
+      "pass": 1015,
+      "fail": 57,
+      "pass_rate": 0.9468
+    },
+    "holdout_h1": {
+      "pass": 143,
+      "fail": 7,
+      "pass_rate": 0.9533
+    },
+    "holdout_h2": {
+      "pass": 76,
+      "fail": 4,
+      "pass_rate": 0.95
+    }
+  },
+  "by_unit": {
+    "Part I": {
+      "fail": 2,
+      "pass": 10,
+      "pass_rate": 0.8333
+    },
+    "Part II": {
+      "fail": 11,
+      "pass": 198,
+      "pass_rate": 0.9474
+    },
+    "Part III": {
+      "pass": 55,
+      "fail": 4,
+      "pass_rate": 0.9322
+    },
+    "Part IIIA": {
+      "pass": 211,
+      "fail": 14,
+      "pass_rate": 0.9378
+    },
+    "Part IIIB": {
+      "pass": 61,
+      "fail": 3,
+      "pass_rate": 0.9531
+    },
+    "Part IIIC": {
+      "pass": 143,
+      "fail": 7,
+      "pass_rate": 0.9533
+    },
+    "Part IV": {
+      "fail": 5,
+      "pass": 70,
+      "pass_rate": 0.9333
+    },
+    "Part IX": {
+      "pass": 36,
+      "fail": 4,
+      "pass_rate": 0.9
+    },
+    "Part V": {
+      "pass": 145,
+      "fail": 10,
+      "pass_rate": 0.9355
+    },
+    "Part VI": {
+      "pass": 21,
+      "fail": 3,
+      "pass_rate": 0.875
+    },
+    "Part VIB": {
+      "pass": 63,
+      "pass_rate": 1.0
+    },
+    "Part VII": {
+      "pass": 14,
+      "pass_rate": 1.0
+    },
+    "Part VIII": {
+      "pass": 7,
+      "pass_rate": 1.0
+    },
+    "Sch 1": {
+      "pass": 124,
+      "fail": 1,
+      "pass_rate": 0.992
+    },
+    "Sch 2": {
+      "pass": 76,
+      "fail": 4,
+      "pass_rate": 0.95
+    }
+  },
+  "issues": {
+    "incomplete": 48,
+    "trivial": 2,
+    "unsupported": 13,
+    "incorrect": 2,
+    "question_mismatch": 3
+  },
+  "usage": {
+    "input": 400874,
+    "output": 100675,
+    "calls": 351
+  }
+}

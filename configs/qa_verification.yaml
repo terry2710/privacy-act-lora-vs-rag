@@ -1,0 +1,20 @@
+prompt_version: qa-verify-v1
+
+verifier:
+  provider: openai
+  model: gpt-5.4-mini-2026-03-17
+  reasoning_effort: low
+  max_output_tokens: 8000
+  max_retries: 5
+
+run:
+  max_workers: 4
+  max_rounds: 2
+
+paths:
+  generation_config: configs/qa_generation.yaml
+  generated_dir: data/qa/generated
+  cache_dir: data/qa/verify_cache
+  out_dir: data/qa/verified
+  results: data/audit/verification_results.jsonl
+  report: data/audit/verification_report.json

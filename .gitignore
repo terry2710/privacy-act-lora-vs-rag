@@ -13,4 +13,5 @@ indexes/
 *.gguf
 *.safetensors
 data/qa/cache/
+data/qa/verify_cache/
 .commit_msgs/
