@@ -1,0 +1,46 @@
+{
+  "paraphrase_model": "gpt-5.5-2026-04-23",
+  "paraphrase_prompt_version": "para-v1",
+  "paraphrase_prompt_hash": "ec00382187c4",
+  "sizes": {
+    "s_para": 298,
+    "dev_para": 100
+  },
+  "by_type": {
+    "s_para": {
+      "lexical": 98,
+      "syntactic": 100,
+      "scenario": 100
+    },
+    "dev_para": {
+      "lexical": 34,
+      "syntactic": 33,
+      "scenario": 33
+    }
+  },
+  "shortfall": [
+    {
+      "set": "s_para",
+      "fact_id": "s:21L#00-002",
+      "type": "lexical"
+    },
+    {
+      "set": "s_para",
+      "fact_id": "s:80D#00-001",
+      "type": "lexical"
+    }
+  ],
+  "rejected_by_reason": {
+    "polarity_mismatch": 5,
+    "overlap_rouge_l": 36
+  },
+  "overlap_mean": {
+    "max_4gram_jaccard": 0.049,
+    "max_rouge_l": 0.38
+  },
+  "usage": {
+    "input": 68805,
+    "output": 51837,
+    "calls": 50
+  }
+}

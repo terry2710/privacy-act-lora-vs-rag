@@ -15,4 +15,5 @@ indexes/
 data/qa/cache/
 data/qa/verify_cache/
 data/qa/embed_cache/
+data/qa/paraphrase_cache/
 .commit_msgs/

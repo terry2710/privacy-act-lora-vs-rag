@@ -58,9 +58,10 @@ eval:
 
 dedup:
   paraphrase_max_4gram_jaccard: 0.5
-  paraphrase_max_rouge_l: 0.5
+  paraphrase_max_rouge_l: 0.6
   within_split_min_cosine: 0.97
   leakage_review_min_cosine: 0.85
+
 
 leakage:
   holdout_uid_patterns: ['^s:26W[A-Z]', '^s:26X', '^sch2:']

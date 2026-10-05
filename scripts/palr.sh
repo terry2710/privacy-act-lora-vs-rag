@@ -24,6 +24,8 @@ Usage: palr <command> [args]
   verify-report      Summarise the latest verification report
   eval-dry           Validate S-neg and plan evaluation set building
   eval-build         Deduplicate, audit semantic leakage and build evaluation sets
+  para-dry [args]    Plan paraphrase test question generation
+  para [args]        Generate S-para and dev-para paraphrase questions
 EOF
 }
 
@@ -104,6 +106,14 @@ EOF
   eval-build)
     need_py
     "$PY" -m privacy_bench.qa.build_eval "$@"
+    ;;
+  para-dry)
+    need_py
+    "$PY" -m privacy_bench.qa.paraphrase --dry-run "$@"
+    ;;
+  para)
+    need_py
+    "$PY" -m privacy_bench.qa.paraphrase "$@"
     ;;
   models-anthropic)
     need_py

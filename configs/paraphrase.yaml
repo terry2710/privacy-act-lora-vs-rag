@@ -1,0 +1,22 @@
+prompt_version: para-v1
+
+generator:
+  provider: openai
+  model: gpt-5.5-2026-04-23
+  reasoning_effort: null
+  max_output_tokens: 8000
+  max_retries: 5
+
+run:
+  batch_size: 10
+  max_workers: 4
+  max_rounds: 3
+
+paths:
+  manifest: configs/split_manifest.yaml
+  train: data/qa/final/train.jsonl
+  selection: data/qa/eval/selection.json
+  cache_dir: data/qa/paraphrase_cache
+  eval_dir: data/qa/eval
+  rejects: data/audit/paraphrase_rejects.jsonl
+  report: data/audit/paraphrase_report.json
