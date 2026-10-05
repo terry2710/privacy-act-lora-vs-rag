@@ -1,0 +1,76 @@
+{
+  "source_file": "data/raw/privacy_act_1988.docx",
+  "sha256": "877b0f717e01d69b071ac3a93a48019bf8a9073322b751fb9b8553f1583bdf7d",
+  "toc_entries": 457,
+  "sections_expected": 353,
+  "sections_parsed": 353,
+  "skipped_headings": [],
+  "unreached_headings": [],
+  "empty_sections": [],
+  "by_unit": {
+    "Part I": {
+      "sections": 8,
+      "chars": 4964
+    },
+    "Part II": {
+      "sections": 37,
+      "chars": 109664
+    },
+    "Part III": {
+      "sections": 18,
+      "chars": 23459
+    },
+    "Part IIIA": {
+      "sections": 67,
+      "chars": 106220
+    },
+    "Part IIIB": {
+      "sections": 25,
+      "chars": 25450
+    },
+    "Part IIIC": {
+      "sections": 28,
+      "chars": 43842
+    },
+    "Part IV": {
+      "sections": 21,
+      "chars": 30033
+    },
+    "Part V": {
+      "sections": 47,
+      "chars": 63713
+    },
+    "Part VI": {
+      "sections": 13,
+      "chars": 9491
+    },
+    "Part VIA": {
+      "sections": 11,
+      "chars": 15487
+    },
+    "Part VIB": {
+      "sections": 12,
+      "chars": 24873
+    },
+    "Part VII": {
+      "sections": 8,
+      "chars": 5424
+    },
+    "Part VIII": {
+      "sections": 6,
+      "chars": 2642
+    },
+    "Part IX": {
+      "sections": 12,
+      "chars": 16720
+    },
+    "Sch 1": {
+      "sections": 14,
+      "chars": 32974
+    },
+    "Sch 2": {
+      "sections": 26,
+      "chars": 24404
+    }
+  }
+}

@@ -1,0 +1,70 @@
+version: 1
+seed: 20261005
+
+source:
+  act: Privacy Act 1988 (Cth)
+  series_id: C2004A03712
+  compilation_no: 104
+  register_id: C2026C00227
+  compilation_date: 2026-06-04
+  source_url: https://www.legislation.gov.au/C2004A03712/2026-06-04
+  docx: data/raw/privacy_act_1988.docx
+  docx_sha256: null
+  toc: data/raw/toc.txt
+  corpus_note: The LoRA QA generation and the RAG index are both built from this single DOCX.
+  licence: CC BY 4.0 (Federal Register of Legislation) - verify before release
+
+units:
+  Part I:    {split: train, facts: 15}
+  Part II:   {split: train, facts: 210}
+  Part III:  {split: train, facts: 75}
+  Part IIIA: {split: train, facts: 225}
+  Part IIIB: {split: train, facts: 85}
+  Part IIIC: {split: holdout_h1, questions: 150}
+  Part IV:   {split: train, facts: 80}
+  Part V:    {split: train, facts: 150}
+  Part VI:   {split: train, facts: 30}
+  Part VIA:  {split: excluded, reason: "Structural mirror of Part IIIC Division 5 (declaration, authorisation, disclosure offence); training on it would leak H1 content"}
+  Part VIB:  {split: train, facts: 75}
+  Part VII:  {split: train, facts: 15}
+  Part VIII: {split: train, facts: 10}
+  Part IX:   {split: train, facts: 35}
+  Sch 1:     {split: train, facts: 150}
+  Sch 2:     {split: holdout_h2, questions: 100}
+
+section_overrides:
+  - {uid: "s:94A", split: excluded, reason: "Pointer provision to Schedule 2 (H2)"}
+
+qa:
+  train_phrasings_per_fact: 2
+  ablation_phrasings_per_fact: 1
+  question_types: [definition, obligation, exception, procedure, enforcement, scope]
+  paraphrase_types: [lexical, syntactic, scenario]
+  scenario_paraphrase_min_share: 0.33
+  citation_format: "[Source: {display}]"
+
+eval:
+  s_mem:    {source: train, facts: 150}
+  s_para:   {source: s_mem, phrasings_per_fact: 2}
+  dev_para: {source: train, facts: 100, disjoint_from: s_mem, phrasings_per_fact: 1}
+  h1:       {source: holdout_h1, questions: 150, tag_divisions: ["5"]}
+  h2:       {source: holdout_h2, questions: 100}
+  s_neg:    {questions: 50}
+
+dedup:
+  paraphrase_max_4gram_jaccard: 0.5
+  paraphrase_max_rouge_l: 0.5
+  cross_fact_max_cosine: 0.92
+
+leakage:
+  holdout_uid_patterns: ['^s:26W', '^s:26X', '^sch2:']
+  holdout_citation_patterns:
+    - '\bs(?:ection)?\s*26W[A-Z]?\b'
+    - '\bs(?:ection)?\s*26X[A-H]?\b'
+    - '\bSch(?:edule)?\s*2\b'
+  holdout_terms:
+    - eligible data breach
+    - notifiable data breach
+    - serious invasion of privacy
+    - statutory tort
+  target_hits: 0
