@@ -39,7 +39,8 @@ def test_identifier_and_pointer_in_question_are_rejected():
 
 
 def test_identifier_rule_ignores_lowercase_words():
-    ok = _item(questions=["Which part in the process applies to a credit reporting body?", "What must a credit reporting body do?"])
+    ok = _item(questions=["Which part in the process applies to a credit reporting body?",
+                          "What must a credit reporting body do?"])
     assert "identifier_in_question" not in _check(ok)
 
 
@@ -49,7 +50,8 @@ def test_part_numerals_are_detected():
 
 
 def test_citation_and_evidence_failures():
-    bad = _item(answer="Only for direct marketing [Source: s 21G].", evidence="this text is not in the provision at all")
+    bad = _item(answer="Only for direct marketing [Source: s 21G].",
+                evidence="this text is not in the provision at all")
     assert _check(bad) == ["citation_format", "evidence_not_verbatim"]
 
 
@@ -88,11 +90,15 @@ class FakeClient:
 
 
 def test_run_job_tops_up_after_rejection_and_caches(tmp_path):
-    job = Job(key="s_20H__00", row={"uid": "s:20H", "display": "s 20H", "title": "t", "unit": "Part IIIA", "split": "train"},
+    job = Job(key="s_20H__00",
+              row={"uid": "s:20H", "display": "s 20H", "title": "t", "unit": "Part IIIA", "split": "train"},
               chunk=0, n_chunks=1, text=SOURCE, quota=2, n_questions=2, citation=CITATION)
-    second = _item(statement="Pre-screening assessments are restricted.", questions=["What restricts pre-screening assessments?", "How are pre-screening assessments limited?"])
+    second = _item(statement="Pre-screening assessments are restricted.",
+                   questions=["What restricts pre-screening assessments?",
+                              "How are pre-screening assessments limited?"])
     client = FakeClient([[_item(), _item(evidence="fabricated quote that does not exist")], [second]])
-    cfg = {"generator": {"model": "m", "max_tokens": 10, "effort": None}, "run": {"max_rounds": 3, "max_items_per_call": 15}}
+    cfg = {"generator": {"model": "m", "max_tokens": 10, "effort": None},
+           "run": {"max_rounds": 3, "max_items_per_call": 15}}
     manifest = {"qa": {"question_types": TYPES}}
     state = run_job(job, client, cfg, manifest, None, tmp_path)
     assert len(state["accepted"]) == 2 and len(state["rejected"]) == 1 and len(state["calls"]) == 2
@@ -105,17 +111,36 @@ def test_yes_no_answer_requires_yes_no_phrasings():
     bad = _item(answer=f"Yes. Only for direct marketing by a credit provider. {CITATION}")
     assert "yes_no_mismatch" in _check(bad)
     ok = _item(
-        questions=["May a credit reporting body use a pre-screening assessment for direct marketing?", "Is a credit reporting body allowed to disclose a pre-screening assessment for direct marketing?"],
+        questions=["May a credit reporting body use a pre-screening assessment for direct marketing?",
+                   "Is a credit reporting body allowed to disclose a pre-screening assessment for direct marketing?"],
         answer=f"Yes. Only for direct marketing by a credit provider. {CITATION}",
     )
     assert "yes_no_mismatch" not in _check(ok)
 
 
 def test_run_job_discards_cache_from_other_prompt_version(tmp_path):
-    job = Job(key="s_20H__00", row={"uid": "s:20H", "display": "s 20H", "title": "t", "unit": "Part IIIA", "split": "train"},
+    job = Job(key="s_20H__00",
+              row={"uid": "s:20H", "display": "s 20H", "title": "t", "unit": "Part IIIA", "split": "train"},
               chunk=0, n_chunks=1, text=SOURCE, quota=1, n_questions=2, citation=CITATION)
-    stale = {"key": job.key, "prompt_hash": "old", "accepted": [_item()], "rejected": [], "calls": [{"input_tokens": 1, "output_tokens": 1}]}
+    stale = {"key": job.key, "prompt_hash": "old", "accepted": [_item()], "rejected": [],
+             "calls": [{"input_tokens": 1, "output_tokens": 1}]}
     (tmp_path / "s_20H__00.json").write_text(json.dumps(stale))
-    cfg = {"generator": {"model": "m", "max_tokens": 10, "effort": None}, "run": {"max_rounds": 1, "max_items_per_call": 15}}
+    cfg = {"generator": {"model": "m", "max_tokens": 10, "effort": None},
+           "run": {"max_rounds": 1, "max_items_per_call": 15}}
     state = run_job(job, FakeClient([[_item()]]), cfg, {"qa": {"question_types": TYPES}}, None, tmp_path)
     assert state["prompt_hash"] != "old" and len(state["calls"]) == 1 and len(state["accepted"]) == 1
+
+
+def test_identifier_rule_allows_references_to_other_acts():
+    ok = _item(questions=[
+        "Who is an authorised person for the purposes of Part 3 of the Regulatory Powers Act?",
+        "Which agencies listed in Division 1 of Part II of Schedule 2 to the Freedom of Information Act 1982 are covered?",
+    ])
+    assert "identifier_in_question" not in _check(ok)
+    ok = _item(questions=[
+        "What orders may the Federal Circuit and Family Court of Australia (Division 2) make?",
+        "Which court may make orders against a credit reporting body?",
+    ])
+    assert "identifier_in_question" not in _check(ok)
+    bad = _item(questions=["What does Part IIIA of the Privacy Act require?", "What does section 6 say?"])
+    assert "identifier_in_question" in _check(bad)

@@ -6,6 +6,12 @@ IDENTIFIER = re.compile(
     r"\b(?i:sections?|subsections?|paragraphs?|subparagraphs?|clauses?|parts?|divisions?|subdivisions?"
     r"|schedules?|APPs?|Australian Privacy Principles?)\s*\(?(?:\d+[A-Z]*|[IVX]+[A-Z]*)\b"
 )
+EXTERNAL_REF = re.compile(
+    r"\b(?:(?i:sections?|subsections?|paragraphs?|subparagraphs?|clauses?|parts?|divisions?|subdivisions?|schedules?)"
+    r"\s*\(?(?:\d+[A-Z]*|[IVX]+[A-Z]*)\)?(?:\([0-9a-z]+\))*\s+(?:of|to)\s+)+"
+    r"the\s+(?!Privacy\b)[A-Z][A-Za-z]*(?:\s+(?:[A-Z][A-Za-z]*|and|of|for))*\s+Act\b"
+)
+COURT_DIVISION = re.compile(r"\((?i:division)\s+\d+\)")
 POINTER = re.compile(
     r"\bthis (?:section|subsection|paragraph|provision|part|division|subdivision|schedule|clause|principle|act)\b",
     re.IGNORECASE,
@@ -15,6 +21,10 @@ YES_NO_QUESTION = re.compile(
     r"^(?:Is|Are|Was|Were|Can|Could|Does|Do|Did|May|Might|Must|Will|Would|Shall|Should|Has|Have|Had)\b"
 )
 MIN_EVIDENCE_CHARS = 20
+
+
+def strip_external_refs(text: str) -> str:
+    return COURT_DIVISION.sub(" ", EXTERNAL_REF.sub(" ", text))
 
 
 def check_item(
@@ -35,7 +45,7 @@ def check_item(
         errors.add("question_count")
     if len({match_key(q) for q in questions}) != len(questions):
         errors.add("duplicate_phrasing")
-    if any(IDENTIFIER.search(q) for q in questions):
+    if any(IDENTIFIER.search(strip_external_refs(q)) for q in questions):
         errors.add("identifier_in_question")
     if any(POINTER.search(q) for q in questions):
         errors.add("pointer_in_question")

@@ -1,0 +1,51 @@
+{
+  "generator_model": "claude-sonnet-5-5",
+  "generator_effort": null,
+  "prompt_version": "qa-gen-v2",
+  "prompt_hash": "8020c1f91dd0",
+  "jobs": 350,
+  "requested": {
+    "train": 1076,
+    "holdout_h1": 150,
+    "holdout_h2": 80
+  },
+  "accepted": {
+    "train": 1072,
+    "holdout_h1": 150,
+    "holdout_h2": 80
+  },
+  "rejected_by_reason": {
+    "yes_no_mismatch": 106,
+    "identifier_in_question": 53,
+    "evidence_not_verbatim": 18,
+    "holdout_leak": 2,
+    "pointer_in_question": 1
+  },
+  "shortfall": [
+    {
+      "key": "s_5B__00",
+      "quota": 3,
+      "accepted": 2
+    },
+    {
+      "key": "s_6D__00",
+      "quota": 6,
+      "accepted": 5
+    },
+    {
+      "key": "s_13B__00",
+      "quota": 5,
+      "accepted": 4
+    },
+    {
+      "key": "s_26V__00",
+      "quota": 2,
+      "accepted": 1
+    }
+  ],
+  "usage": {
+    "input": 924454,
+    "output": 396844,
+    "calls": 477
+  }
+}
