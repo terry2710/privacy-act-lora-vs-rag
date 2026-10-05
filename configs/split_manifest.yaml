@@ -52,14 +52,15 @@ eval:
   s_mem:    {source: train, facts: 150}
   s_para:   {source: s_mem, phrasings_per_fact: 2}
   dev_para: {source: train, facts: 100, disjoint_from: s_mem, phrasings_per_fact: 1}
-  h1:       {source: holdout_h1, questions: 150, tag_divisions: ["5"]}
-  h2:       {source: holdout_h2, questions: 80}
-  s_neg:    {questions: 50}
+  h1:       {source: holdout_h1, tag_divisions: ["5"]}
+  h2:       {source: holdout_h2}
+  s_neg:    {source: data/qa/eval/s_neg_source.yaml}
 
 dedup:
   paraphrase_max_4gram_jaccard: 0.5
   paraphrase_max_rouge_l: 0.5
-  cross_fact_max_cosine: 0.92
+  within_split_min_cosine: 0.97
+  leakage_review_min_cosine: 0.85
 
 leakage:
   holdout_uid_patterns: ['^s:26W[A-Z]', '^s:26X', '^sch2:']
@@ -87,4 +88,10 @@ leakage:
       reason: Subsections (2A)-(2D) set standing to seek review of Part IIIC decisions and are unintelligible without them
       blocks:
         - {from: "(2A)", to: "(2D)"}
+  holdout_parallels:
+    "s:26WU#00-005": { train_fact: "s:44#00-002", reason: "Notice content requirements in s 26WU mirror the investigation power in s 44" }
+    "s:26WU#00-006": { train_fact: "s:44#00-002", reason: "Notice timing requirements in s 26WU mirror the investigation power in s 44" }
+    "s:26WU#00-007": { train_fact: "s:44#00-003", reason: "Possession, copying and retention of documents in s 26WU mirror s 44" }
+    "s:26WU#00-008": { train_fact: "s:44#00-004", reason: "Inspection of retained documents in s 26WU mirrors s 44" }
+    "s:26WU#00-009": { train_fact: "s:44#00-005", reason: "Protection from penalties under other laws in s 26WU mirrors s 44" }
   target_hits: 0

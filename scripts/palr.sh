@@ -22,6 +22,8 @@ Usage: palr <command> [args]
   verify-dry [args]  Plan QA verification without calling the API
   verify [args]      Run QA verification with the second LLM
   verify-report      Summarise the latest verification report
+  eval-dry           Validate S-neg and plan evaluation set building
+  eval-build         Deduplicate, audit semantic leakage and build evaluation sets
 EOF
 }
 
@@ -94,6 +96,14 @@ low = {u: s["pass_rate"] for u, s in r["by_unit"].items() if s["pass_rate"] < 0.
 print(f"units_below_90pct={low}")
 print(f"usage={r['usage']}")
 EOF
+    ;;
+  eval-dry)
+    need_py
+    "$PY" -m privacy_bench.qa.build_eval --dry-run "$@"
+    ;;
+  eval-build)
+    need_py
+    "$PY" -m privacy_bench.qa.build_eval "$@"
     ;;
   models-anthropic)
     need_py

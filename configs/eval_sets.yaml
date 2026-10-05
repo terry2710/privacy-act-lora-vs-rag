@@ -1,0 +1,16 @@
+embedding:
+  provider: openai
+  model: text-embedding-3-small
+  batch_size: 256
+
+paths:
+  manifest: configs/split_manifest.yaml
+  sections: data/processed/sections.jsonl
+  verified_dir: data/qa/verified
+  neg_source: data/qa/eval/s_neg_source.yaml
+  embed_cache_dir: data/qa/embed_cache
+  final_dir: data/qa/final
+  eval_dir: data/qa/eval
+  dedup_log: data/audit/dedup_log.jsonl
+  leakage_review: data/audit/semantic_leakage_review.jsonl
+  report: data/audit/eval_build_report.json

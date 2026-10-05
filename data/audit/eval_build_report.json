@@ -1,0 +1,63 @@
+{
+  "embedding_model": "text-embedding-3-small",
+  "thresholds": {
+    "within_split_min_cosine": 0.97,
+    "leakage_review_min_cosine": 0.85
+  },
+  "verified": {
+    "train": 1015,
+    "holdout_h1": 143,
+    "holdout_h2": 76
+  },
+  "after_dedup": {
+    "train": 1013,
+    "holdout_h1": 143,
+    "holdout_h2": 76
+  },
+  "dedup_dropped": 2,
+  "leakage_pairs_for_review": 1,
+  "eval_sizes": {
+    "s_mem": 150,
+    "dev_para_facts": 100,
+    "h1": 143,
+    "h1_tagged": 48,
+    "h2": 76,
+    "s_neg": 50,
+    "holdout_parallel_to_train": 5
+  },
+  "s_mem_by_unit": {
+    "Part IX": 5,
+    "Part II": 29,
+    "Part III": 8,
+    "Part IIIA": 31,
+    "Part IIIB": 9,
+    "Part IV": 11,
+    "Part I": 2,
+    "Part V": 22,
+    "Part VI": 3,
+    "Part VIB": 9,
+    "Part VII": 2,
+    "Part VIII": 1,
+    "Sch 1": 18
+  },
+  "dev_para_by_unit": {
+    "Part II": 20,
+    "Part IX": 4,
+    "Part III": 5,
+    "Part IIIA": 21,
+    "Part IIIB": 6,
+    "Part IV": 7,
+    "Part I": 1,
+    "Part V": 14,
+    "Part VI": 2,
+    "Part VIB": 6,
+    "Part VII": 1,
+    "Part VIII": 1,
+    "Sch 1": 12
+  },
+  "s_neg_by_category": {
+    "nonexistent_provision": 20,
+    "foreign_law": 15,
+    "fabricated_mechanism": 15
+  }
+}
