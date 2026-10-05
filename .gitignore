@@ -12,3 +12,4 @@ models/
 indexes/
 *.gguf
 *.safetensors
+data/qa/cache/

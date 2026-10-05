@@ -1,0 +1,22 @@
+prompt_version: qa-gen-v2
+
+generator:
+  provider: anthropic
+  model: claude-sonnet-5-5
+  effort: null
+  max_tokens: 8000
+  max_retries: 5
+
+run:
+  max_workers: 4
+  max_rounds: 3
+  chunk_max_chars: 6000
+  max_items_per_call: 15
+
+paths:
+  inputs: data/processed/generation_inputs.jsonl
+  manifest: configs/split_manifest.yaml
+  cache_dir: data/qa/cache
+  out_dir: data/qa/generated
+  rejects: data/audit/generation_rejects.jsonl
+  report: data/audit/generation_report.json
