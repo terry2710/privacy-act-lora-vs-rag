@@ -29,6 +29,7 @@ Usage: palr <command> [args]
   spot-export        Export the blind human spot-check sheet
   audit [args]       Run dual-model review of the spot-check sample (use --limit N for a pilot)
   audit-score        Combine model agreement and human adjudication into the final report
+  bundle [args]      Build the Kaggle training bundle zip (use --owner <kaggle username>)
 EOF
 }
 
@@ -129,6 +130,10 @@ EOF
   audit-score)
     need_py
     "$PY" -m privacy_bench.qa.audit score "$@"
+    ;;
+  bundle)
+    need_py
+    "$PY" -m privacy_bench.train.bundle "$@"
     ;;
   models-anthropic)
     need_py

@@ -1,0 +1,56 @@
+run_version: lora-v1
+base_model:
+  name: Qwen/Qwen2.5-1.5B-Instruct
+  revision: main
+  dtype: float16
+  attn_implementation: sdpa
+system_prompt: >-
+  You answer questions about the Privacy Act 1988 (Cth) of Australia. Answer
+  accurately and concisely. End the answer with the provision relied on, in the
+  form [Source: s 6], [Source: Sch 1, APP 6] or [Source: Sch 2, cl 7]. If the
+  Act contains no such provision or mechanism, say so.
+data:
+  phrasings: 2
+  max_length: 512
+lora:
+  r: 16
+  alpha_multiplier: 2
+  dropout: 0.05
+  target: attention
+train:
+  learning_rate: 2.0e-4
+  epochs: 3
+  batch_size: 8
+  grad_accum: 2
+  warmup_ratio: 0.05
+  weight_decay: 0.0
+  max_grad_norm: 1.0
+  gradient_checkpointing: true
+  seed: 20261005
+  log_every: 10
+eval:
+  max_new_tokens: 256
+  gen_batch_size: 16
+  loss_batch_size: 16
+  generate_every_epoch: false
+wandb:
+  project: privacy-act-lora-vs-rag
+  job_type: train
+output:
+  dir: /kaggle/working/runs
+  save_adapter: true
+  log_adapter_artifact: false
+bundle:
+  name: privacy-act-sft
+  title: Privacy Act 1988 LoRA SFT bundle
+  out_dir: artifacts/kaggle/privacy-act-sft
+  train: data/qa/final/train.jsonl
+  dev: data/qa/eval/dev_para.jsonl
+  sections: data/processed/sections.jsonl
+  split_manifest: configs/split_manifest.yaml
+  package_files:
+    - src/privacy_bench/__init__.py
+    - src/privacy_bench/train/__init__.py
+    - src/privacy_bench/train/citations.py
+    - src/privacy_bench/train/data.py
+    - src/privacy_bench/train/lora.py
