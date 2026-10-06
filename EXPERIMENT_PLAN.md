@@ -74,6 +74,20 @@ The primary judge belongs to a different model family from the QA generator. A s
 - Holm–Bonferroni correction across the primary hypotheses; secondary and exploratory results are reported without correction and labelled as such.
 - A hypothesis is supported when the 95% interval of the relevant difference excludes zero in the predicted direction, after correction where it applies.
 
+## Model registry and promotion
+
+The served model is versioned and promoted through an MLflow Model Registry backed by a local tracking server with a SQLite store. W&B remains the record of training runs and sweeps; MLflow holds deployable model versions only, and no training run is logged to both.
+
+- **Registered model**: `palr-privacy-act-qa`. Version 1 is A0, the base model converted to GGUF, and is the initial `production` version. Each version stores the GGUF file served by llama.cpp, with tags for the W&B run ID, the bundle git commit, the adapter and GGUF SHA-256 digests, the quantisation level and the system-prompt hash.
+- **Aliases**: a new version is registered with the alias `candidate`. The serving layer resolves only the alias `production`.
+- **Promotion gate**: the n8n pipeline moves `production` to a candidate only if all of the following hold, measured on dev-para through the serving endpoint:
+  1. *Conversion parity*: the candidate's citation-hit rate is within 3 percentage points of the PEFT model it was converted from, and the two agree on citation hit for at least 90% of items.
+  2. *Quality floor*: the candidate's citation-hit rate is strictly higher than that of the current `production` version.
+  3. *Format compliance*: a `[Source: …]` tag is present in at least 95% of the candidate's answers.
+  4. *Operational*: no request fails or times out, and the candidate's 95th-percentile total latency is at most 1.2 times that of the current `production` version.
+- **Rollback**: rollback moves `production` back to the previous version. It is exercised once and the drill is recorded.
+- **Separation from the study**: the gate uses dev-para only, consistent with *Model selection*. A failed gate is recorded and does not lead to further tuning against any evaluation set. Every arm is evaluated and reported regardless of the promotion outcome.
+
 ## Deviations
 
-None yet.
+- **2026-10-06, before any training run.** Added *Model registry and promotion*. Reason: to cover versioning, gated promotion and rollback of the served model. The addition does not change the arms, evaluation sets, metrics, hypotheses, model selection or statistics.
