@@ -33,6 +33,7 @@ eval:
   gen_batch_size: 16
   loss_batch_size: 16
   generate_every_epoch: false
+  train_probe: true
 wandb:
   project: privacy-act-lora-vs-rag
   job_type: train
@@ -46,6 +47,9 @@ bundle:
   out_dir: artifacts/kaggle/privacy-act-sft
   train: data/qa/final/train.jsonl
   dev: data/qa/eval/dev_para.jsonl
+  s_mem: data/qa/eval/s_mem.jsonl
+  probe_size: 100
+  probe_seed: 20261005
   sections: data/processed/sections.jsonl
   split_manifest: configs/split_manifest.yaml
   package_files:

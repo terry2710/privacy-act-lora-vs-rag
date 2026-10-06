@@ -1,7 +1,7 @@
 import pytest
 
 from privacy_bench.train.bundle import check_inputs
-from privacy_bench.train.data import apply_overrides, flat_defaults, join_example, pad_batch, sft_rows
+from privacy_bench.train.data import apply_overrides, flat_defaults, join_example, pad_batch, probe_items, sft_rows
 
 CFG = {
     "base_model": {"dtype": "float16"},
@@ -54,3 +54,14 @@ def test_check_inputs_rejects_holdout_and_unknown_dev_fact():
         check_inputs([FACT, leaked], dev, provisions, ["^s:26W[A-Z]"])
     with pytest.raises(ValueError):
         check_inputs([FACT], [{**dev[0], "fact_id": "s:7#00-001"}], provisions, [])
+
+
+def test_probe_items_exclude_and_are_deterministic():
+    facts = [{**FACT, "fact_id": f"s:6#00-{i:03d}", "display": "s 6"} for i in range(10)]
+    excluded = {"s:6#00-000", "s:6#00-001"}
+    a = probe_items(facts, excluded, 5, 7)
+    b = probe_items(list(reversed(facts)), excluded, 5, 7)
+    assert a == b and len(a) == 5
+    assert not {p["fact_id"] for p in a} & excluded
+    assert a[0]["eval_id"] == "probe-0001" and a[0]["question"] == "Q1?"
+    assert len(probe_items(facts, excluded, 50, 7)) == 8

@@ -9,7 +9,7 @@ from pathlib import Path
 import yaml
 
 from .citations import score_citation
-from .data import provision_index, read_jsonl, sha256_file, text_hash
+from .data import probe_items, provision_index, read_jsonl, sha256_file, text_hash, write_jsonl
 
 
 def git_state() -> dict:
@@ -64,9 +64,13 @@ def build(cfg: dict, config_path: str, owner: str | None) -> Path:
     provisions = provision_index(read_jsonl(b["sections"]))
     manifest = yaml.safe_load(Path(b["split_manifest"]).read_text(encoding="utf-8"))
     counts = check_inputs(facts, dev, provisions, manifest["leakage"]["holdout_uid_patterns"])
+    excluded = {d["fact_id"] for d in dev} | {s["fact_id"] for s in read_jsonl(b["s_mem"])}
+    probe = probe_items(facts, excluded, b["probe_size"], b["probe_seed"])
+    counts["train_probe_items"] = len(probe)
 
     shutil.copyfile(b["train"], out / "data" / "train.jsonl")
     shutil.copyfile(b["dev"], out / "data" / "dev_para.jsonl")
+    write_jsonl(out / "data" / "train_probe.jsonl", probe)
     (out / "data" / "provisions.json").write_text(json.dumps(provisions, indent=1), encoding="utf-8")
     shutil.copyfile(config_path, out / "train.yaml")
     for rel in b["package_files"]:

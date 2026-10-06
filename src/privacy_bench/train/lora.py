@@ -343,10 +343,22 @@ def main() -> None:
     metrics, records = evaluate(model, tokenizer, dev, dev_examples, cfg, valid, device, fp16, run, step)
     run.summary.update(metrics)
 
+    probe_records = []
+    probe_path = bundle / "data" / "train_probe.jsonl"
+    if cfg["eval"].get("train_probe") and probe_path.exists():
+        probe = dev_rows(read_jsonl(probe_path), cfg["system_prompt"])[: args.limit_dev]
+        probe_examples, _ = encode(tokenizer, probe, cfg["data"]["max_length"])
+        probe_metrics, probe_records = evaluate(model, tokenizer, probe, probe_examples, cfg, valid, device, fp16, run, step, prefix="probe")
+        run.summary.update(probe_metrics)
+        metrics = {**metrics, **probe_metrics}
+
     out_dir = Path(args.output_dir or cfg["output"]["dir"]) / (run.name or run.id)
     out_dir.mkdir(parents=True, exist_ok=True)
     with open(out_dir / "dev_predictions.jsonl", "w", encoding="utf-8") as f:
         for rec in records:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    with open(out_dir / "probe_predictions.jsonl", "w", encoding="utf-8") as f:
+        for rec in probe_records:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     (out_dir / "resolved_config.json").write_text(json.dumps(cfg, indent=2), encoding="utf-8")
     columns = ["eval_id", "uid", "question", "reference_answer", "prediction", "cited", "hit", "has_nonexistent"]

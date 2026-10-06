@@ -91,3 +91,4 @@ The served model is versioned and promoted through an MLflow Model Registry back
 ## Deviations
 
 - **2026-10-06, before any training run.** Added *Model registry and promotion*. Reason: to cover versioning, gated promotion and rollback of the served model. The addition does not change the arms, evaluation sets, metrics, hypotheses, model selection or statistics.
+- **2026-10-06, after the first baseline run and before any sweep.** Added a training-fit probe: 100 training facts, excluding every fact in S-mem and dev-para, asked with their first trained phrasing and scored with the same citation metrics. Reason: to tell under-fitting apart from failure to generalise across phrasings. The probe is diagnostic only; model selection still uses dev-para citation hit alone.

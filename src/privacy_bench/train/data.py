@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import json
+import random
 from pathlib import Path
 
 LORA_TARGETS = {
@@ -103,6 +104,22 @@ def dev_rows(items: list[dict], system_prompt: str) -> list[dict]:
             "messages": messages(system_prompt, item["question"], item["reference_answer"]),
         }
         for item in items
+    ]
+
+
+def probe_items(facts: list[dict], exclude_fact_ids: set[str], size: int, seed: int) -> list[dict]:
+    pool = sorted((f for f in facts if f["fact_id"] not in exclude_fact_ids), key=lambda f: f["fact_id"])
+    chosen = sorted(random.Random(seed).sample(pool, min(size, len(pool))), key=lambda f: f["fact_id"])
+    return [
+        {
+            "eval_id": f"probe-{i:04d}",
+            "fact_id": f["fact_id"],
+            "uid": f["uid"],
+            "display": f["display"],
+            "question": f["questions"][0],
+            "reference_answer": f["answer"],
+        }
+        for i, f in enumerate(chosen, 1)
     ]
 
 
