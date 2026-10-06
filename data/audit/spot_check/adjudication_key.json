@@ -1,0 +1,38 @@
+{
+ "chk-005": [
+  "claude",
+  "gpt"
+ ],
+ "chk-034": [
+  "claude",
+  "gpt"
+ ],
+ "chk-040": [
+  "claude",
+  "gpt"
+ ],
+ "chk-055": [
+  "gpt",
+  "claude"
+ ],
+ "chk-074": [
+  "gpt",
+  "claude"
+ ],
+ "chk-090": [
+  "gpt",
+  "claude"
+ ],
+ "chk-109": [
+  "gpt",
+  "claude"
+ ],
+ "chk-116": [
+  "gpt",
+  "claude"
+ ],
+ "chk-117": [
+  "claude",
+  "gpt"
+ ]
+}

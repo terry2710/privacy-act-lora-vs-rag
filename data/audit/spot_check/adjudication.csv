@@ -1,0 +1,170 @@
+﻿check_id,kind,criterion,provision,question,answer,source_text,reviewer_1_verdict,reviewer_1_reason,reviewer_2_verdict,reviewer_2_reason,label,note,
+chk-005,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 26G,Under what condition may the Commissioner develop an APP code after having requested that one be developed? || What must the Commissioner be satisfied of before developing an APP code following a request?,The Commissioner may develop an APP code if the Commissioner is satisfied that it is in the public interest to develop the code. [Source: s 26G],"(1) This section applies if the Commissioner made a request under subsection 26E(2) and either:
+(a) the request has not been complied with; or
+(b) the request has been complied with but the Commissioner has decided not to register, under section 26H, the APP code that was developed as requested.
+(2) The Commissioner may develop an APP code if the Commissioner is satisfied that it is in public interest to develop the code. However, despite subsection 26C(3)(b), the APP code must not cover an act or practice that is exempt within the meaning of subsection 7B(1), (2) or (3).
+(3) Before registering the APP code under section 26H, the Commissioner must:
+(a) make a draft of the code publicly available; and
+(b) invite the public to make submissions to the Commissioner about the draft within a specified period (which must run for at least 28 days); and
+(c) give consideration to any submissions made within the specified period.",problem,"The answer omits the s 26G(1) preconditions: the request was not complied with, or the code was developed but the Commissioner decided not to register it. The first phrasing ('under what condition') is therefore only partly answered.",ok,The answer directly states the condition in s 26G(2): the Commissioner must be satisfied that developing the APP code is in the public interest. It answers both phrasings.,problem,scope,
+chk-034,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 21U,What must a credit provider do after correcting credit information or credit eligibility information that it has previously disclosed? || Within what timeframe and in what form must a credit provider notify recipients of a correction to previously disclosed credit information or credit eligibility information?,"The credit provider must, within a reasonable period, give each recipient of the information written notice of the correction. [Source: s 21U]","(1) If:
+(a) a credit provider holds credit information or credit eligibility information about an individual; and
+(b) the provider is satisfied that, having regard to a purpose for which the information is held by the provider, the information is inaccurate, out-of-date, incomplete, irrelevant or misleading;
+the provider must take such steps (if any) as are reasonable in the circumstances to correct the information to ensure that, having regard to the purpose for which it is held, the information is accurate, up-to-date, complete, relevant and not misleading.
+Notice of correction
+(2) If:
+(a) the credit provider corrects credit information or credit eligibility information under subsection (1); and
+(b) the provider has previously disclosed the information under:
+(i) this Division (other than subsection 21V(4)); or
+(ii) the Australian Privacy Principles (other than Australian Privacy Principle 4.2);
+the provider must, within a reasonable period, give each recipient of the information written notice of the correction.
+(3) Subsection (2) does not apply if:
+(a) it is impracticable for the credit provider to give the notice under that subsection; or
+(b) the credit provider is required by or under an Australian law, or a court/tribunal order, not to give the notice under that subsection.
+Interaction with the Australian Privacy Principles
+(4) If a credit provider is an APP entity, Australian Privacy Principle 13:
+(a) applies to the provider in relation to credit information or credit eligibility information that is identification information; but
+(b) does not apply to the provider in relation to any other kind of credit information or credit eligibility information.
+Note: Identification information may be corrected under this section or Australian Privacy Principle 13.
+Exemption for certain non-participating credit providers
+(5) This section does not apply to a non-participating credit provider.",ok,"Answer accurately states s 21U(2): within a reasonable period, give each recipient written notice of the correction. Exceptions aren't required to answer either question.",problem,"The answer omits statutory qualifications: notice is required only where the prior disclosure was under specified provisions, and it does not apply if impracticable or legally prohibited.",problem,scope,
+chk-040,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 27,Which functions does the Information Commissioner have in terms of the source of those functions? || From what sources do the Commissioner's functions arise under the Privacy Act?,The Commissioner has the functions conferred on the Commissioner by or under the Privacy Act or any other law of the Commonwealth. [Source: s 27],"(1) The Commissioner has the following functions:
+(a) the functions that are conferred on the Commissioner by or under:
+(i) this Act; or
+(ii) any other law of the Commonwealth;
+(b) the guidance related functions;
+(c) the monitoring related functions;
+(d) the advice related functions;
+(e) to do anything incidental or conducive to the performance of any of the above functions.
+(2) The Commissioner has power to do all things necessary or convenient to be done for, or in connection with, the performance of the Commissioner's functions.
+(3) Without limiting subsection (2), the Commissioner may establish a panel of persons with expertise in relation to a particular matter to assist the Commissioner in performing any of the Commissioner's functions.
+(4) Section 38 of the Healthcare Identifiers Act 2010, rather than section 12B of this Act, applies in relation to an investigation of an act or practice referred to in subsection 29(1) of that Act in the same way as it applies to Parts 3 and 4 of that Act.
+Note: Section 38 of the Healthcare Identifiers Act 2010 deals with the additional effect of Parts 3 and 4 of that Act.",ok,"Answer accurately restates s 27(1)(a): functions conferred by or under this Act or any other Commonwealth law, which addresses the source-of-functions question in both phrasings.",problem,"The answer only states paragraph (a). The question asks which functions the Commissioner has/source of functions under s 27, and supporting text also lists guidance, monitoring, advice, and incidental/conducive functions.",problem,scope,
+chk-055,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 63,"What kinds of assistance may the Attorney-General authorise the Commonwealth to provide to an applicant for legal assistance in a privacy matter? || When the Attorney-General is satisfied that granting an application for assistance is reasonable in all the circumstances, what assistance can be authorised?","The Attorney-General may authorise the Commonwealth to provide financial assistance in connection with the investigation of a complaint for a respondent to a dismissed file number complaint, or legal or financial assistance in respect of the proceeding for a court proceedings applicant, as the Attorney-General determines. [Source: s 63]","(1) If:
+(a) the Commissioner has dismissed a file number complaint; and
+(b) the respondent to the complaint is not an agency or the principal executive of an agency;
+the respondent may apply to the Attorney-General for assistance under this section.
+(2) A person who:
+(a) has commenced or proposes to commence proceedings in the Federal Court or the Federal Circuit and Family Court of Australia (Division 2) under section 55; or
+(b) has engaged in conduct or is alleged to have engaged in conduct in respect of which proceedings have been commenced in the Federal Court or the Federal Circuit and Family Court of Australia (Division 2) under section 55;
+may apply to the Attorney-General for the provision of assistance under this section in respect of the proceedings.
+(2A) Subsection (2) does not permit an application relating to proceedings under section 55A to enforce a determination relating to a code complaint or an APP complaint.
+(3) If the Attorney-General is satisfied that in all the circumstances it is reasonable to grant an application made under this section, he or she may authorise the provision by the Commonwealth to the applicant of:
+(a) in the case of an application under subsection (1)—such financial assistance in connection with the investigation of the complaint as the Attorney-General determines; or
+(b) in the case of an application under subsection (2)—such legal or financial assistance in respect of the proceeding as the Attorney-General determines.
+(4) An authorisation under subsection (3) may be made subject to such conditions (if any) as the Attorney-General determines.
+(5) In considering an application made under this section, the Attorney-General must have regard to any hardship to the applicant that refusal of the application would involve.",problem,"The answer says assistance for a “court proceedings applicant”; the source allows subsection (2) applicants involved in section 55 proceedings, but excludes section 55A. It also doesn’t mention the authorisation may be subject to conditions.",ok,"Answer accurately reflects s 63(3)(a) and (b): financial assistance for dismissed file number complaint respondents; legal or financial assistance for s 55 proceedings applicants, as Attorney-General determines. Fully answers both phrasings.",problem,scope,
+chk-074,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 99A,"When is the conduct of a director, employee or agent attributed to a body corporate in Privacy Act prosecutions or civil penalty proceedings, and how can the body corporate avoid this? || What defence can a body corporate establish to avoid being taken to have engaged in conduct carried out on its behalf by a director, employee or agent?",Such conduct is taken to have been engaged in also by the body corporate unless the body corporate establishes that it took reasonable precautions and exercised due diligence to avoid the conduct. [Source: s 99A],"(1) Where, in proceedings for an offence against this Act or for a civil penalty order under the Regulatory Powers Act (as it applies in relation to the civil penalty provisions of this Act), it is necessary to establish the state of mind of a body corporate in relation to particular conduct, it is sufficient to show:
+(a) that the conduct was engaged in by a director, employee or agent of the body corporate within the scope of his or her actual or apparent authority; and
+(b) that the director, employee or agent had the state of mind.
+(2) Any conduct engaged in on behalf of a body corporate by a director, employee or agent of the body corporate within the scope of his or her actual or apparent authority is to be taken, for the purposes of a prosecution for an offence against this Act or proceedings for a civil penalty order under the Regulatory Powers Act (as it applies in relation to the civil penalty provisions of this Act), to have been engaged in also by the body corporate unless the body corporate establishes that the body corporate took reasonable precautions and exercised due diligence to avoid the conduct.
+(3) Where, in proceedings for an offence against this Act or for a civil penalty order under the Regulatory Powers Act (as it applies in relation to the civil penalty provisions of this Act), it is necessary to establish the state of mind of a person other than a body corporate in relation to particular conduct, it is sufficient to show:
+(a) that the conduct was engaged in by an employee or agent of the person within the scope of his or her actual or apparent authority; and
+(b) that the employee or agent had the state of mind.
+(4) Any conduct engaged in on behalf of a person other than a body corporate by an employee or agent of a person within the scope of his or her actual or apparent authority is to be taken, for the purposes of a prosecution for an offence against this Act or proceedings for a civil penalty order under the Regulatory Powers Act (as it applies in relation to the civil penalty provisions of this Act), to have been engaged in also by the first-mentioned person unless the first-mentioned person establishes that the first-mentioned person took reasonable precautions and exercised due diligence to avoid the conduct.
+(5) Where:
+(a) a person other than a body corporate is convicted of an offence; and
+(b) the person would not have been convicted of the offence if subsections (3) and (4) had not been enacted;
+the person is not liable to be punished by imprisonment for that offence.
+(6) A reference in subsection (1) or (3) to the state of mind of a person includes a reference to:
+(a) the knowledge, intention, opinion, belief or purpose of the person; and
+(b) the person's reasons for the intention, opinion, belief or purpose.
+(7) A reference in this section to a director of a body corporate includes a reference to a constituent member of a body corporate incorporated for a public purpose by a law of the Commonwealth, of a State or of a Territory.
+(8) A reference in this section to engaging in conduct includes a reference to failing or refusing to engage in conduct.",ok,"The answer accurately states subsection 99A(2): conduct on behalf of a body corporate by a director, employee or agent within actual/apparent authority is attributed unless reasonable precautions and due diligence are established.",problem,"The answer omits the conditions for attribution: the conduct must be engaged in on behalf of the body corporate, within the scope of the person's actual or apparent authority. The first question asks 'when', so it is not fully answered.",problem,scope,
+chk-090,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 6D,When is a business a small business under the Privacy Act at a given time in a financial year? || What annual turnover threshold determines whether a business is a small business under the Privacy Act?,"A business is a small business at a time in a financial year (the current year) if its annual turnover for the previous financial year is $3,000,000 or less. [Source: s 6D]","What is a small business?
+(1) A business is a small business at a time (the test time) in a financial year (the current year) if its annual turnover for the previous financial year is $3,000,000 or less.
+Test for new business
+(2) However, if there was no time in the previous financial year when the business was carried on, the business is a small business at the test time only if its annual turnover for the current year is $3,000,000 or less.
+What is a small business operator?
+(3) A small business operator is an individual, body corporate, partnership, unincorporated association or trust that:
+(a) carries on one or more small businesses; and
+(b) does not carry on a business that is not a small business.
+Entities that are not small business operators
+(4) However, an individual, body corporate, partnership, unincorporated association or trust is not a small business operator if he, she or it:
+(a) carries on a business that has had an annual turnover of more than $3,000,000 for a financial year that has ended after the later of the following:
+(i) the time he, she or it started to carry on the business;
+(ii) the commencement of this section; or
+(b) provides a health service to another individual and holds any health information except in an employee record; or
+(c) discloses personal information about another individual to anyone else for a benefit, service or advantage; or
+(d) provides a benefit, service or advantage to collect personal information about another individual from anyone else; or
+(e) is a contracted service provider for a Commonwealth contract (whether or not a party to the contract); or
+(f) is a credit reporting body.
+Private affairs of small business operators who are individuals
+(5) Subsection (4) does not prevent an individual from being a small business operator merely because he or she does something described in paragraph (4)(b), (c) or (d):
+(a) otherwise than in the course of a business he or she carries on; and
+(b) only for the purposes of, or in connection with, his or her personal, family or household affairs.
+Non-business affairs of other small business operators
+(6) Subsection (4) does not prevent a body corporate, partnership, unincorporated association or trust from being a small business operator merely because it does something described in paragraph (4)(b), (c) or (d) otherwise than in the course of a business it carries on.
+Disclosure compelled or made with consent
+(7) Paragraph (4)(c) does not prevent an individual, body corporate, partnership, unincorporated association or trust from being a small business operator only because he, she or it discloses personal information about another individual:
+(a) with the consent of the other individual; or
+(b) as required or authorised by or under legislation.
+Collection with consent or under legislation
+(8) Paragraph (4)(d) does not prevent an individual, body corporate, partnership, unincorporated association or trust from being a small business operator only because he, she or it:
+(a) collects personal information about another individual from someone else:
+(i) with the consent of the other individual; or
+(ii) as required or authorised by or under legislation; and
+(b) provides a benefit, service or advantage to be allowed to collect the information.
+Related bodies corporate
+(9) Despite subsection (3), a body corporate is not a small business operator if it is related to a body corporate that carries on a business that is not a small business.",problem,"The answer states the general $3,000,000 previous-year turnover test but omits the new-business rule: if not carried on in the previous financial year, current-year turnover must be $3,000,000 or less.",ok,"The answer restates s 6D(1) accurately: annual turnover for the previous financial year of $3,000,000 or less. This answers both phrasings. The new-business test in s 6D(2) is an exception the questions do not ask about.",problem,scope,
+chk-109,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 26WE,When does the eligible data breach provision apply to a credit provider?,It applies where a credit provider holds credit eligibility information relating to one or more individuals and is required to comply with the Privacy Act's security obligation in relation to that information. [Source: s 26WE],"Scope
+(1) This section applies if:
+(a) both:
+(i) an APP entity holds personal information relating to one or more individuals; and
+(ii) the APP entity is required under section 15 not to do an act, or engage in a practice, that breaches Australian Privacy Principle 11.1 in relation to the personal information; or
+(b) both:
+(i) a credit reporting body holds credit reporting information relating to one or more individuals; and
+(ii) the credit reporting body is required to comply with section 20Q in relation to the credit reporting information; or
+(c) both:
+(i) a credit provider holds credit eligibility information relating to one or more individuals; and
+(ii) the credit provider is required to comply with subsection 21S(1) in relation to the credit eligibility information; or
+(d) both:
+(i) a file number recipient holds tax file number information relating to one or more individuals; and
+(ii) the file number recipient is required under section 18 not to do an act, or engage in a practice, that breaches a section 17 rule that relates to the tax file number information.
+Eligible data breach
+(2) For the purposes of this Act, if:
+(a) both of the following conditions are satisfied:
+(i) there is unauthorised access to, or unauthorised disclosure of, the information;
+(ii) a reasonable person would conclude that the access or disclosure would be likely to result in serious harm to any of the individuals to whom the information relates; or
+(b) the information is lost in circumstances where:
+(i) unauthorised access to, or unauthorised disclosure of, the information is likely to occur; and
+(ii) assuming that unauthorised access to, or unauthorised disclosure of, the information were to occur, a reasonable person would conclude that the access or disclosure would be likely to result in serious harm to any of the individuals to whom the information relates;
+then:
+(c) the access or disclosure covered by paragraph (a), or the loss covered by paragraph (b), is an eligible data breach of the APP entity, credit reporting body, credit provider or file number recipient, as the case may be; and
+(d) an individual covered by subparagraph (a)(ii) or (b)(ii) is at risk from the eligible data breach.
+(3) Subsection (2) has effect subject to section 26WF.",ok,"The answer matches s 26WE(1)(c): it applies where a credit provider holds credit eligibility information about individuals and must comply with subsection 21S(1) for that information, reasonably described as the security obligation.",problem,"The source requires compliance with subsection 21S(1). The answer replaces this with 'the Privacy Act's security obligation', a characterisation the source text does not state, and it omits the specific provision.",problem,wording,
+chk-116,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 95A,What public interest test must the Commissioner be satisfied of before approving guidelines on the use and disclosure of health information? || Under what condition may the Commissioner approve guidelines for using and disclosing health information for research or statistics?,The Commissioner must be satisfied that the public interest in the use and disclosure of health information in accordance with the guidelines substantially outweighs the public interest in maintaining the level of privacy protection afforded by the Australian Privacy Principles. [Source: s 95A],"Overview
+(1) This section allows the Commissioner to approve for the purposes of the Australian Privacy Principles guidelines that are issued by the CEO of the National Health and Medical Research Council or a prescribed authority.
+Approving guidelines for use and disclosure
+(2) For the purposes of paragraph 16B(3)(c), the Commissioner may, by notice in the Gazette, approve guidelines that relate to the use and disclosure of health information for the purposes of research, or the compilation or analysis of statistics, relevant to public health or public safety.
+Public interest test
+(3) The Commissioner may give an approval under subsection (2) only if satisfied that the public interest in the use and disclosure of health information for the purposes mentioned in that subsection in accordance with the guidelines substantially outweighs the public interest in maintaining the level of privacy protection afforded by the Australian Privacy Principles (disregarding subsection 16B(3)).
+Approving guidelines for collection
+(4) For the purposes of subparagraph 16B(2)(d)(iii), the Commissioner may, by notice in the Gazette, approve guidelines that relate to the collection of health information for the purposes of:
+(a) research, or the compilation or analysis of statistics, relevant to public health or public safety; or
+(b) the management, funding or monitoring of a health service.
+Public interest test
+(5) The Commissioner may give an approval under subsection (4) only if satisfied that the public interest in the collection of health information for the purposes mentioned in that subsection in accordance with the guidelines substantially outweighs the public interest in maintaining the level of privacy protection afforded by the Australian Privacy Principles (disregarding subsection 16B(2)).
+Revocation of approval
+(6) The Commissioner may, by notice in the Gazette, revoke an approval of guidelines under this section if he or she is no longer satisfied of the matter that he or she had to be satisfied of to approve the guidelines.",problem,"The answer omits that the use/disclosure must be for research or compilation/analysis of statistics relevant to public health or public safety, and omits the statutory disregard of subsection 16B(3).",ok,"Answer accurately states the s 95A(3) public interest test and answers both phrasings. Omitting the parenthetical about disregarding s 16B(3) is a minor detail, not an unsupported claim.",problem,scope,í
+chk-117,qa,ok if every claim in the answer is supported by the source text and the answer fully answers every question,s 100,"What must the Minister be satisfied of regarding the protection of personal information before regulations prescribing a country or binding scheme for cross-border disclosure purposes are made? || Before a country or binding scheme is prescribed for the purposes of the overseas disclosure exception, what level of protection must its laws or the scheme provide, according to the Minister's required satisfaction?","The Minister must be satisfied that the laws of the country, or the binding scheme, protect personal information about an individual in a way that, overall, is at least substantially similar to the way the Australian Privacy Principles protect it. [Source: s 100]","(1) The Governor-General may make regulations, not inconsistent with this Act, prescribing matters:
+(a) required or permitted by this Act to be prescribed; or
+(b) necessary or convenient to be prescribed for carrying out or giving effect to this Act.
+(1A) Before the Governor-General makes regulations for the purposes of Australian Privacy Principle 8.3 prescribing a country or binding scheme, the Minister must be satisfied that:
+(a) the laws of the country, or the binding scheme, has the effect of protecting personal information about an individual in a way that, overall, is at least substantially similar to the way in which the Australian Privacy Principles protect the information; and
+(b) there are mechanisms that the individual can access to take action to enforce that protection.
+(1B) The regulations may prescribe a country or binding scheme for the purposes of Australian Privacy Principle 8.3 subject to:
+(a) conditions in relation to a specified entity or class of entities; and
+(b) conditions in relation to a specified kind or kinds of personal information.
+(2) Before the Governor-General makes regulations for the purposes of Australian Privacy Principle 9.3 prescribing a government related identifier, an organisation or a class of organisations, and circumstances, the Minister must be satisfied that:
+(a) the relevant agency or State or Territory authority or, if the relevant agency or State or Territory authority has a principal executive, the principal executive:
+(i) has agreed that the adoption, use or disclosure of the identifier by the organisation, or the class of organisations, in the circumstances is appropriate; and
+(ii) has consulted the Commissioner about that adoption, use or disclosure; and
+(b) the adoption, use or disclosure of the identifier by the organisation, or the class of organisations, in the circumstances can only be for the benefit of the individual to whom the identifier relates.
+(3) Subsection (2) does not apply to the making of regulations for the purposes of Australian Privacy Principle 9.3 that relate to the use or disclosure of a government related identifier by an organisation, or a class of organisations, in particular circumstances if:
+(a) the identifier is a kind commonly used in the processing of pay, or deductions from pay, of Commonwealth officers, or a class of Commonwealth officers; and
+(b) the circumstances of the use or disclosure of the identifier relate to the provision by:
+(i) the organisation; or
+(ii) the class of organisations;
+of superannuation services (including the management, processing, allocation and transfer of superannuation contributions) for the benefit of Commonwealth officers or the class of Commonwealth officers; and
+(c) before the regulations are made, the Minister consults the Commissioner about the proposed regulations.",ok,"Both questions ask specifically about the level of protection of personal information. The answer accurately states s 100(1A)(a), 'at least substantially similar' overall. Omitting the enforcement mechanisms in (1B)(b) is acceptable given that focus.",problem,"The answer states only the substantial-similarity protection requirement, but omits the additional required satisfaction that accessible mechanisms exist for individuals to enforce that protection.",problem ,scope,

@@ -1,0 +1,87 @@
+{
+  "auditors": [
+    "claude",
+    "gpt"
+  ],
+  "auditor_agreement": {
+    "n": 120,
+    "raw": 0.925,
+    "cohen_kappa": 0.5313
+  },
+  "adjudication": {
+    "n": 9,
+    "sided_with": {
+      "claude": 3,
+      "gpt": 6
+    }
+  },
+  "strata": {
+    "verified_pass_train": {
+      "n": 40,
+      "ok": 36,
+      "ok_rate": 0.9,
+      "ok_rate_ci95": [
+        0.7695,
+        0.9604
+      ]
+    },
+    "neg_unverifiable": {
+      "n": 20,
+      "ok": 20,
+      "ok_rate": 1.0,
+      "ok_rate_ci95": [
+        0.8389,
+        1.0
+      ]
+    },
+    "verified_pass_holdout": {
+      "n": 15,
+      "ok": 15,
+      "ok_rate": 1.0,
+      "ok_rate_ci95": [
+        0.7961,
+        1.0
+      ]
+    },
+    "paraphrase_scenario": {
+      "n": 20,
+      "ok": 20,
+      "ok_rate": 1.0,
+      "ok_rate_ci95": [
+        0.8389,
+        1.0
+      ]
+    },
+    "verified_fail": {
+      "n": 25,
+      "ok": 14,
+      "ok_rate": 0.56,
+      "ok_rate_ci95": [
+        0.3707,
+        0.7333
+      ]
+    }
+  },
+  "verifier_vs_final": {
+    "n": 80,
+    "confusion": {
+      "verifier_fail/final_ok": 14,
+      "verifier_fail/final_problem": 11,
+      "verifier_pass/final_ok": 51,
+      "verifier_pass/final_problem": 4
+    },
+    "raw_agreement": 0.775,
+    "cohen_kappa_on_sample": 0.4122,
+    "note": "Verifier failures are oversampled; read per-stratum rates for population estimates."
+  },
+  "usage": {
+    "claude": {
+      "input": 145261,
+      "output": 12033
+    },
+    "gpt": {
+      "input": 82569,
+      "output": 8408
+    }
+  }
+}
