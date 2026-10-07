@@ -1,0 +1,25 @@
+program: privacy_bench.train.lora
+method: bayes
+metric:
+  name: dev/citation_hit
+  goal: maximize
+run_cap: 12
+parameters:
+  learning_rate:
+    distribution: log_uniform_values
+    min: 0.0001
+    max: 0.001
+  lora_r:
+    values: [8, 16, 32, 64]
+  lora_target:
+    values: [attention, all_linear]
+  epochs:
+    value: 3
+command:
+  - ${env}
+  - ${interpreter}
+  - -m
+  - ${program}
+  - --tags
+  - sweeps
+  - stage1

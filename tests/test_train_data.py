@@ -65,3 +65,10 @@ def test_probe_items_exclude_and_are_deterministic():
     assert not {p["fact_id"] for p in a} & excluded
     assert a[0]["eval_id"] == "probe-0001" and a[0]["question"] == "Q1?"
     assert len(probe_items(facts, excluded, 50, 7)) == 8
+
+
+def test_overrides_coerce_string_numbers_to_default_types():
+    out = apply_overrides(CFG, {"learning_rate": "5e-4", "lora_r": "32", "epochs": 5.0})
+    assert out["train"]["learning_rate"] == 5e-4 and isinstance(out["train"]["learning_rate"], float)
+    assert out["lora"]["r"] == 32 and isinstance(out["lora"]["r"], int)
+    assert out["train"]["epochs"] == 5 and isinstance(out["train"]["epochs"], int)

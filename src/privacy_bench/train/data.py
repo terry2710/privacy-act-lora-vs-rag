@@ -54,6 +54,14 @@ def text_hash(text: str) -> str:
 def flat_defaults(cfg: dict) -> dict:
     return {key: cfg[section][field] for key, (section, field) in OVERRIDES.items()}
 
+def coerce(value, default):
+    if isinstance(default, bool) or default is None:
+        return value
+    if isinstance(default, float):
+        return float(value)
+    if isinstance(default, int):
+        return int(value)
+    return value
 
 def apply_overrides(cfg: dict, flat: dict) -> dict:
     out = copy.deepcopy(cfg)
@@ -62,7 +70,7 @@ def apply_overrides(cfg: dict, flat: dict) -> dict:
         raise KeyError(f"unknown override keys: {unknown}")
     for key, value in flat.items():
         section, field = OVERRIDES[key]
-        out[section][field] = value
+        out[section][field] = coerce(value, cfg[section][field])
     if out["lora"]["target"] not in LORA_TARGETS:
         raise ValueError(f"unknown lora target: {out['lora']['target']}")
     if out["base_model"]["dtype"] not in ("float16", "float32"):
