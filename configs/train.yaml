@@ -59,3 +59,4 @@ bundle:
     - src/privacy_bench/train/data.py
     - src/privacy_bench/train/lora.py
     - configs/sweeps/stage1.yaml
+    - configs/sweeps/stage2.yaml
