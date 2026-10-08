@@ -1,0 +1,32 @@
+tracking_uri: sqlite:///mlruns/mlflow.db
+artifact_root: mlruns/artifacts
+experiment: model-registry
+model_name: palr-privacy-act-qa
+versions:
+  a0:
+    arm: A0
+    gguf: models/a0-base/a0-q8_0.gguf
+    records:
+      gguf: results/phase2/a0_gguf.json
+      merge: results/phase2/a0_merge_manifest.json
+    initial_alias: production
+  a1:
+    arm: A1
+    gguf: models/a1-fresh-sweep-6/a1-q8_0.gguf
+    records:
+      gguf: results/phase2/a1_gguf.json
+      merge: results/phase2/a1_merge_manifest.json
+      parity: results/phase2/a1_parity.json
+    wandb_run: arlives/privacy-act-lora-vs-rag/0wybl49s
+    initial_alias: candidate
+gate:
+  api: http://127.0.0.1:8000
+  dev: data/qa/eval/dev_para.jsonl
+  sections: data/processed/sections.jsonl
+  warmup: 3
+  timeout_seconds: 120
+  max_hit_diff: 0.03
+  min_agreement: 0.90
+  min_tag_present: 0.95
+  max_latency_ratio: 1.2
+  out_dir: results/phase3

@@ -36,6 +36,10 @@ Usage: palr <command> [args]
   rag-index          Chunk the Act by section and build the retrieval index
   rag-eval           Score BM25, dense and hybrid retrieval on dev-para and select method and k
   api                Serve all arms behind the FastAPI answer endpoint (needs both llama-server backends)
+  registry <cmd>     MLflow registry: register a0|a1, gate [--dry-run], promote <v>, rollback, resolve [alias]
+  mlflow-ui          Open the MLflow UI on port 5000 against the local SQLite store
+  serve-prod <port>  Start llama-server with the GGUF that currently holds the production alias
+  serve <gguf> <port>  Start llama-server for a GGUF file on the given port (both arguments required)
 EOF
 }
 
@@ -161,9 +165,44 @@ EOF
     need_py
     "$PY" -m privacy_bench.rag.eval_retrieval "$@"
     ;;
+  serve)
+    if [[ $# -ne 2 ]]; then
+      echo "usage: palr serve <gguf path> <port>" >&2
+      exit 1
+    fi
+    model="$1"
+    port="$2"
+    if [[ ! -f "$model" ]]; then
+      echo "model file not found: $model" >&2
+      exit 1
+    fi
+    if ! [[ "$port" =~ ^[0-9]+$ ]] || (( port < 1024 || port > 65535 )); then
+      echo "port must be an integer between 1024 and 65535: $port" >&2
+      exit 1
+    fi
+    command -v llama-server >/dev/null || { echo "llama-server not on PATH" >&2; exit 1; }
+    exec llama-server -m "$model" --port "$port" --jinja -ngl 99 -c 8192
+    ;;
   api)
     need_py
     "$PY" -m privacy_bench.serve.app "$@"
+    ;;
+  registry)
+    need_py
+    "$PY" -m privacy_bench.registry.registry "$@"
+    ;;
+  mlflow-ui)
+    need_py
+    "$ROOT/.venv/bin/mlflow" ui --backend-store-uri sqlite:///mlruns/mlflow.db --port 5000
+    ;;
+  serve-prod)
+    need_py
+    if [[ $# -ne 1 ]]; then
+      echo "usage: palr serve-prod <port>" >&2
+      exit 1
+    fi
+    gguf="$("$PY" -m privacy_bench.registry.registry resolve production | "$PY" -c 'import json,sys;print(json.load(sys.stdin)["gguf"])')"
+    exec "$0" serve "$gguf" "$1"
     ;;
   models-anthropic)
     need_py
