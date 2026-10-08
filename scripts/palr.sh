@@ -35,6 +35,7 @@ Usage: palr <command> [args]
   parity [args]      Compare GGUF outputs from llama-server with the PEFT dev-para outputs
   rag-index          Chunk the Act by section and build the retrieval index
   rag-eval           Score BM25, dense and hybrid retrieval on dev-para and select method and k
+  api                Serve all arms behind the FastAPI answer endpoint (needs both llama-server backends)
 EOF
 }
 
@@ -159,6 +160,10 @@ EOF
   rag-eval)
     need_py
     "$PY" -m privacy_bench.rag.eval_retrieval "$@"
+    ;;
+  api)
+    need_py
+    "$PY" -m privacy_bench.serve.app "$@"
     ;;
   models-anthropic)
     need_py

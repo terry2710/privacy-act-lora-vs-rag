@@ -1,0 +1,19 @@
+backends:
+  base: http://127.0.0.1:8080
+  lora: http://127.0.0.1:8081
+arms:
+  A0: {backend: base, retrieval: false}
+  A1: {backend: lora, retrieval: false}
+  A2: {backend: base, retrieval: true}
+  A3: {backend: lora, retrieval: true}
+retrieval:
+  config: configs/rag.yaml
+  method: hybrid
+  k: 8
+generation:
+  train_config: configs/train.yaml
+  max_tokens: 256
+  timeout_seconds: 120
+server:
+  host: 127.0.0.1
+  port: 8000
