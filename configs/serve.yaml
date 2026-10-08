@@ -1,0 +1,24 @@
+base_model:
+  name: Qwen/Qwen2.5-1.5B-Instruct
+  revision: 989aa7980e4cf806f80c7fef2b1adb7bc71aa306
+  merge_dtype: float16
+gguf:
+  outtype: q8_0
+models:
+  a0:
+    adapter: null
+    hf_dir: models/a0-base/hf
+    gguf: models/a0-base/a0-q8_0.gguf
+  a1:
+    adapter: models/a1-fresh-sweep-6/adapter
+    hf_dir: models/a1-fresh-sweep-6/merged
+    gguf: models/a1-fresh-sweep-6/a1-q8_0.gguf
+    reference_predictions: models/a1-fresh-sweep-6/dev_predictions.jsonl
+parity:
+  server: http://127.0.0.1:8080
+  dev: data/qa/eval/dev_para.jsonl
+  sections: data/processed/sections.jsonl
+  train_config: configs/train.yaml
+  max_hit_diff: 0.03
+  min_agreement: 0.90
+  timeout_seconds: 120

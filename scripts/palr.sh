@@ -30,6 +30,9 @@ Usage: palr <command> [args]
   audit [args]       Run dual-model review of the spot-check sample (use --limit N for a pilot)
   audit-score        Combine model agreement and human adjudication into the final report
   bundle [args]      Build the Kaggle training bundle zip (use --owner <kaggle username>)
+  merge a0|a1        Merge the LoRA adapter into the pinned base model (a0 saves the base model)
+  gguf a0|a1         Convert the merged model to GGUF with llama.cpp (needs LLAMA_CPP_DIR)
+  parity [args]      Compare GGUF outputs from llama-server with the PEFT dev-para outputs
 EOF
 }
 
@@ -134,6 +137,18 @@ EOF
   bundle)
     need_py
     "$PY" -m privacy_bench.train.bundle "$@"
+    ;;
+  merge)
+    need_py
+    "$PY" -m privacy_bench.serve.merge --model "${1:?usage: palr merge a0|a1}"
+    ;;
+  gguf)
+    need_py
+    "$PY" -m privacy_bench.serve.gguf --model "${1:?usage: palr gguf a0|a1}"
+    ;;
+  parity)
+    need_py
+    "$PY" -m privacy_bench.serve.parity "$@"
     ;;
   models-anthropic)
     need_py
