@@ -1,0 +1,27 @@
+program: privacy_bench.train.lora
+method: grid
+metric:
+  name: dev/citation_hit
+  goal: maximize
+parameters:
+  learning_rate:
+    value: 0.0005
+  lora_target:
+    value: all_linear
+  lora_r:
+    value: 64
+  epochs:
+    value: 8
+  phrasings:
+    value: 2
+  seed:
+    values: [20261006, 20261007]
+command:
+  - ${env}
+  - ${interpreter}
+  - -m
+  - ${program}
+  - --tags
+  - sweep
+  - stage3
+  - seeds
