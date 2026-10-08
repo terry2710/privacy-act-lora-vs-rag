@@ -4,7 +4,7 @@ import httpx
 import pytest
 from fastapi.testclient import TestClient
 
-from privacy_bench.serve.app import build_user_content, create_app
+from privacy_bench.serve.app import WARMUP_QUERY, build_user_content, create_app
 
 SETTINGS = {
     "backends": {"base": "http://base", "lora": "http://lora"},
@@ -65,7 +65,7 @@ def test_closed_book_arm_routes_to_backend_without_retrieval():
     data = r.json()
     assert data["answer"] == "Answer. [Source: s 6]" and data["retrieved"] == []
     assert seen[0][0] == "lora" and seen[0][1]["messages"][1]["content"] == "Q?"
-    assert seen[0][1]["temperature"] == 0 and retriever.calls == []
+    assert seen[0][1]["temperature"] == 0 and retriever.calls == [(WARMUP_QUERY, "hybrid", 2)]
     assert data["latency"]["prefill_ms"] == 12.0 and data["tokens"]["completion"] == 6
 
 
@@ -75,7 +75,7 @@ def test_rag_arm_adds_context_and_reports_retrieval():
     with client:
         r = client.post("/answer", json={"question": "Q?", "arm": "A2"})
     data = r.json()
-    assert retriever.calls == [("Q?", "hybrid", 2)]
+    assert retriever.calls == [(WARMUP_QUERY, "hybrid", 2), ("Q?", "hybrid", 2)]
     assert [c["uid"] for c in data["retrieved"]] == ["s:6", "s:7"]
     assert seen[0][0] == "base" and "[2] s 7 Acts and practices" in seen[0][1]["messages"][1]["content"]
     assert data["latency"]["retrieval_ms"] == 1.5

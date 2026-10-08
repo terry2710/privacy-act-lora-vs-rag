@@ -56,6 +56,7 @@ def score_citation(answer: str, gold_uid: str, valid_uids: set[str]) -> dict:
         "tag_present": tag is not None,
         "cited": cited,
         "hit": hit,
+        "mention_hit": gold_uid in cited or gold_uid in mentioned,
         "nonexistent": nonexistent,
         "has_nonexistent": bool(nonexistent),
         "wrong_existing": bool(cited) and not hit and all(u in valid_uids for u in cited),
@@ -69,6 +70,7 @@ def aggregate(scores: list[dict]) -> dict:
     return {
         "n": n,
         "citation_hit": sum(s["hit"] for s in scores) / n,
+        "mention_hit": sum(s.get("mention_hit", s["hit"]) for s in scores) / n,
         "tag_present": sum(s["tag_present"] for s in scores) / n,
         "nonexistent_rate": sum(s["has_nonexistent"] for s in scores) / n,
         "wrong_existing_rate": sum(s["wrong_existing"] for s in scores) / n,

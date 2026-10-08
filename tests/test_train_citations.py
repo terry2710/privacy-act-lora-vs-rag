@@ -39,3 +39,11 @@ def test_missing_tag_and_aggregate():
     assert not s["tag_present"] and not s["hit"]
     agg = aggregate([score_citation("[Source: s 6]", "s:6", VALID), s])
     assert agg["n"] == 2 and agg["citation_hit"] == 0.5 and agg["tag_present"] == 0.5
+
+
+def test_mention_hit_counts_gold_anywhere():
+    untagged = score_citation("Under s 6 the Governor-General may act.", "s:6", VALID)
+    assert untagged["mention_hit"] and not untagged["hit"]
+    tagged = score_citation("Answer. [Source: s 6, s 7]", "s:6", VALID)
+    assert tagged["mention_hit"] and not tagged["hit"]
+    assert not score_citation("Answer. [Source: s 7]", "s:6", VALID)["mention_hit"]

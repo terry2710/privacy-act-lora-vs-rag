@@ -9,6 +9,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from starlette.concurrency import run_in_threadpool
 
+WARMUP_QUERY = "warm-up query"
 CONTEXT_INTRO = "Use the following extracts from the Privacy Act 1988 (Cth) to answer the question."
 
 
@@ -53,6 +54,9 @@ def create_app(settings: dict, retriever=None, transport=None) -> FastAPI:
         state["client"] = httpx.AsyncClient(transport=transport, timeout=settings["generation"]["timeout_seconds"])
         needs_retrieval = any(a["retrieval"] for a in settings["arms"].values())
         state["retriever"] = retriever if retriever is not None or not needs_retrieval else load_retriever(settings)
+        if state["retriever"] is not None:
+            rc = settings["retrieval"]
+            await run_in_threadpool(state["retriever"].search, WARMUP_QUERY, rc["method"], rc["k"])
         yield
         await state["client"].aclose()
 
