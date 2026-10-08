@@ -62,3 +62,4 @@ bundle:
     - configs/sweeps/stage2.yaml
     - configs/sweeps/stage3_seeds.yaml
     - configs/sweeps/stage3_ablation.yaml
+    - configs/sweeps/stage3_control.yaml

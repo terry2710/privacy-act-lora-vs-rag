@@ -32,3 +32,21 @@ Rank 32 with 8 epochs scored 87% citation hit and lies within 3 points; rank 64 
 
 - Arm A1 is the fresh-sweep-6 adapter. Additional seeds estimate training variance and do not replace it.
 - The one-phrasing ablation uses the same configuration with three seeds.
+
+## Stage 3: seeds and one-phrasing ablation (added 2026-10-08)
+
+Selected configuration on dev-para, three seeds per condition.
+
+| Phrasings | Seed | Citation hit | Dev loss | Probe hit |
+|---|---|---|---|---|
+| 2 | 20261005 (A1) | 85% | 0.157 | 100% |
+| 2 | 20261006 | 84% | 0.151 | 100% |
+| 2 | 20261007 | 88% | 0.150 | 100% |
+| 1 | 20261005 | 67% | 0.431 | 100% |
+| 1 | 20261006 | 70% | 0.431 | 100% |
+| 1 | 20261007 | 76% | 0.444 | 99% |
+
+- Two phrasings: 85.7% ± 2.1 citation hit (mean ± standard deviation over seeds); one phrasing: 71.0% ± 4.6.
+- Paired by seed, two phrasings lead by 18, 14 and 12 points. Both conditions fit the training phrasing almost perfectly.
+- The A1 run is the median of the three two-phrasing seeds.
+- The one-phrasing runs see each fact 8 times rather than 16 and take half the optimiser steps, so this comparison mixes phrasing diversity with exposure count. An exposure-matched control (one phrasing, 16 epochs) is recorded under Deviations in `EXPERIMENT_PLAN.md`.
