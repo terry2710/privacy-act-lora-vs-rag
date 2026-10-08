@@ -1,0 +1,13 @@
+{
+  "model": "a0",
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "merge_dtype": "float16",
+  "adapter": null,
+  "adapter_sha256": null,
+  "transformers": "5.19.0",
+  "torch": "2.14.1",
+  "files": {
+    "model.safetensors": "60d573380111ed3f661cc6b432e681267d93b248ca7594d4c3d78b84f4c3d629"
+  }
+}

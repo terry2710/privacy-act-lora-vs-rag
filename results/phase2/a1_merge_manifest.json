@@ -1,0 +1,13 @@
+{
+  "model": "a1",
+  "base_model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "base_revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+  "merge_dtype": "float16",
+  "adapter": "models/a1-fresh-sweep-6/adapter",
+  "adapter_sha256": "76c0dbfff5336079a1ad6b0a3ab962ffddf47d51491a048a28452b706159485d",
+  "transformers": "5.19.0",
+  "torch": "2.14.1",
+  "files": {
+    "model.safetensors": "29c8f68e12ed1a141a8f50fb4fa3a38bff8b4fbff98699a4d095f0a0cdfe0fbc"
+  }
+}

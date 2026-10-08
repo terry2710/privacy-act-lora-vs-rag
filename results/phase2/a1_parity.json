@@ -1,0 +1,45 @@
+{
+  "model": "a1",
+  "gguf": "models/a1-fresh-sweep-6/a1-q8_0.gguf",
+  "gguf_sha256": "9a602ecbea79affd2237e51c9d5c3a0c20c2658d006fa8727b433741dd17bf99",
+  "outtype": "q8_0",
+  "server": "http://127.0.0.1:8080",
+  "parity": {
+    "n": 100,
+    "reference_citation_hit": 0.85,
+    "candidate_citation_hit": 0.86,
+    "hit_diff": 0.010000000000000009,
+    "hit_agreement": 0.95,
+    "exact_text_match": 0.71,
+    "flipped_to_miss": [
+      "dev_para-0005",
+      "dev_para-0041"
+    ],
+    "flipped_to_hit": [
+      "dev_para-0004",
+      "dev_para-0073",
+      "dev_para-0077"
+    ]
+  },
+  "gate": {
+    "passed": true,
+    "checks": {
+      "hit_diff_within_limit": true,
+      "agreement_above_limit": true
+    },
+    "max_hit_diff": 0.03,
+    "min_agreement": 0.9
+  },
+  "candidate_metrics": {
+    "n": 100,
+    "citation_hit": 0.86,
+    "tag_present": 1.0,
+    "nonexistent_rate": 0.03,
+    "wrong_existing_rate": 0.12
+  },
+  "latency": {
+    "total_seconds_median": 0.5924679585004924,
+    "total_seconds_p95": 0.8415764159999526,
+    "mean_completion_tokens": 42.5
+  }
+}

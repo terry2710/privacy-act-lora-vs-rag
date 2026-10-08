@@ -1,0 +1,8 @@
+{
+  "model": "a0",
+  "gguf": "models/a0-base/a0-q8_0.gguf",
+  "outtype": "q8_0",
+  "bytes": 1646572608,
+  "sha256": "998e2eca433eb3e067bb444a27d53a61e3f9e63a922e3d2be7e85f0676ddf296",
+  "llama_cpp_commit": "9c2e0e491a822adae1f0b1c831adb4160057d24f"
+}

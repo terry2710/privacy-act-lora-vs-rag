@@ -1,0 +1,8 @@
+{
+  "model": "a1",
+  "gguf": "models/a1-fresh-sweep-6/a1-q8_0.gguf",
+  "outtype": "q8_0",
+  "bytes": 1646572608,
+  "sha256": "9a602ecbea79affd2237e51c9d5c3a0c20c2658d006fa8727b433741dd17bf99",
+  "llama_cpp_commit": "9c2e0e491a822adae1f0b1c831adb4160057d24f"
+}
