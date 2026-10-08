@@ -33,6 +33,8 @@ Usage: palr <command> [args]
   merge a0|a1        Merge the LoRA adapter into the pinned base model (a0 saves the base model)
   gguf a0|a1         Convert the merged model to GGUF with llama.cpp (needs LLAMA_CPP_DIR)
   parity [args]      Compare GGUF outputs from llama-server with the PEFT dev-para outputs
+  rag-index          Chunk the Act by section and build the retrieval index
+  rag-eval           Score BM25, dense and hybrid retrieval on dev-para and select method and k
 EOF
 }
 
@@ -149,6 +151,14 @@ EOF
   parity)
     need_py
     "$PY" -m privacy_bench.serve.parity "$@"
+    ;;
+  rag-index)
+    need_py
+    "$PY" -m privacy_bench.rag.index "$@"
+    ;;
+  rag-eval)
+    need_py
+    "$PY" -m privacy_bench.rag.eval_retrieval "$@"
     ;;
   models-anthropic)
     need_py

@@ -1,0 +1,63 @@
+{
+  "n": 100,
+  "index": {
+    "sections_sha256": "b01657095932014ea4cd50df731713f8c8814bf347e51b6a839b3617747752bf",
+    "sections": 353,
+    "chunks": 669,
+    "max_chars": 1200,
+    "overlap_chars": 200,
+    "chunk_chars_mean": 840.8325859491779,
+    "chunk_chars_max": 1200,
+    "dense_model": "BAAI/bge-small-en-v1.5",
+    "embedding_dim": 384
+  },
+  "results": {
+    "bm25": {
+      "recall@1": 0.63,
+      "recall@3": 0.85,
+      "recall@5": 0.9,
+      "recall@8": 0.96,
+      "recall@10": 0.97,
+      "mrr": 0.745952380952381,
+      "unique_sections@max_k": 7.88
+    },
+    "dense": {
+      "recall@1": 0.66,
+      "recall@3": 0.79,
+      "recall@5": 0.86,
+      "recall@8": 0.94,
+      "recall@10": 0.95,
+      "mrr": 0.7502857142857146,
+      "unique_sections@max_k": 7.83
+    },
+    "hybrid": {
+      "recall@1": 0.72,
+      "recall@3": 0.86,
+      "recall@5": 0.95,
+      "recall@8": 1.0,
+      "recall@10": 1.0,
+      "mrr": 0.8076904761904763,
+      "unique_sections@max_k": 7.68
+    }
+  },
+  "latency": {
+    "bm25": {
+      "median_ms": 0.9661870008130791,
+      "p95_ms": 1.6331250008079223
+    },
+    "dense": {
+      "median_ms": 4.661833001591731,
+      "p95_ms": 24.58716700130026
+    },
+    "hybrid": {
+      "median_ms": 5.78491650048818,
+      "p95_ms": 6.447457999456674
+    }
+  },
+  "selection_rule": "highest recall@5 (MRR breaks ties); smallest k within 0.02 of that method's best recall",
+  "selected": {
+    "method": "hybrid",
+    "k": 8,
+    "recall_at_k": 1.0
+  }
+}
