@@ -50,3 +50,17 @@ Selected configuration on dev-para, three seeds per condition.
 - Paired by seed, two phrasings lead by 18, 14 and 12 points. Both conditions fit the training phrasing almost perfectly.
 - The A1 run is the median of the three two-phrasing seeds.
 - The one-phrasing runs see each fact 8 times rather than 16 and take half the optimiser steps, so this comparison mixes phrasing diversity with exposure count. An exposure-matched control (one phrasing, 16 epochs) is recorded under Deviations in `EXPERIMENT_PLAN.md`.
+
+## Exposure-matched control (added 2026-10-08)
+
+One phrasing for 16 epochs, so that each fact is seen 16 times and the optimiser takes as many steps as in the two-phrasing model.
+
+| Condition | Exposures per fact | Seed 20261005 | Seed 20261006 | Seed 20261007 | Citation hit (mean ± sd) | Dev loss (mean) |
+|---|---|---|---|---|---|---|
+| Two phrasings, 8 epochs | 16 | 85% | 84% | 88% | 85.7% ± 2.1 | 0.153 |
+| One phrasing, 16 epochs | 16 | 73% | 79% | 76% | 76.0% ± 3.0 | 0.422 |
+| One phrasing, 8 epochs | 8 | 67% | 70% | 76% | 71.0% ± 4.6 | 0.435 |
+
+- Matching exposure recovers about 5 of the 14.7-point gap; about 10 points remain with phrasing diversity (paired by seed: +12, +5, +12).
+- Dev-para loss barely moves with extra exposure (0.435 to 0.422) but falls to 0.153 with a second phrasing.
+- Exploratory: three seeds on 100 items; a paired t-test on the seed-level differences gives t ≈ 4.1 with 2 degrees of freedom (p ≈ 0.05, two-sided).
