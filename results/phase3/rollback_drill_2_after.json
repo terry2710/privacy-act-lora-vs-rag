@@ -1,0 +1,11 @@
+{
+  "alias": "production",
+  "version": "1",
+  "arm": "A0",
+  "gguf": "mlruns/artifacts/46eba6d5c10442058f8de2d9bb7a2d1e/artifacts/gguf/a0-q8_0.gguf",
+  "tags": {
+    "arm": "A0",
+    "gguf_sha256": "998e2eca433eb3e067bb444a27d53a61e3f9e63a922e3d2be7e85f0676ddf296",
+    "registry_key": "a0"
+  }
+}

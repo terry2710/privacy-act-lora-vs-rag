@@ -1,0 +1,64 @@
+{
+  "model": "palr-privacy-act-qa",
+  "production": {
+    "version": "1",
+    "arm": "A0",
+    "requested": 100,
+    "failures": 0,
+    "n": 100,
+    "citation_hit": 0.07,
+    "mention_hit": 0.07,
+    "tag_present": 0.81,
+    "nonexistent_rate": 0.03,
+    "wrong_existing_rate": 0.73,
+    "p50_ms": 1152.4943750000602,
+    "p95_ms": 2800.869333999799
+  },
+  "candidate": {
+    "version": "2",
+    "arm": "A1",
+    "requested": 100,
+    "failures": 0,
+    "n": 100,
+    "citation_hit": 0.86,
+    "mention_hit": 0.86,
+    "tag_present": 1.0,
+    "nonexistent_rate": 0.03,
+    "wrong_existing_rate": 0.12,
+    "p50_ms": 573.044665999987,
+    "p95_ms": 799.7967499995866
+  },
+  "parity": {
+    "n": 100,
+    "reference_citation_hit": 0.85,
+    "candidate_citation_hit": 0.86,
+    "hit_diff": 0.010000000000000009,
+    "hit_agreement": 0.95,
+    "exact_text_match": 0.71,
+    "flipped_to_miss": [
+      "dev_para-0005",
+      "dev_para-0041"
+    ],
+    "flipped_to_hit": [
+      "dev_para-0004",
+      "dev_para-0073",
+      "dev_para-0077"
+    ]
+  },
+  "thresholds": {
+    "max_hit_diff": 0.03,
+    "min_agreement": 0.9,
+    "min_tag_present": 0.95,
+    "max_latency_ratio": 1.2
+  },
+  "decision": {
+    "passed": true,
+    "checks": {
+      "conversion_parity": true,
+      "quality_floor": true,
+      "format_compliance": true,
+      "operational": true
+    }
+  },
+  "dry_run": false
+}

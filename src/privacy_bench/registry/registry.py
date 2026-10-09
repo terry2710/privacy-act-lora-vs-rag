@@ -105,6 +105,13 @@ def rollback(cfg: dict) -> dict:
     return {"production": previous, "rolled_back_from": str(current.version)}
 
 
+def portable(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(Path.cwd().resolve()))
+    except ValueError:
+        return str(path)
+
+
 def resolve(cfg: dict, alias: str) -> dict:
     _, client = connect(cfg)
     mv = alias_version(client, cfg["model_name"], alias)
@@ -112,7 +119,7 @@ def resolve(cfg: dict, alias: str) -> dict:
         raise SystemExit(f"no version holds alias {alias}")
     source_dir = Path(unquote(urlparse(client.get_model_version_download_uri(cfg["model_name"], mv.version)).path))
     ggufs = sorted(source_dir.glob("*.gguf"))
-    return {"alias": alias, "version": str(mv.version), "arm": mv.tags.get("arm"), "gguf": str(ggufs[0]) if ggufs else None, "tags": dict(mv.tags)}
+    return {"alias": alias, "version": str(mv.version), "arm": mv.tags.get("arm"), "gguf": portable(ggufs[0]) if ggufs else None, "tags": dict(mv.tags)}
 
 
 def gate(cfg: dict, dry_run: bool, ask_fn=None) -> dict:

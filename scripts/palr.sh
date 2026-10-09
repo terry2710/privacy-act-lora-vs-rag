@@ -185,7 +185,7 @@ EOF
     ;;
   api)
     need_py
-    "$PY" -m privacy_bench.serve.app "$@"
+    HF_HUB_OFFLINE=1 "$PY" -m privacy_bench.serve.app "$@"
     ;;
   registry)
     need_py

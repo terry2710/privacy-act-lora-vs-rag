@@ -64,7 +64,8 @@ def test_register_gate_promote_rollback(tmp_path, monkeypatch):
     }
     assert registry.register(cfg, "a0")["alias"] == "production"
     assert registry.register(cfg, "a1")["alias"] == "candidate"
-    assert registry.resolve(cfg, "production")["gguf"].endswith("a0.gguf")
+    resolved = registry.resolve(cfg, "production")["gguf"]
+    assert resolved.endswith("a0.gguf") and not resolved.startswith("/")
 
     def ask_fn(q, arm):
         answer = "A. [Source: s 6]" if arm == "A1" else "A."
