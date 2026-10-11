@@ -1,0 +1,184 @@
+{
+  "h1": {
+    "A0": {
+      "accuracy_0": 117,
+      "accuracy_1": 22,
+      "accuracy_2": 4,
+      "contradicts_reference": 123,
+      "fully_correct_rate": 0.028,
+      "mean_accuracy": 0.2098,
+      "n": 143
+    },
+    "A1": {
+      "accuracy_0": 123,
+      "accuracy_1": 16,
+      "accuracy_2": 4,
+      "contradicts_reference": 113,
+      "fully_correct_rate": 0.028,
+      "mean_accuracy": 0.1678,
+      "n": 143
+    },
+    "A2": {
+      "accuracy_0": 36,
+      "accuracy_1": 49,
+      "accuracy_2": 58,
+      "contradicts_reference": 60,
+      "fully_correct_rate": 0.4056,
+      "mean_accuracy": 1.1538,
+      "n": 143
+    },
+    "A3": {
+      "accuracy_0": 104,
+      "accuracy_1": 26,
+      "accuracy_2": 13,
+      "contradicts_reference": 96,
+      "fully_correct_rate": 0.0909,
+      "mean_accuracy": 0.3636,
+      "n": 143
+    }
+  },
+  "h2": {
+    "A0": {
+      "accuracy_0": 64,
+      "accuracy_1": 10,
+      "accuracy_2": 2,
+      "contradicts_reference": 68,
+      "fully_correct_rate": 0.0263,
+      "mean_accuracy": 0.1842,
+      "n": 76
+    },
+    "A1": {
+      "accuracy_0": 62,
+      "accuracy_1": 12,
+      "accuracy_2": 2,
+      "contradicts_reference": 63,
+      "fully_correct_rate": 0.0263,
+      "mean_accuracy": 0.2105,
+      "n": 76
+    },
+    "A2": {
+      "accuracy_0": 15,
+      "accuracy_1": 30,
+      "accuracy_2": 31,
+      "contradicts_reference": 33,
+      "fully_correct_rate": 0.4079,
+      "mean_accuracy": 1.2105,
+      "n": 76
+    },
+    "A3": {
+      "accuracy_0": 56,
+      "accuracy_1": 16,
+      "accuracy_2": 4,
+      "contradicts_reference": 53,
+      "fully_correct_rate": 0.0526,
+      "mean_accuracy": 0.3158,
+      "n": 76
+    }
+  },
+  "s_mem": {
+    "A0": {
+      "accuracy_0": 121,
+      "accuracy_1": 23,
+      "accuracy_2": 6,
+      "contradicts_reference": 130,
+      "fully_correct_rate": 0.04,
+      "mean_accuracy": 0.2333,
+      "n": 150
+    },
+    "A1": {
+      "accuracy_2": 150,
+      "contradicts_reference": 0,
+      "fully_correct_rate": 1.0,
+      "mean_accuracy": 2.0,
+      "n": 150
+    },
+    "A2": {
+      "accuracy_0": 23,
+      "accuracy_1": 55,
+      "accuracy_2": 72,
+      "contradicts_reference": 47,
+      "fully_correct_rate": 0.48,
+      "mean_accuracy": 1.3267,
+      "n": 150
+    },
+    "A3": {
+      "accuracy_0": 5,
+      "accuracy_1": 21,
+      "accuracy_2": 124,
+      "contradicts_reference": 17,
+      "fully_correct_rate": 0.8267,
+      "mean_accuracy": 1.7933,
+      "n": 150
+    }
+  },
+  "s_neg": {
+    "A0": {
+      "fail": 47,
+      "invents_content": 45,
+      "n": 50,
+      "pass": 3,
+      "pass_rate": 0.06,
+      "premise_corrected": 6
+    },
+    "A1": {
+      "fail": 50,
+      "invents_content": 47,
+      "n": 50,
+      "pass_rate": 0.0,
+      "premise_corrected": 0
+    },
+    "A2": {
+      "fail": 42,
+      "invents_content": 33,
+      "n": 50,
+      "pass": 8,
+      "pass_rate": 0.16,
+      "premise_corrected": 9
+    },
+    "A3": {
+      "fail": 50,
+      "invents_content": 42,
+      "n": 50,
+      "pass_rate": 0.0,
+      "premise_corrected": 0
+    }
+  },
+  "s_para": {
+    "A0": {
+      "accuracy_0": 234,
+      "accuracy_1": 56,
+      "accuracy_2": 8,
+      "contradicts_reference": 253,
+      "fully_correct_rate": 0.0268,
+      "mean_accuracy": 0.2416,
+      "n": 298
+    },
+    "A1": {
+      "accuracy_0": 83,
+      "accuracy_1": 53,
+      "accuracy_2": 162,
+      "contradicts_reference": 88,
+      "fully_correct_rate": 0.5436,
+      "mean_accuracy": 1.2651,
+      "n": 298
+    },
+    "A2": {
+      "accuracy_0": 64,
+      "accuracy_1": 103,
+      "accuracy_2": 131,
+      "contradicts_reference": 107,
+      "fully_correct_rate": 0.4396,
+      "mean_accuracy": 1.2248,
+      "n": 298
+    },
+    "A3": {
+      "accuracy_0": 75,
+      "accuracy_1": 54,
+      "accuracy_2": 169,
+      "contradicts_reference": 80,
+      "fully_correct_rate": 0.5671,
+      "mean_accuracy": 1.3154,
+      "n": 298
+    }
+  }
+}

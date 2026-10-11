@@ -1,0 +1,185 @@
+{
+  "h1": {
+    "A0": {
+      "accuracy_0": 104,
+      "accuracy_1": 31,
+      "accuracy_2": 8,
+      "contradicts_reference": 98,
+      "fully_correct_rate": 0.0559,
+      "mean_accuracy": 0.3287,
+      "n": 143
+    },
+    "A1": {
+      "accuracy_0": 110,
+      "accuracy_1": 30,
+      "accuracy_2": 3,
+      "contradicts_reference": 96,
+      "fully_correct_rate": 0.021,
+      "mean_accuracy": 0.2517,
+      "n": 143
+    },
+    "A2": {
+      "accuracy_0": 34,
+      "accuracy_1": 49,
+      "accuracy_2": 60,
+      "contradicts_reference": 37,
+      "fully_correct_rate": 0.4196,
+      "mean_accuracy": 1.1818,
+      "n": 143
+    },
+    "A3": {
+      "accuracy_0": 88,
+      "accuracy_1": 42,
+      "accuracy_2": 13,
+      "contradicts_reference": 80,
+      "fully_correct_rate": 0.0909,
+      "mean_accuracy": 0.4755,
+      "n": 143
+    }
+  },
+  "h2": {
+    "A0": {
+      "accuracy_0": 54,
+      "accuracy_1": 18,
+      "accuracy_2": 4,
+      "contradicts_reference": 57,
+      "fully_correct_rate": 0.0526,
+      "mean_accuracy": 0.3421,
+      "n": 76
+    },
+    "A1": {
+      "accuracy_0": 52,
+      "accuracy_1": 21,
+      "accuracy_2": 3,
+      "contradicts_reference": 51,
+      "fully_correct_rate": 0.0395,
+      "mean_accuracy": 0.3553,
+      "n": 76
+    },
+    "A2": {
+      "accuracy_0": 18,
+      "accuracy_1": 20,
+      "accuracy_2": 38,
+      "contradicts_reference": 19,
+      "fully_correct_rate": 0.5,
+      "mean_accuracy": 1.2632,
+      "n": 76
+    },
+    "A3": {
+      "accuracy_0": 50,
+      "accuracy_1": 18,
+      "accuracy_2": 8,
+      "contradicts_reference": 42,
+      "fully_correct_rate": 0.1053,
+      "mean_accuracy": 0.4474,
+      "n": 76
+    }
+  },
+  "s_mem": {
+    "A0": {
+      "accuracy_0": 113,
+      "accuracy_1": 30,
+      "accuracy_2": 7,
+      "contradicts_reference": 111,
+      "fully_correct_rate": 0.0467,
+      "mean_accuracy": 0.2933,
+      "n": 150
+    },
+    "A1": {
+      "accuracy_1": 1,
+      "accuracy_2": 149,
+      "contradicts_reference": 0,
+      "fully_correct_rate": 0.9933,
+      "mean_accuracy": 1.9933,
+      "n": 150
+    },
+    "A2": {
+      "accuracy_0": 24,
+      "accuracy_1": 48,
+      "accuracy_2": 78,
+      "contradicts_reference": 39,
+      "fully_correct_rate": 0.52,
+      "mean_accuracy": 1.36,
+      "n": 150
+    },
+    "A3": {
+      "accuracy_0": 6,
+      "accuracy_1": 18,
+      "accuracy_2": 126,
+      "contradicts_reference": 11,
+      "fully_correct_rate": 0.84,
+      "mean_accuracy": 1.8,
+      "n": 150
+    }
+  },
+  "s_neg": {
+    "A0": {
+      "fail": 45,
+      "invents_content": 45,
+      "n": 50,
+      "pass": 5,
+      "pass_rate": 0.1,
+      "premise_corrected": 7
+    },
+    "A1": {
+      "fail": 50,
+      "invents_content": 49,
+      "n": 50,
+      "pass_rate": 0.0,
+      "premise_corrected": 0
+    },
+    "A2": {
+      "fail": 39,
+      "invents_content": 31,
+      "n": 50,
+      "pass": 11,
+      "pass_rate": 0.22,
+      "premise_corrected": 13
+    },
+    "A3": {
+      "fail": 50,
+      "invents_content": 40,
+      "n": 50,
+      "pass_rate": 0.0,
+      "premise_corrected": 0
+    }
+  },
+  "s_para": {
+    "A0": {
+      "accuracy_0": 211,
+      "accuracy_1": 75,
+      "accuracy_2": 12,
+      "contradicts_reference": 214,
+      "fully_correct_rate": 0.0403,
+      "mean_accuracy": 0.3322,
+      "n": 298
+    },
+    "A1": {
+      "accuracy_0": 84,
+      "accuracy_1": 49,
+      "accuracy_2": 165,
+      "contradicts_reference": 77,
+      "fully_correct_rate": 0.5537,
+      "mean_accuracy": 1.2718,
+      "n": 298
+    },
+    "A2": {
+      "accuracy_0": 70,
+      "accuracy_1": 94,
+      "accuracy_2": 134,
+      "contradicts_reference": 77,
+      "fully_correct_rate": 0.4497,
+      "mean_accuracy": 1.2148,
+      "n": 298
+    },
+    "A3": {
+      "accuracy_0": 75,
+      "accuracy_1": 59,
+      "accuracy_2": 164,
+      "contradicts_reference": 74,
+      "fully_correct_rate": 0.5503,
+      "mean_accuracy": 1.2987,
+      "n": 298
+    }
+  }
+}
