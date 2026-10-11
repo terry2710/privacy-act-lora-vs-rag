@@ -106,6 +106,7 @@ def main(argv=None) -> int:
     ap.add_argument("--limit", type=int, default=20)
     ap.add_argument("--sets", nargs="*")
     ap.add_argument("--arms", nargs="*")
+    ap.add_argument("--judge")
     args = ap.parse_args(argv)
 
     cfg = yaml.safe_load(args.config.read_text(encoding="utf-8"))
@@ -186,18 +187,21 @@ def main(argv=None) -> int:
     if not report_path.exists():
         raise SystemExit("run calibrate and calibrate-score first")
     cal_report = json.loads(report_path.read_text(encoding="utf-8"))
-    primary = judges[0]
-    if not cal_report["gate"]["passed"] or cal_report["prompt_hashes"][primary] != hashes[primary]:
-        raise SystemExit("calibration gate did not pass for the current primary judge prompt and config")
+    judge = args.judge or judges[0]
+    if judge not in judges:
+        raise SystemExit(f"unknown judge: {judge}")
+    if not cal_report["gate"]["passed"] or cal_report["prompt_hashes"][judge] != hashes[judge]:
+        raise SystemExit(f"calibration gate did not pass for the current {judge} judge prompt and config")
     answers = load_answers(paths["answers_dir"], sets, arms)
     missing = [f"{s}/{a}" for s in sets for a in arms if (s, a) not in answers]
     if missing:
         raise SystemExit(f"answers missing for: {missing}")
     tasks = [t for group in answers.values() for t in to_tasks(group, items, evidence)]
-    results = run_judges([(primary, t) for t in tasks], cfg, clients_for([primary]), hashes, paths["cache_dir"])
+    results = run_judges([(judge, t) for t in tasks], cfg, clients_for([judge]), hashes, paths["cache_dir"])
+    out_dir = paths["judgements_dir"] / judge
     for (set_name, arm) in answers:
-        write_jsonl(paths["judgements_dir"] / set_name / f"{arm}.jsonl", [r for r in results if r["set"] == set_name and r["arm"] == arm])
-    summary_path = paths["judgements_dir"] / "summary.json"
+        write_jsonl(out_dir / set_name / f"{arm}.jsonl", [r for r in results if r["set"] == set_name and r["arm"] == arm])
+    summary_path = out_dir / "summary.json"
     summary = json.loads(summary_path.read_text(encoding="utf-8")) if summary_path.exists() else {}
     for set_name, by_arm in summarise(results).items():
         summary.setdefault(set_name, {}).update(by_arm)

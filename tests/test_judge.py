@@ -182,7 +182,15 @@ def test_cli_calibrate_score_and_gated_run(tmp_path, monkeypatch):
     assert len(rows) == 1 and rep["gate"]["passed"]
     assert rep["vs_final"]["gpt"]["qa"]["raw"] == 1.0 and rep["vs_final"]["claude"]["qa"]["raw"] == 0.875
     assert run.main(["run"] + argv) == 0
-    summary = json.loads((tmp_path / "judgements/summary.json").read_text(encoding="utf-8"))
+    summary = json.loads((tmp_path / "judgements/gpt/summary.json").read_text(encoding="utf-8"))
     assert summary["h1"]["A1"]["mean_accuracy"] == 2.0 and summary["h1"]["A0"]["mean_accuracy"] == 0.0
     assert summary["s_neg"]["A1"]["pass_rate"] == 1.0 and summary["s_neg"]["A0"]["pass_rate"] == 0.0
-    assert len((tmp_path / "judgements/h1/A0.jsonl").read_text(encoding="utf-8").splitlines()) == 4
+    assert len((tmp_path / "judgements/gpt/h1/A0.jsonl").read_text(encoding="utf-8").splitlines()) == 4
+    assert run.main(["run", "--judge", "claude"] + argv) == 0
+    second = json.loads((tmp_path / "judgements/claude/summary.json").read_text(encoding="utf-8"))
+    assert second["h1"]["A0"]["mean_accuracy"] == 0.25
+    with pytest.raises(SystemExit):
+        run.main(["run", "--judge", "other"] + argv)
+
+
+
