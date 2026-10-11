@@ -45,6 +45,7 @@ Usage: palr <command> [args]
   judge-calibrate    Run both judges on the calibration sample and write the blind adjudication sheet
   judge-score        Combine judge agreement and adjudication into the calibration report and gate
   judge-run [args]   Judge all answers with the primary judge once calibration has passed
+  analyze            Run the pre-registered statistical analysis and write results/phase3/analysis.json and .md
 EOF
 }
 
@@ -211,6 +212,10 @@ EOF
   judge-run)
     need_py
     "$PY" -m privacy_bench.judge.run run "$@"
+    ;;
+  analyze)
+    need_py
+    "$PY" -m privacy_bench.analysis.run "$@"
     ;;
   registry)
     need_py

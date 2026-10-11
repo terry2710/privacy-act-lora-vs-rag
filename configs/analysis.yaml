@@ -1,0 +1,9 @@
+seed: 20261005
+resamples: 10000
+alpha: 0.05
+judges: [gpt, claude]
+eval_dir: data/qa/eval
+answers_dir: results/phase3/answers
+judgements_dir: results/phase3/judgements
+out_json: results/phase3/analysis.json
+out_md: results/phase3/analysis.md

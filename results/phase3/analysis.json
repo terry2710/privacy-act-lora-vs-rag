@@ -1,0 +1,1839 @@
+{
+  "config": {
+    "seed": 20261005,
+    "resamples": 10000,
+    "alpha": 0.05,
+    "judges": [
+      "gpt",
+      "claude"
+    ]
+  },
+  "set_sizes": {
+    "s_mem": 150,
+    "s_para": 298,
+    "h1_clean": 138,
+    "h1_parallel": 5,
+    "h2": 76,
+    "s_neg": 50
+  },
+  "descriptive": {
+    "s_mem": {
+      "A0": {
+        "n": 150,
+        "citation_hit": 0.0267,
+        "mention_hit": 0.0267,
+        "tag_present": 0.82,
+        "nonexistent_rate": 0.0133,
+        "wrong_existing_rate": 0.7867,
+        "bad_citation_rate": 0.7933,
+        "bad_citation_given_tag": 0.9675,
+        "completion_tokens_median": 85.5,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 30.9,
+          "generation_ms": 1107.4,
+          "total_ms": 1141.9
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.3,
+          "generation_ms": 2302.6,
+          "total_ms": 2336.3
+        },
+        "gpt": {
+          "n": 150,
+          "accuracy_mean": 0.2933,
+          "fully_correct_rate": 0.0467,
+          "contradicts_rate": 0.74
+        },
+        "claude": {
+          "n": 150,
+          "accuracy_mean": 0.2333,
+          "fully_correct_rate": 0.04,
+          "contradicts_rate": 0.8667
+        }
+      },
+      "A1": {
+        "n": 150,
+        "citation_hit": 1.0,
+        "mention_hit": 1.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 0.0,
+        "bad_citation_rate": 0.0,
+        "bad_citation_given_tag": 0.0,
+        "completion_tokens_median": 43.0,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.1,
+          "generation_ms": 563.0,
+          "total_ms": 595.5
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.5,
+          "generation_ms": 959.8,
+          "total_ms": 993.2
+        },
+        "gpt": {
+          "n": 150,
+          "accuracy_mean": 1.9933,
+          "fully_correct_rate": 0.9933,
+          "contradicts_rate": 0.0
+        },
+        "claude": {
+          "n": 150,
+          "accuracy_mean": 2.0,
+          "fully_correct_rate": 1.0,
+          "contradicts_rate": 0.0
+        }
+      },
+      "A2": {
+        "n": 150,
+        "citation_hit": 0.1867,
+        "mention_hit": 0.6533,
+        "tag_present": 0.2333,
+        "nonexistent_rate": 0.0067,
+        "wrong_existing_rate": 0.0467,
+        "bad_citation_rate": 0.0533,
+        "bad_citation_given_tag": 0.2,
+        "completion_tokens_median": 82.0,
+        "latency_median_ms": {
+          "retrieval_ms": 21.2,
+          "prefill_ms": 449.7,
+          "generation_ms": 1117.8,
+          "total_ms": 1629.9
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 39.5,
+          "prefill_ms": 527.1,
+          "generation_ms": 2450.5,
+          "total_ms": 3002.1
+        },
+        "gpt": {
+          "n": 150,
+          "accuracy_mean": 1.36,
+          "fully_correct_rate": 0.52,
+          "contradicts_rate": 0.26
+        },
+        "claude": {
+          "n": 150,
+          "accuracy_mean": 1.3267,
+          "fully_correct_rate": 0.48,
+          "contradicts_rate": 0.3133
+        }
+      },
+      "A3": {
+        "n": 150,
+        "citation_hit": 0.94,
+        "mention_hit": 0.94,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 0.06,
+        "bad_citation_rate": 0.06,
+        "bad_citation_given_tag": 0.06,
+        "completion_tokens_median": 43.0,
+        "latency_median_ms": {
+          "retrieval_ms": 6.9,
+          "prefill_ms": 445.4,
+          "generation_ms": 574.9,
+          "total_ms": 1033.7
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 21.4,
+          "prefill_ms": 531.6,
+          "generation_ms": 1002.4,
+          "total_ms": 1471.3
+        },
+        "gpt": {
+          "n": 150,
+          "accuracy_mean": 1.8,
+          "fully_correct_rate": 0.84,
+          "contradicts_rate": 0.0733
+        },
+        "claude": {
+          "n": 150,
+          "accuracy_mean": 1.7933,
+          "fully_correct_rate": 0.8267,
+          "contradicts_rate": 0.1133
+        }
+      }
+    },
+    "s_para": {
+      "A0": {
+        "n": 298,
+        "citation_hit": 0.0503,
+        "mention_hit": 0.0537,
+        "tag_present": 0.8624,
+        "nonexistent_rate": 0.0168,
+        "wrong_existing_rate": 0.802,
+        "bad_citation_rate": 0.8121,
+        "bad_citation_given_tag": 0.9416,
+        "completion_tokens_median": 86.0,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.0,
+          "generation_ms": 1078.8,
+          "total_ms": 1126.4
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.9,
+          "generation_ms": 2681.5,
+          "total_ms": 2714.0
+        },
+        "gpt": {
+          "n": 298,
+          "accuracy_mean": 0.3322,
+          "fully_correct_rate": 0.0403,
+          "contradicts_rate": 0.7181
+        },
+        "claude": {
+          "n": 298,
+          "accuracy_mean": 0.2416,
+          "fully_correct_rate": 0.0268,
+          "contradicts_rate": 0.849
+        }
+      },
+      "A1": {
+        "n": 298,
+        "citation_hit": 0.8557,
+        "mention_hit": 0.8557,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 0.1443,
+        "bad_citation_rate": 0.1443,
+        "bad_citation_given_tag": 0.1443,
+        "completion_tokens_median": 40.5,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 30.9,
+          "generation_ms": 504.5,
+          "total_ms": 540.1
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.6,
+          "generation_ms": 805.7,
+          "total_ms": 839.7
+        },
+        "gpt": {
+          "n": 298,
+          "accuracy_mean": 1.2718,
+          "fully_correct_rate": 0.5537,
+          "contradicts_rate": 0.2584
+        },
+        "claude": {
+          "n": 298,
+          "accuracy_mean": 1.2651,
+          "fully_correct_rate": 0.5436,
+          "contradicts_rate": 0.2953
+        }
+      },
+      "A2": {
+        "n": 298,
+        "citation_hit": 0.1745,
+        "mention_hit": 0.6007,
+        "tag_present": 0.2718,
+        "nonexistent_rate": 0.0034,
+        "wrong_existing_rate": 0.0973,
+        "bad_citation_rate": 0.1007,
+        "bad_citation_given_tag": 0.358,
+        "completion_tokens_median": 94.0,
+        "latency_median_ms": {
+          "retrieval_ms": 19.6,
+          "prefill_ms": 423.7,
+          "generation_ms": 1221.0,
+          "total_ms": 1823.5
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 35.4,
+          "prefill_ms": 535.5,
+          "generation_ms": 2768.4,
+          "total_ms": 3411.9
+        },
+        "gpt": {
+          "n": 298,
+          "accuracy_mean": 1.2148,
+          "fully_correct_rate": 0.4497,
+          "contradicts_rate": 0.2584
+        },
+        "claude": {
+          "n": 298,
+          "accuracy_mean": 1.2248,
+          "fully_correct_rate": 0.4396,
+          "contradicts_rate": 0.3591
+        }
+      },
+      "A3": {
+        "n": 298,
+        "citation_hit": 0.802,
+        "mention_hit": 0.802,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0034,
+        "wrong_existing_rate": 0.1946,
+        "bad_citation_rate": 0.198,
+        "bad_citation_given_tag": 0.198,
+        "completion_tokens_median": 42.0,
+        "latency_median_ms": {
+          "retrieval_ms": 9.2,
+          "prefill_ms": 424.6,
+          "generation_ms": 547.0,
+          "total_ms": 1125.6
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 27.4,
+          "prefill_ms": 534.6,
+          "generation_ms": 941.6,
+          "total_ms": 1576.0
+        },
+        "gpt": {
+          "n": 298,
+          "accuracy_mean": 1.2987,
+          "fully_correct_rate": 0.5503,
+          "contradicts_rate": 0.2483
+        },
+        "claude": {
+          "n": 298,
+          "accuracy_mean": 1.3154,
+          "fully_correct_rate": 0.5671,
+          "contradicts_rate": 0.2685
+        }
+      }
+    },
+    "h1_clean": {
+      "A0": {
+        "n": 138,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 0.7826,
+        "nonexistent_rate": 0.0362,
+        "wrong_existing_rate": 0.7754,
+        "bad_citation_rate": 0.7971,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 86.0,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.0,
+          "generation_ms": 1102.3,
+          "total_ms": 1135.4
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.2,
+          "generation_ms": 2434.0,
+          "total_ms": 2470.7
+        },
+        "gpt": {
+          "n": 138,
+          "accuracy_mean": 0.3043,
+          "fully_correct_rate": 0.0435,
+          "contradicts_rate": 0.7101
+        },
+        "claude": {
+          "n": 138,
+          "accuracy_mean": 0.2029,
+          "fully_correct_rate": 0.029,
+          "contradicts_rate": 0.8696
+        }
+      },
+      "A1": {
+        "n": 138,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.029,
+        "wrong_existing_rate": 0.9783,
+        "bad_citation_rate": 1.0,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 43.0,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.1,
+          "generation_ms": 556.9,
+          "total_ms": 590.9
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 33.0,
+          "generation_ms": 772.9,
+          "total_ms": 806.6
+        },
+        "gpt": {
+          "n": 138,
+          "accuracy_mean": 0.2174,
+          "fully_correct_rate": 0.0072,
+          "contradicts_rate": 0.6884
+        },
+        "claude": {
+          "n": 138,
+          "accuracy_mean": 0.1232,
+          "fully_correct_rate": 0.0072,
+          "contradicts_rate": 0.8116
+        }
+      },
+      "A2": {
+        "n": 138,
+        "citation_hit": 0.1232,
+        "mention_hit": 0.5072,
+        "tag_present": 0.2391,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 0.1159,
+        "bad_citation_rate": 0.1159,
+        "bad_citation_given_tag": 0.4848,
+        "completion_tokens_median": 87.0,
+        "latency_median_ms": {
+          "retrieval_ms": 20.6,
+          "prefill_ms": 427.8,
+          "generation_ms": 1154.9,
+          "total_ms": 1742.0
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 37.4,
+          "prefill_ms": 539.1,
+          "generation_ms": 2877.5,
+          "total_ms": 3658.1
+        },
+        "gpt": {
+          "n": 138,
+          "accuracy_mean": 1.1812,
+          "fully_correct_rate": 0.4203,
+          "contradicts_rate": 0.2536
+        },
+        "claude": {
+          "n": 138,
+          "accuracy_mean": 1.1522,
+          "fully_correct_rate": 0.4058,
+          "contradicts_rate": 0.4203
+        }
+      },
+      "A3": {
+        "n": 138,
+        "citation_hit": 0.1522,
+        "mention_hit": 0.1522,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0362,
+        "wrong_existing_rate": 0.8116,
+        "bad_citation_rate": 0.8478,
+        "bad_citation_given_tag": 0.8478,
+        "completion_tokens_median": 43.0,
+        "latency_median_ms": {
+          "retrieval_ms": 18.8,
+          "prefill_ms": 426.5,
+          "generation_ms": 573.2,
+          "total_ms": 1145.9
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 32.9,
+          "prefill_ms": 536.4,
+          "generation_ms": 835.2,
+          "total_ms": 1456.6
+        },
+        "gpt": {
+          "n": 138,
+          "accuracy_mean": 0.442,
+          "fully_correct_rate": 0.0725,
+          "contradicts_rate": 0.5725
+        },
+        "claude": {
+          "n": 138,
+          "accuracy_mean": 0.3188,
+          "fully_correct_rate": 0.0652,
+          "contradicts_rate": 0.6884
+        }
+      }
+    },
+    "h1_parallel": {
+      "A0": {
+        "n": 5,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 1.0,
+        "bad_citation_rate": 1.0,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 69.0,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 30.6,
+          "generation_ms": 872.3,
+          "total_ms": 907.1
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.8,
+          "generation_ms": 1030.5,
+          "total_ms": 1064.4
+        },
+        "gpt": {
+          "n": 5,
+          "accuracy_mean": 1.0,
+          "fully_correct_rate": 0.4,
+          "contradicts_rate": 0.0
+        },
+        "claude": {
+          "n": 5,
+          "accuracy_mean": 0.4,
+          "fully_correct_rate": 0.0,
+          "contradicts_rate": 0.6
+        }
+      },
+      "A1": {
+        "n": 5,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 1.0,
+        "bad_citation_rate": 1.0,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 43.0,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.0,
+          "generation_ms": 548.0,
+          "total_ms": 581.1
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.0,
+          "generation_ms": 594.8,
+          "total_ms": 628.6
+        },
+        "gpt": {
+          "n": 5,
+          "accuracy_mean": 1.2,
+          "fully_correct_rate": 0.4,
+          "contradicts_rate": 0.2
+        },
+        "claude": {
+          "n": 5,
+          "accuracy_mean": 1.4,
+          "fully_correct_rate": 0.6,
+          "contradicts_rate": 0.2
+        }
+      },
+      "A2": {
+        "n": 5,
+        "citation_hit": 0.2,
+        "mention_hit": 0.6,
+        "tag_present": 0.4,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 0.2,
+        "bad_citation_rate": 0.2,
+        "bad_citation_given_tag": 0.5,
+        "completion_tokens_median": 78.0,
+        "latency_median_ms": {
+          "retrieval_ms": 20.0,
+          "prefill_ms": 491.1,
+          "generation_ms": 1027.2,
+          "total_ms": 1582.6
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 21.8,
+          "prefill_ms": 504.4,
+          "generation_ms": 1269.2,
+          "total_ms": 1942.2
+        },
+        "gpt": {
+          "n": 5,
+          "accuracy_mean": 1.2,
+          "fully_correct_rate": 0.4,
+          "contradicts_rate": 0.4
+        },
+        "claude": {
+          "n": 5,
+          "accuracy_mean": 1.2,
+          "fully_correct_rate": 0.4,
+          "contradicts_rate": 0.4
+        }
+      },
+      "A3": {
+        "n": 5,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 1.0,
+        "bad_citation_rate": 1.0,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 44.0,
+        "latency_median_ms": {
+          "retrieval_ms": 23.4,
+          "prefill_ms": 487.6,
+          "generation_ms": 579.9,
+          "total_ms": 1134.5
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 26.9,
+          "prefill_ms": 509.2,
+          "generation_ms": 653.2,
+          "total_ms": 1342.6
+        },
+        "gpt": {
+          "n": 5,
+          "accuracy_mean": 1.4,
+          "fully_correct_rate": 0.6,
+          "contradicts_rate": 0.2
+        },
+        "claude": {
+          "n": 5,
+          "accuracy_mean": 1.6,
+          "fully_correct_rate": 0.8,
+          "contradicts_rate": 0.2
+        }
+      }
+    },
+    "h2": {
+      "A0": {
+        "n": 76,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 0.7105,
+        "nonexistent_rate": 0.0,
+        "wrong_existing_rate": 0.7105,
+        "bad_citation_rate": 0.7105,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 96.0,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 30.9,
+          "generation_ms": 1273.9,
+          "total_ms": 1307.0
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.6,
+          "generation_ms": 2700.0,
+          "total_ms": 2733.2
+        },
+        "gpt": {
+          "n": 76,
+          "accuracy_mean": 0.3421,
+          "fully_correct_rate": 0.0526,
+          "contradicts_rate": 0.75
+        },
+        "claude": {
+          "n": 76,
+          "accuracy_mean": 0.1842,
+          "fully_correct_rate": 0.0263,
+          "contradicts_rate": 0.8947
+        }
+      },
+      "A1": {
+        "n": 76,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0263,
+        "wrong_existing_rate": 0.9737,
+        "bad_citation_rate": 1.0,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 39.5,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.7,
+          "generation_ms": 533.2,
+          "total_ms": 567.1
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 33.0,
+          "generation_ms": 843.2,
+          "total_ms": 877.5
+        },
+        "gpt": {
+          "n": 76,
+          "accuracy_mean": 0.3553,
+          "fully_correct_rate": 0.0395,
+          "contradicts_rate": 0.6711
+        },
+        "claude": {
+          "n": 76,
+          "accuracy_mean": 0.2105,
+          "fully_correct_rate": 0.0263,
+          "contradicts_rate": 0.8289
+        }
+      },
+      "A2": {
+        "n": 76,
+        "citation_hit": 0.2632,
+        "mention_hit": 0.3158,
+        "tag_present": 0.3684,
+        "nonexistent_rate": 0.0132,
+        "wrong_existing_rate": 0.1053,
+        "bad_citation_rate": 0.1184,
+        "bad_citation_given_tag": 0.2857,
+        "completion_tokens_median": 72.5,
+        "latency_median_ms": {
+          "retrieval_ms": 19.5,
+          "prefill_ms": 400.4,
+          "generation_ms": 988.9,
+          "total_ms": 1412.5
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 30.1,
+          "prefill_ms": 488.0,
+          "generation_ms": 2318.2,
+          "total_ms": 2736.2
+        },
+        "gpt": {
+          "n": 76,
+          "accuracy_mean": 1.2632,
+          "fully_correct_rate": 0.5,
+          "contradicts_rate": 0.25
+        },
+        "claude": {
+          "n": 76,
+          "accuracy_mean": 1.2105,
+          "fully_correct_rate": 0.4079,
+          "contradicts_rate": 0.4342
+        }
+      },
+      "A3": {
+        "n": 76,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.0526,
+        "wrong_existing_rate": 0.9474,
+        "bad_citation_rate": 1.0,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 40.0,
+        "latency_median_ms": {
+          "retrieval_ms": 6.9,
+          "prefill_ms": 402.3,
+          "generation_ms": 519.6,
+          "total_ms": 936.6
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 20.4,
+          "prefill_ms": 478.8,
+          "generation_ms": 963.1,
+          "total_ms": 1355.5
+        },
+        "gpt": {
+          "n": 76,
+          "accuracy_mean": 0.4474,
+          "fully_correct_rate": 0.1053,
+          "contradicts_rate": 0.5526
+        },
+        "claude": {
+          "n": 76,
+          "accuracy_mean": 0.3158,
+          "fully_correct_rate": 0.0526,
+          "contradicts_rate": 0.6974
+        }
+      }
+    },
+    "s_neg": {
+      "A0": {
+        "n": 50,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 0.84,
+        "nonexistent_rate": 0.18,
+        "wrong_existing_rate": 0.78,
+        "bad_citation_rate": 0.86,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 106.5,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.1,
+          "generation_ms": 1374.8,
+          "total_ms": 1409.7
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.4,
+          "generation_ms": 3044.0,
+          "total_ms": 3077.4
+        },
+        "gpt": {
+          "n": 50,
+          "pass_rate": 0.1,
+          "premise_corrected_rate": 0.14,
+          "invents_content_rate": 0.9
+        },
+        "claude": {
+          "n": 50,
+          "pass_rate": 0.06,
+          "premise_corrected_rate": 0.12,
+          "invents_content_rate": 0.9
+        }
+      },
+      "A1": {
+        "n": 50,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.2,
+        "wrong_existing_rate": 0.88,
+        "bad_citation_rate": 0.98,
+        "bad_citation_given_tag": 0.98,
+        "completion_tokens_median": 39.5,
+        "latency_median_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 31.1,
+          "generation_ms": 508.9,
+          "total_ms": 542.4
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 0.0,
+          "prefill_ms": 32.2,
+          "generation_ms": 772.9,
+          "total_ms": 805.4
+        },
+        "gpt": {
+          "n": 50,
+          "pass_rate": 0.0,
+          "premise_corrected_rate": 0.0,
+          "invents_content_rate": 0.98
+        },
+        "claude": {
+          "n": 50,
+          "pass_rate": 0.0,
+          "premise_corrected_rate": 0.0,
+          "invents_content_rate": 0.94
+        }
+      },
+      "A2": {
+        "n": 50,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 0.2,
+        "nonexistent_rate": 0.22,
+        "wrong_existing_rate": 0.2,
+        "bad_citation_rate": 0.38,
+        "bad_citation_given_tag": 1.0,
+        "completion_tokens_median": 103.5,
+        "latency_median_ms": {
+          "retrieval_ms": 23.2,
+          "prefill_ms": 430.9,
+          "generation_ms": 1449.9,
+          "total_ms": 1855.0
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 33.7,
+          "prefill_ms": 506.5,
+          "generation_ms": 2972.6,
+          "total_ms": 3377.7
+        },
+        "gpt": {
+          "n": 50,
+          "pass_rate": 0.22,
+          "premise_corrected_rate": 0.26,
+          "invents_content_rate": 0.62
+        },
+        "claude": {
+          "n": 50,
+          "pass_rate": 0.16,
+          "premise_corrected_rate": 0.18,
+          "invents_content_rate": 0.66
+        }
+      },
+      "A3": {
+        "n": 50,
+        "citation_hit": 0.0,
+        "mention_hit": 0.0,
+        "tag_present": 1.0,
+        "nonexistent_rate": 0.14,
+        "wrong_existing_rate": 0.94,
+        "bad_citation_rate": 0.98,
+        "bad_citation_given_tag": 0.98,
+        "completion_tokens_median": 38.0,
+        "latency_median_ms": {
+          "retrieval_ms": 6.7,
+          "prefill_ms": 429.0,
+          "generation_ms": 497.2,
+          "total_ms": 935.7
+        },
+        "latency_p95_ms": {
+          "retrieval_ms": 20.3,
+          "prefill_ms": 499.0,
+          "generation_ms": 886.7,
+          "total_ms": 1316.5
+        },
+        "gpt": {
+          "n": 50,
+          "pass_rate": 0.0,
+          "premise_corrected_rate": 0.0,
+          "invents_content_rate": 0.8
+        },
+        "claude": {
+          "n": 50,
+          "pass_rate": 0.0,
+          "premise_corrected_rate": 0.0,
+          "invents_content_rate": 0.84
+        }
+      }
+    }
+  },
+  "primary": {
+    "family": {
+      "H1a_s_para_A1_gt_A0": {
+        "estimate": 0.9396,
+        "ci95": [
+          0.8322,
+          1.0503
+        ],
+        "p_two_sided": 0.0002,
+        "n": 298,
+        "mean_x": 1.2718,
+        "mean_y": 0.3322,
+        "p_used": 0.0002,
+        "p_holm": 0.0004,
+        "supported": true
+      },
+      "H1b_s_para_A2_gt_A1": {
+        "estimate": -0.057,
+        "ci95": [
+          -0.1812,
+          0.0671
+        ],
+        "p_two_sided": 0.37496,
+        "n": 298,
+        "mean_x": 1.2148,
+        "mean_y": 1.2718,
+        "p_used": 0.37496,
+        "p_holm": 0.37496,
+        "supported": false
+      },
+      "H3_heldout_badcite_A1_gt_A0": {
+        "estimate": 0.2336,
+        "ci95": [
+          0.1776,
+          0.2897
+        ],
+        "p_two_sided": 0.0002,
+        "n": 214,
+        "mean_x": 1.0,
+        "mean_y": 0.7664,
+        "mcnemar": {
+          "x_only": 50,
+          "y_only": 0,
+          "p_two_sided": 1.7763568394002505e-15
+        },
+        "p_used": 1.7763568394002505e-15,
+        "p_holm": 5.329070518200751e-15,
+        "supported": true
+      }
+    },
+    "H1_supported": false,
+    "H3_supported": true,
+    "note": "Holm-Bonferroni across the three directional comparisons; McNemar p for H3, paired bootstrap p for H1."
+  },
+  "secondary": {
+    "H2_memorisation_gap_A1": {
+      "estimate": 0.73,
+      "ci95": [
+        0.6233,
+        0.8433
+      ],
+      "p_two_sided": 0.0002,
+      "n": 150,
+      "mean_x": 1.9933,
+      "mean_y": 1.2633,
+      "unit": "fact",
+      "supported": true,
+      "ablation_part": "not tested: the one-phrasing ablation was not served or scored on S-mem and S-para"
+    },
+    "memorisation_gap_by_arm": {
+      "A0": {
+        "estimate": -0.04,
+        "ci95": [
+          -0.1367,
+          0.0567
+        ],
+        "p_two_sided": 0.44036,
+        "n": 150,
+        "mean_x": 0.2933,
+        "mean_y": 0.3333,
+        "unit": "fact"
+      },
+      "A1": {
+        "estimate": 0.73,
+        "ci95": [
+          0.6233,
+          0.8433
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.9933,
+        "mean_y": 1.2633,
+        "unit": "fact"
+      },
+      "A2": {
+        "estimate": 0.1467,
+        "ci95": [
+          0.0133,
+          0.28
+        ],
+        "p_two_sided": 0.034,
+        "n": 150,
+        "mean_x": 1.36,
+        "mean_y": 1.2133,
+        "unit": "fact"
+      },
+      "A3": {
+        "estimate": 0.5033,
+        "ci95": [
+          0.38,
+          0.6267
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.8,
+        "mean_y": 1.2967,
+        "unit": "fact"
+      }
+    },
+    "H4_A0_h1clean_gt_h2": {
+      "estimate": -0.0378,
+      "ci95": [
+        -0.1951,
+        0.1148
+      ],
+      "p_two_sided": 0.64274,
+      "supported": false
+    },
+    "H5_latency_A2_vs_A1": {
+      "total_median_diff": {
+        "estimate": 1195.5568,
+        "ci95": [
+          1133.562,
+          1258.7441
+        ],
+        "p_two_sided": 0.0002
+      },
+      "mean_diff_by_component": {
+        "total_ms": {
+          "estimate": 1319.1562,
+          "ci95": [
+            1256.6981,
+            1380.5597
+          ],
+          "p_two_sided": 0.0002,
+          "n": 512,
+          "mean_x": 1888.6449,
+          "mean_y": 569.4887
+        },
+        "retrieval_ms": {
+          "estimate": 21.695,
+          "ci95": [
+            20.7713,
+            22.6945
+          ],
+          "p_two_sided": 0.0002,
+          "n": 512,
+          "mean_x": 21.695,
+          "mean_y": 0.0
+        },
+        "prefill_ms": {
+          "estimate": 375.2128,
+          "ci95": [
+            366.7459,
+            383.4172
+          ],
+          "p_two_sided": 0.0002,
+          "n": 512,
+          "mean_x": 406.4513,
+          "mean_y": 31.2385
+        },
+        "generation_ms": {
+          "estimate": 792.8421,
+          "ci95": [
+            733.957,
+            852.0583
+          ],
+          "p_two_sided": 0.0002,
+          "n": 512,
+          "mean_x": 1328.6748,
+          "mean_y": 535.8328
+        }
+      },
+      "prefill_minus_retrieval": {
+        "estimate": 353.5177,
+        "ci95": [
+          345.0758,
+          361.6565
+        ],
+        "p_two_sided": 0.0002
+      },
+      "sets": [
+        "s_para",
+        "h1_clean",
+        "h2"
+      ],
+      "supported": true
+    },
+    "note": "Uncorrected; reported as secondary."
+  },
+  "exploratory": {
+    "H6_h1_parallel_A1": [
+      {
+        "eval_id": "h1-0091",
+        "cited": [
+          "s:44"
+        ],
+        "hit": false,
+        "cites_s44": true,
+        "accuracy": 1
+      },
+      {
+        "eval_id": "h1-0092",
+        "cited": [
+          "s:52"
+        ],
+        "hit": false,
+        "cites_s44": false,
+        "accuracy": 0
+      },
+      {
+        "eval_id": "h1-0093",
+        "cited": [
+          "s:44"
+        ],
+        "hit": false,
+        "cites_s44": true,
+        "accuracy": 2
+      },
+      {
+        "eval_id": "h1-0094",
+        "cited": [
+          "s:44"
+        ],
+        "hit": false,
+        "cites_s44": true,
+        "accuracy": 2
+      },
+      {
+        "eval_id": "h1-0095",
+        "cited": [
+          "s:33C"
+        ],
+        "hit": false,
+        "cites_s44": false,
+        "accuracy": 1
+      }
+    ],
+    "H7_s_neg_pass_A2_gt_A1": {
+      "estimate": 0.22,
+      "ci95": [
+        0.1,
+        0.34
+      ],
+      "p_two_sided": 0.0002,
+      "n": 50,
+      "mean_x": 0.22,
+      "mean_y": 0.0,
+      "mcnemar": {
+        "x_only": 11,
+        "y_only": 0,
+        "p_two_sided": 0.0009765625
+      }
+    },
+    "accuracy_comparisons": {
+      "s_mem:A1-A0": {
+        "estimate": 1.7,
+        "ci95": [
+          1.6133,
+          1.7867
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.9933,
+        "mean_y": 0.2933
+      },
+      "s_mem:A2-A0": {
+        "estimate": 1.0667,
+        "ci95": [
+          0.92,
+          1.2067
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.36,
+        "mean_y": 0.2933
+      },
+      "s_mem:A2-A1": {
+        "estimate": -0.6333,
+        "ci95": [
+          -0.7533,
+          -0.5133
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.36,
+        "mean_y": 1.9933
+      },
+      "s_mem:A3-A1": {
+        "estimate": -0.1933,
+        "ci95": [
+          -0.2733,
+          -0.12
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.8,
+        "mean_y": 1.9933
+      },
+      "s_mem:A3-A2": {
+        "estimate": 0.44,
+        "ci95": [
+          0.32,
+          0.56
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.8,
+        "mean_y": 1.36
+      },
+      "s_para:A1-A0": {
+        "estimate": 0.9396,
+        "ci95": [
+          0.8322,
+          1.0503
+        ],
+        "p_two_sided": 0.0002,
+        "n": 298,
+        "mean_x": 1.2718,
+        "mean_y": 0.3322
+      },
+      "s_para:A2-A0": {
+        "estimate": 0.8826,
+        "ci95": [
+          0.7718,
+          0.9899
+        ],
+        "p_two_sided": 0.0002,
+        "n": 298,
+        "mean_x": 1.2148,
+        "mean_y": 0.3322
+      },
+      "s_para:A2-A1": {
+        "estimate": -0.057,
+        "ci95": [
+          -0.1812,
+          0.0671
+        ],
+        "p_two_sided": 0.37496,
+        "n": 298,
+        "mean_x": 1.2148,
+        "mean_y": 1.2718
+      },
+      "s_para:A3-A1": {
+        "estimate": 0.0268,
+        "ci95": [
+          -0.0772,
+          0.1275
+        ],
+        "p_two_sided": 0.62954,
+        "n": 298,
+        "mean_x": 1.2987,
+        "mean_y": 1.2718
+      },
+      "s_para:A3-A2": {
+        "estimate": 0.0839,
+        "ci95": [
+          -0.0302,
+          0.2013
+        ],
+        "p_two_sided": 0.16038,
+        "n": 298,
+        "mean_x": 1.2987,
+        "mean_y": 1.2148
+      },
+      "h1_clean:A1-A0": {
+        "estimate": -0.087,
+        "ci95": [
+          -0.1884,
+          0.0145
+        ],
+        "p_two_sided": 0.10259,
+        "n": 138,
+        "mean_x": 0.2174,
+        "mean_y": 0.3043
+      },
+      "h1_clean:A2-A0": {
+        "estimate": 0.8768,
+        "ci95": [
+          0.7101,
+          1.0292
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 1.1812,
+        "mean_y": 0.3043
+      },
+      "h1_clean:A2-A1": {
+        "estimate": 0.9638,
+        "ci95": [
+          0.8188,
+          1.1087
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 1.1812,
+        "mean_y": 0.2174
+      },
+      "h1_clean:A3-A1": {
+        "estimate": 0.2246,
+        "ci95": [
+          0.1232,
+          0.3261
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 0.442,
+        "mean_y": 0.2174
+      },
+      "h1_clean:A3-A2": {
+        "estimate": -0.7391,
+        "ci95": [
+          -0.8913,
+          -0.5942
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 0.442,
+        "mean_y": 1.1812
+      },
+      "h2:A1-A0": {
+        "estimate": 0.0132,
+        "ci95": [
+          -0.1711,
+          0.1974
+        ],
+        "p_two_sided": 0.93971,
+        "n": 76,
+        "mean_x": 0.3553,
+        "mean_y": 0.3421
+      },
+      "h2:A2-A0": {
+        "estimate": 0.9211,
+        "ci95": [
+          0.7237,
+          1.1184
+        ],
+        "p_two_sided": 0.0002,
+        "n": 76,
+        "mean_x": 1.2632,
+        "mean_y": 0.3421
+      },
+      "h2:A2-A1": {
+        "estimate": 0.9079,
+        "ci95": [
+          0.6842,
+          1.1184
+        ],
+        "p_two_sided": 0.0002,
+        "n": 76,
+        "mean_x": 1.2632,
+        "mean_y": 0.3553
+      },
+      "h2:A3-A1": {
+        "estimate": 0.0921,
+        "ci95": [
+          -0.0658,
+          0.25
+        ],
+        "p_two_sided": 0.29357,
+        "n": 76,
+        "mean_x": 0.4474,
+        "mean_y": 0.3553
+      },
+      "h2:A3-A2": {
+        "estimate": -0.8158,
+        "ci95": [
+          -1.0263,
+          -0.6053
+        ],
+        "p_two_sided": 0.0002,
+        "n": 76,
+        "mean_x": 0.4474,
+        "mean_y": 1.2632
+      },
+      "s_neg_pass:A2-A1": {
+        "estimate": 0.22,
+        "ci95": [
+          0.1,
+          0.34
+        ],
+        "p_two_sided": 0.0002,
+        "n": 50,
+        "mean_x": 0.22,
+        "mean_y": 0.0,
+        "mcnemar": {
+          "x_only": 11,
+          "y_only": 0,
+          "p_two_sided": 0.0009765625
+        }
+      },
+      "s_neg_pass:A3-A1": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "p_two_sided": 1.0,
+        "n": 50,
+        "mean_x": 0.0,
+        "mean_y": 0.0,
+        "mcnemar": {
+          "x_only": 0,
+          "y_only": 0,
+          "p_two_sided": 1.0
+        }
+      },
+      "s_neg_pass:A3-A2": {
+        "estimate": -0.22,
+        "ci95": [
+          -0.34,
+          -0.1
+        ],
+        "p_two_sided": 0.0002,
+        "n": 50,
+        "mean_x": 0.0,
+        "mean_y": 0.22,
+        "mcnemar": {
+          "x_only": 0,
+          "y_only": 11,
+          "p_two_sided": 0.0009765625
+        }
+      }
+    },
+    "citation_hit_comparisons": {
+      "s_para:A3-A1": {
+        "estimate": -0.0537,
+        "ci95": [
+          -0.1007,
+          -0.0067
+        ],
+        "p_two_sided": 0.0286,
+        "n": 298,
+        "mean_x": 0.802,
+        "mean_y": 0.8557,
+        "mcnemar": {
+          "x_only": 17,
+          "y_only": 33,
+          "p_two_sided": 0.032839137564268484
+        }
+      },
+      "s_para:A3-A2": {
+        "estimate": 0.6275,
+        "ci95": [
+          0.5638,
+          0.6879
+        ],
+        "p_two_sided": 0.0002,
+        "n": 298,
+        "mean_x": 0.802,
+        "mean_y": 0.1745,
+        "mcnemar": {
+          "x_only": 197,
+          "y_only": 10,
+          "p_two_sided": 3.267771217118175e-46
+        }
+      },
+      "h1_clean:A3-A1": {
+        "estimate": 0.1522,
+        "ci95": [
+          0.0942,
+          0.2101
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 0.1522,
+        "mean_y": 0.0,
+        "mcnemar": {
+          "x_only": 21,
+          "y_only": 0,
+          "p_two_sided": 9.5367431640625e-07
+        }
+      },
+      "h1_clean:A3-A2": {
+        "estimate": 0.029,
+        "ci95": [
+          -0.0507,
+          0.1087
+        ],
+        "p_two_sided": 0.52775,
+        "n": 138,
+        "mean_x": 0.1522,
+        "mean_y": 0.1232,
+        "mcnemar": {
+          "x_only": 18,
+          "y_only": 14,
+          "p_two_sided": 0.5966148958541453
+        }
+      },
+      "h2:A3-A1": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "p_two_sided": 1.0,
+        "n": 76,
+        "mean_x": 0.0,
+        "mean_y": 0.0,
+        "mcnemar": {
+          "x_only": 0,
+          "y_only": 0,
+          "p_two_sided": 1.0
+        }
+      },
+      "h2:A3-A2": {
+        "estimate": -0.2632,
+        "ci95": [
+          -0.3684,
+          -0.1711
+        ],
+        "p_two_sided": 0.0002,
+        "n": 76,
+        "mean_x": 0.0,
+        "mean_y": 0.2632,
+        "mcnemar": {
+          "x_only": 0,
+          "y_only": 20,
+          "p_two_sided": 1.9073486328125e-06
+        }
+      }
+    },
+    "note": "Uncorrected; reported descriptively."
+  },
+  "sensitivity": {
+    "judge": "claude",
+    "H1a_s_para_A1_gt_A0": {
+      "estimate": 1.0235,
+      "ci95": [
+        0.9161,
+        1.1309
+      ],
+      "p_two_sided": 0.0002,
+      "n": 298,
+      "mean_x": 1.2651,
+      "mean_y": 0.2416
+    },
+    "H1b_s_para_A2_gt_A1": {
+      "estimate": -0.0403,
+      "ci95": [
+        -0.1644,
+        0.0839
+      ],
+      "p_two_sided": 0.53155,
+      "n": 298,
+      "mean_x": 1.2248,
+      "mean_y": 1.2651
+    },
+    "accuracy_comparisons": {
+      "s_mem:A1-A0": {
+        "estimate": 1.7667,
+        "ci95": [
+          1.68,
+          1.8467
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 2.0,
+        "mean_y": 0.2333
+      },
+      "s_mem:A2-A0": {
+        "estimate": 1.0933,
+        "ci95": [
+          0.96,
+          1.2267
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.3267,
+        "mean_y": 0.2333
+      },
+      "s_mem:A2-A1": {
+        "estimate": -0.6733,
+        "ci95": [
+          -0.7933,
+          -0.56
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.3267,
+        "mean_y": 2.0
+      },
+      "s_mem:A3-A1": {
+        "estimate": -0.2067,
+        "ci95": [
+          -0.2867,
+          -0.1333
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.7933,
+        "mean_y": 2.0
+      },
+      "s_mem:A3-A2": {
+        "estimate": 0.4667,
+        "ci95": [
+          0.3533,
+          0.5867
+        ],
+        "p_two_sided": 0.0002,
+        "n": 150,
+        "mean_x": 1.7933,
+        "mean_y": 1.3267
+      },
+      "s_para:A1-A0": {
+        "estimate": 1.0235,
+        "ci95": [
+          0.9161,
+          1.1309
+        ],
+        "p_two_sided": 0.0002,
+        "n": 298,
+        "mean_x": 1.2651,
+        "mean_y": 0.2416
+      },
+      "s_para:A2-A0": {
+        "estimate": 0.9832,
+        "ci95": [
+          0.8826,
+          1.0839
+        ],
+        "p_two_sided": 0.0002,
+        "n": 298,
+        "mean_x": 1.2248,
+        "mean_y": 0.2416
+      },
+      "s_para:A2-A1": {
+        "estimate": -0.0403,
+        "ci95": [
+          -0.1644,
+          0.0839
+        ],
+        "p_two_sided": 0.53155,
+        "n": 298,
+        "mean_x": 1.2248,
+        "mean_y": 1.2651
+      },
+      "s_para:A3-A1": {
+        "estimate": 0.0503,
+        "ci95": [
+          -0.0504,
+          0.151
+        ],
+        "p_two_sided": 0.34517,
+        "n": 298,
+        "mean_x": 1.3154,
+        "mean_y": 1.2651
+      },
+      "s_para:A3-A2": {
+        "estimate": 0.0906,
+        "ci95": [
+          -0.0268,
+          0.2081
+        ],
+        "p_two_sided": 0.14599,
+        "n": 298,
+        "mean_x": 1.3154,
+        "mean_y": 1.2248
+      },
+      "h1_clean:A1-A0": {
+        "estimate": -0.0797,
+        "ci95": [
+          -0.1739,
+          0.0072
+        ],
+        "p_two_sided": 0.09839,
+        "n": 138,
+        "mean_x": 0.1232,
+        "mean_y": 0.2029
+      },
+      "h1_clean:A2-A0": {
+        "estimate": 0.9493,
+        "ci95": [
+          0.7899,
+          1.1087
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 1.1522,
+        "mean_y": 0.2029
+      },
+      "h1_clean:A2-A1": {
+        "estimate": 1.029,
+        "ci95": [
+          0.8913,
+          1.1667
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 1.1522,
+        "mean_y": 0.1232
+      },
+      "h1_clean:A3-A1": {
+        "estimate": 0.1957,
+        "ci95": [
+          0.0942,
+          0.2971
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 0.3188,
+        "mean_y": 0.1232
+      },
+      "h1_clean:A3-A2": {
+        "estimate": -0.8333,
+        "ci95": [
+          -0.971,
+          -0.6957
+        ],
+        "p_two_sided": 0.0002,
+        "n": 138,
+        "mean_x": 0.3188,
+        "mean_y": 1.1522
+      },
+      "h2:A1-A0": {
+        "estimate": 0.0263,
+        "ci95": [
+          -0.1316,
+          0.1842
+        ],
+        "p_two_sided": 0.78352,
+        "n": 76,
+        "mean_x": 0.2105,
+        "mean_y": 0.1842
+      },
+      "h2:A2-A0": {
+        "estimate": 1.0263,
+        "ci95": [
+          0.8289,
+          1.2105
+        ],
+        "p_two_sided": 0.0002,
+        "n": 76,
+        "mean_x": 1.2105,
+        "mean_y": 0.1842
+      },
+      "h2:A2-A1": {
+        "estimate": 1.0,
+        "ci95": [
+          0.8026,
+          1.1842
+        ],
+        "p_two_sided": 0.0002,
+        "n": 76,
+        "mean_x": 1.2105,
+        "mean_y": 0.2105
+      },
+      "h2:A3-A1": {
+        "estimate": 0.1053,
+        "ci95": [
+          -0.0263,
+          0.2368
+        ],
+        "p_two_sided": 0.14499,
+        "n": 76,
+        "mean_x": 0.3158,
+        "mean_y": 0.2105
+      },
+      "h2:A3-A2": {
+        "estimate": -0.8947,
+        "ci95": [
+          -1.0658,
+          -0.7237
+        ],
+        "p_two_sided": 0.0002,
+        "n": 76,
+        "mean_x": 0.3158,
+        "mean_y": 1.2105
+      },
+      "s_neg_pass:A2-A1": {
+        "estimate": 0.16,
+        "ci95": [
+          0.06,
+          0.26
+        ],
+        "p_two_sided": 0.0008,
+        "n": 50,
+        "mean_x": 0.16,
+        "mean_y": 0.0,
+        "mcnemar": {
+          "x_only": 8,
+          "y_only": 0,
+          "p_two_sided": 0.0078125
+        }
+      },
+      "s_neg_pass:A3-A1": {
+        "estimate": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "p_two_sided": 1.0,
+        "n": 50,
+        "mean_x": 0.0,
+        "mean_y": 0.0,
+        "mcnemar": {
+          "x_only": 0,
+          "y_only": 0,
+          "p_two_sided": 1.0
+        }
+      },
+      "s_neg_pass:A3-A2": {
+        "estimate": -0.16,
+        "ci95": [
+          -0.26,
+          -0.06
+        ],
+        "p_two_sided": 0.0008,
+        "n": 50,
+        "mean_x": 0.0,
+        "mean_y": 0.16,
+        "mcnemar": {
+          "x_only": 0,
+          "y_only": 8,
+          "p_two_sided": 0.0078125
+        }
+      }
+    },
+    "judge_agreement_full_run": {
+      "s_mem": {
+        "n": 600,
+        "raw": 0.9067,
+        "kappa": 0.834,
+        "kappa_quadratic": 0.9347
+      },
+      "s_para": {
+        "n": 1192,
+        "raw": 0.8716,
+        "kappa": 0.8025,
+        "kappa_quadratic": 0.9136
+      },
+      "h1_clean": {
+        "n": 552,
+        "raw": 0.8514,
+        "kappa": 0.7169,
+        "kappa_quadratic": 0.8556
+      },
+      "h1_parallel": {
+        "n": 20,
+        "raw": 0.75,
+        "kappa": 0.6139,
+        "kappa_quadratic": 0.8201
+      },
+      "h2": {
+        "n": 304,
+        "raw": 0.8322,
+        "kappa": 0.695,
+        "kappa_quadratic": 0.8488
+      },
+      "s_neg": {
+        "n": 200,
+        "raw": 0.955,
+        "kappa": 0.6434
+      }
+    }
+  }
+}
