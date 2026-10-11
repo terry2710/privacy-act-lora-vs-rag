@@ -1,0 +1,114 @@
+{
+ "c001": {
+  "key": "s_para/A0/s_para-0244",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c002": {
+  "key": "s_neg/A2/s_neg-0041",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c003": {
+  "key": "h1/A0/h1-0095",
+  "order": [
+   "claude",
+   "gpt"
+  ]
+ },
+ "c004": {
+  "key": "s_para/A0/s_para-0128",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c005": {
+  "key": "h1/A1/h1-0060",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c006": {
+  "key": "s_para/A0/s_para-0270",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c007": {
+  "key": "h2/A1/h2-0065",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c008": {
+  "key": "h1/A2/h1-0039",
+  "order": [
+   "claude",
+   "gpt"
+  ]
+ },
+ "c009": {
+  "key": "h2/A2/h2-0067",
+  "order": [
+   "claude",
+   "gpt"
+  ]
+ },
+ "c010": {
+  "key": "h1/A2/h1-0080",
+  "order": [
+   "claude",
+   "gpt"
+  ]
+ },
+ "c011": {
+  "key": "s_para/A2/s_para-0145",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c012": {
+  "key": "h1/A0/h1-0088",
+  "order": [
+   "claude",
+   "gpt"
+  ]
+ },
+ "c013": {
+  "key": "h1/A2/h1-0136",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c014": {
+  "key": "s_para/A1/s_para-0156",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ },
+ "c015": {
+  "key": "s_para/A2/s_para-0296",
+  "order": [
+   "claude",
+   "gpt"
+  ]
+ },
+ "c016": {
+  "key": "s_mem/A0/s_mem-0075",
+  "order": [
+   "gpt",
+   "claude"
+  ]
+ }
+}

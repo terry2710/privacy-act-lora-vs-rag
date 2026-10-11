@@ -1,0 +1,145 @@
+{
+  "judges": {
+    "primary": "gpt",
+    "secondary": "claude"
+  },
+  "n": 150,
+  "judge_agreement": {
+    "qa": {
+      "n": 126,
+      "raw": 0.881,
+      "kappa": 0.8029,
+      "kappa_quadratic": 0.9224,
+      "no_answer": 0
+    },
+    "neg": {
+      "n": 24,
+      "raw": 0.9583,
+      "kappa": 0.7778,
+      "no_answer": 0
+    }
+  },
+  "by_arm": {
+    "A0": {
+      "gpt": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 0.333,
+        "neg_pass_rate": 0.125
+      },
+      "claude": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 0.238,
+        "neg_pass_rate": 0.125
+      },
+      "final": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 0.262,
+        "neg_pass_rate": 0.125
+      }
+    },
+    "A1": {
+      "gpt": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 0.857,
+        "neg_pass_rate": 0.0
+      },
+      "claude": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 0.786,
+        "neg_pass_rate": 0.0
+      },
+      "final": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 0.786,
+        "neg_pass_rate": 0.0
+      }
+    },
+    "A2": {
+      "gpt": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 1.167,
+        "neg_pass_rate": 0.25
+      },
+      "claude": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 1.214,
+        "neg_pass_rate": 0.125
+      },
+      "final": {
+        "qa_n": 42,
+        "neg_n": 8,
+        "qa_mean": 1.19,
+        "neg_pass_rate": 0.125
+      }
+    }
+  },
+  "vs_final": {
+    "gpt": {
+      "qa": {
+        "n": 126,
+        "raw": 0.8968,
+        "kappa": 0.8283,
+        "kappa_quadratic": 0.9334
+      },
+      "neg": {
+        "n": 24,
+        "raw": 0.9583,
+        "kappa": 0.7778
+      }
+    },
+    "claude": {
+      "qa": {
+        "n": 126,
+        "raw": 0.9841,
+        "kappa": 0.9728,
+        "kappa_quadratic": 0.9899
+      },
+      "neg": {
+        "n": 24,
+        "raw": 1.0,
+        "kappa": 1.0
+      }
+    }
+  },
+  "gate": {
+    "min_kappa": 0.6,
+    "qa_kappa_quadratic_ok": true,
+    "neg_ok": true,
+    "passed": true
+  },
+  "prompt_version": "judge-v1",
+  "prompt_hashes": {
+    "gpt": "d62990b7156f",
+    "claude": "cf2a6dd8ca66"
+  },
+  "models": {
+    "gpt": "gpt-5.4-mini-2026-03-17",
+    "claude": "claude-opus-5-5"
+  },
+  "usage": {
+    "claude": {
+      "items": 150,
+      "calls": 150,
+      "input_tokens": 142631,
+      "output_tokens": 13118,
+      "input_per_item": 950.9,
+      "output_per_item": 87.5
+    },
+    "gpt": {
+      "items": 150,
+      "calls": 150,
+      "input_tokens": 74956,
+      "output_tokens": 19574,
+      "input_per_item": 499.7,
+      "output_per_item": 130.5
+    }
+  }
+}
