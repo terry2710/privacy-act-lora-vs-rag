@@ -40,6 +40,11 @@ Usage: palr <command> [args]
   mlflow-ui          Open the MLflow UI on port 5000 against the local SQLite store
   serve-prod <port>  Start llama-server with the GGUF that currently holds the production alias
   serve <gguf> <port>  Start llama-server for a GGUF file on the given port (both arguments required)
+  answers [args]     Collect answers for every set and arm from the answer service (resumable; --sets/--arms to narrow)
+  judge-pilot [n]    Judge n calibration answers with both judges and project token use (default 20)
+  judge-calibrate    Run both judges on the calibration sample and write the blind adjudication sheet
+  judge-score        Combine judge agreement and adjudication into the calibration report and gate
+  judge-run [args]   Judge all answers with the primary judge once calibration has passed
 EOF
 }
 
@@ -186,6 +191,26 @@ EOF
   api)
     need_py
     HF_HUB_OFFLINE=1 "$PY" -m privacy_bench.serve.app "$@"
+    ;;
+  answers)
+    need_py
+    "$PY" -m privacy_bench.evaluate.answers "$@"
+    ;;
+  judge-pilot)
+    need_py
+    "$PY" -m privacy_bench.judge.run pilot --limit "${1:-20}"
+    ;;
+  judge-calibrate)
+    need_py
+    "$PY" -m privacy_bench.judge.run calibrate "$@"
+    ;;
+  judge-score)
+    need_py
+    "$PY" -m privacy_bench.judge.run calibrate-score "$@"
+    ;;
+  judge-run)
+    need_py
+    "$PY" -m privacy_bench.judge.run run "$@"
     ;;
   registry)
     need_py

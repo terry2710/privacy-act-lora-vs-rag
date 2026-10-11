@@ -1,0 +1,8 @@
+api: http://127.0.0.1:8000
+timeout_seconds: 120
+warmup: 3
+eval_dir: data/qa/eval
+sections: data/processed/sections.jsonl
+sets: [s_mem, s_para, h1, h2, s_neg]
+arms: [A0, A1, A2, A3]
+answers_dir: results/phase3/answers

@@ -12,10 +12,12 @@ models/
 indexes/
 *.gguf
 *.safetensors
+.commit_msgs/
 data/qa/cache/
 data/qa/verify_cache/
 data/qa/embed_cache/
 data/qa/paraphrase_cache/
 data/audit/spot_check/audit_cache/
 mlruns/
-.commit_msgs/
+results/phase3/judge_cache/
+
