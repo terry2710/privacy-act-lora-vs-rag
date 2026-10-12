@@ -114,4 +114,8 @@ Training runs on Kaggle from the bundle; GGUF conversion needs llama.cpp built l
 
 ## Source and licence
 
+The code is released under the MIT License (see `LICENSE`). The legislative text and the data derived from it are licensed separately, as set out below.
+
 Legislative text is sourced from the Federal Register of Legislation (legislation.gov.au): *Privacy Act 1988* (Cth), Compilation No. 104 (C2026C00227), compilation date 4 June 2026. The file checksum is recorded in `configs/split_manifest.yaml`. Both the LoRA training data and the RAG index are built from this single source file.
+
+`data/raw/privacy_act_1988.docx` is sourced from the Federal Register of Legislation at 2 October 2026. The questions, answers, splits and retrieval index built from it are based on content from the Federal Register of Legislation at 2 October 2026. For the latest information on Australian Government law please go to https://www.legislation.gov.au. This content is licensed under the [Creative Commons Attribution 4.0 International licence](https://creativecommons.org/licenses/by/4.0/). The Federal Register of Legislation does not endorse this project.
