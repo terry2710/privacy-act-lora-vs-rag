@@ -25,7 +25,7 @@ Mean accuracy on a 0–2 scale from a calibrated LLM judge; every ranking holds 
 | 1 | Dataset construction, split design, QA generation and verification, human spot check | Complete |
 | 2 | LoRA training on Kaggle, staged hyperparameter search tracked in Weights & Biases, seeds and ablations | Complete |
 | 3 | GGUF conversion, retrieval, answer service, model registry, calibrated LLM judging, statistical analysis, n8n orchestration | Complete |
-| 4 | Findings, model card, public W&B report | In progress |
+| 4 | Findings, model card, public W&B report, licence | Complete |
 
 ## Design
 
