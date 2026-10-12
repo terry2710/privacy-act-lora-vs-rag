@@ -122,6 +122,26 @@ def resolve(cfg: dict, alias: str) -> dict:
     return {"alias": alias, "version": str(mv.version), "arm": mv.tags.get("arm"), "gguf": portable(ggufs[0]) if ggufs else None, "tags": dict(mv.tags)}
 
 
+def status(cfg: dict) -> dict:
+    _, client = connect(cfg)
+    out = {}
+    for alias in (PRODUCTION, CANDIDATE):
+        mv = alias_version(client, cfg["model_name"], alias)
+        out[alias] = None if mv is None else {"version": str(mv.version), "arm": mv.tags.get("arm"), "gate_passed": mv.tags.get("gate_passed")}
+    return out
+
+
+def stage(cfg: dict, version: str) -> dict:
+    _, client = connect(cfg)
+    name = cfg["model_name"]
+    client.get_model_version(name, version)
+    prod = alias_version(client, name, PRODUCTION)
+    if prod is not None and str(prod.version) == str(version):
+        raise SystemExit(f"version {version} already holds the production alias")
+    client.set_registered_model_alias(name, CANDIDATE, version)
+    return {"candidate": str(version), "production": str(prod.version) if prod else None}
+
+
 def gate(cfg: dict, dry_run: bool, ask_fn=None) -> dict:
     _, client = connect(cfg)
     name = cfg["model_name"]
@@ -160,7 +180,7 @@ def gate(cfg: dict, dry_run: bool, ask_fn=None) -> dict:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="MLflow model registry: register, gate, promote, roll back and resolve versions")
+    parser = argparse.ArgumentParser(description="MLflow model registry: register, stage, gate, promote, roll back, resolve and report versions")
     parser.add_argument("--config", default="configs/registry.yaml")
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("register").add_argument("key", choices=["a0", "a1"])
@@ -168,6 +188,8 @@ def main() -> None:
     sub.add_parser("promote").add_argument("version")
     sub.add_parser("rollback")
     sub.add_parser("resolve").add_argument("alias", nargs="?", default=PRODUCTION)
+    sub.add_parser("status")
+    sub.add_parser("stage").add_argument("version")
     args = parser.parse_args()
     cfg = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
 
@@ -180,6 +202,10 @@ def main() -> None:
         out = promote(cfg, args.version, None)
     elif args.cmd == "rollback":
         out = rollback(cfg)
+    elif args.cmd == "status":
+        out = status(cfg)
+    elif args.cmd == "stage":
+        out = stage(cfg, args.version)
     else:
         out = resolve(cfg, args.alias)
     print(json.dumps(out, indent=2))

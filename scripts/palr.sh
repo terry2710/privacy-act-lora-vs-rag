@@ -46,6 +46,10 @@ Usage: palr <command> [args]
   judge-score        Combine judge agreement and adjudication into the calibration report and gate
   judge-run [args]   Judge all answers with the primary judge once calibration has passed
   analyze            Run the pre-registered statistical analysis and write results/phase3/analysis.json and .md
+  ops                Serve pipeline steps as background jobs for n8n on 127.0.0.1:8001 (needs OPS_TOKEN in .env)
+  n8n-up             Start n8n in Docker and import the workflows in n8n/workflows
+  n8n-down           Stop the n8n container (workflows and credentials persist in its volume)
+  wandb-log <kind>   Log the evaluation analysis or the latest gate report to W&B (kind: evaluation or gate)
 EOF
 }
 
@@ -216,6 +220,25 @@ EOF
   analyze)
     need_py
     "$PY" -m privacy_bench.analysis.run "$@"
+    ;;
+  ops)
+    need_py
+    "$PY" -m privacy_bench.ops.app "$@"
+    ;;
+  n8n-up)
+    docker compose -f n8n/docker-compose.yml --env-file .env up -d
+    sleep 5
+    for wf in n8n/workflows/*.json; do
+      docker compose -f n8n/docker-compose.yml --env-file .env exec -T n8n n8n import:workflow --input="/workflows/$(basename "$wf")"
+    done
+    echo "n8n is running at http://localhost:5678"
+    ;;
+  n8n-down)
+    docker compose -f n8n/docker-compose.yml --env-file .env down
+    ;;
+  wandb-log)
+    need_py
+    "$PY" -m privacy_bench.evaluate.wandb_log "$@"
     ;;
   registry)
     need_py

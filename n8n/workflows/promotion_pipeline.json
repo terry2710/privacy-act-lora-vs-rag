@@ -1,0 +1,452 @@
+{
+  "id": "PalrPromotion001",
+  "name": "palr: promotion pipeline",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "start"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { name: 'registry_status', params: {} } }];"
+      },
+      "name": "Status request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        200,
+        0
+      ],
+      "id": "status-request"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PalrRunJob000001",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "name": "Registry status",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        400,
+        0
+      ],
+      "id": "registry-status"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Candidate?",
+              "leftValue": "={{ !!($json.result && $json.result.candidate) }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Candidate?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        600,
+        0
+      ],
+      "id": "candidate"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { name: 'gate', params: { dry_run: true }, candidate: $json.result.candidate, production: $json.result.production } }];"
+      },
+      "name": "Gate request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        -100
+      ],
+      "id": "gate-request"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PalrRunJob000001",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "name": "Run gate",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1000,
+        -100
+      ],
+      "id": "run-gate"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "Gate passed?",
+              "leftValue": "={{ $json.result.decision.passed }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Gate passed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1200,
+        -100
+      ],
+      "id": "gate-passed"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { name: 'promote', params: { version: $('Gate request').first().json.candidate.version } } }];"
+      },
+      "name": "Promote request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        -200
+      ],
+      "id": "promote-request"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PalrRunJob000001",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "name": "Promote",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1600,
+        -200
+      ],
+      "id": "promote"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { name: 'wandb_log', params: { kind: 'gate' } } }];"
+      },
+      "name": "Log request (promoted)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        -200
+      ],
+      "id": "log-request-(promoted)"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PalrRunJob000001",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "name": "Log gate (promoted)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        2000,
+        -200
+      ],
+      "id": "log-gate-(promoted)"
+    },
+    {
+      "parameters": {
+        "jsCode": "const gate = $('Run gate').first().json.result;\nreturn [{ json: { outcome: 'promoted', production: $('Promote').first().json.result, checks: gate.decision.checks, wandb_run: $json.result } }];"
+      },
+      "name": "Promoted",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        -200
+      ],
+      "id": "promoted"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { name: 'wandb_log', params: { kind: 'gate' } } }];"
+      },
+      "name": "Log request (blocked)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1400,
+        0
+      ],
+      "id": "log-request-(blocked)"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PalrRunJob000001",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "name": "Log gate (blocked)",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        1600,
+        0
+      ],
+      "id": "log-gate-(blocked)"
+    },
+    {
+      "parameters": {
+        "jsCode": "const gate = $('Run gate').first().json.result;\nreturn [{ json: { outcome: 'blocked', candidate: gate.candidate, production: gate.production, checks: gate.decision.checks, wandb_run: $json.result } }];"
+      },
+      "name": "Blocked",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1800,
+        0
+      ],
+      "id": "blocked"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{ json: { outcome: 'no candidate', production: $json.result.production } }];"
+      },
+      "name": "Nothing to promote",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        800,
+        100
+      ],
+      "id": "nothing-to-promote"
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Status request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Status request": {
+      "main": [
+        [
+          {
+            "node": "Registry status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Registry status": {
+      "main": [
+        [
+          {
+            "node": "Candidate?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Candidate?": {
+      "main": [
+        [
+          {
+            "node": "Gate request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Nothing to promote",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gate request": {
+      "main": [
+        [
+          {
+            "node": "Run gate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run gate": {
+      "main": [
+        [
+          {
+            "node": "Gate passed?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gate passed?": {
+      "main": [
+        [
+          {
+            "node": "Promote request",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log request (blocked)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Promote request": {
+      "main": [
+        [
+          {
+            "node": "Promote",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Promote": {
+      "main": [
+        [
+          {
+            "node": "Log request (promoted)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log request (promoted)": {
+      "main": [
+        [
+          {
+            "node": "Log gate (promoted)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log gate (promoted)": {
+      "main": [
+        [
+          {
+            "node": "Promoted",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log request (blocked)": {
+      "main": [
+        [
+          {
+            "node": "Log gate (blocked)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log gate (blocked)": {
+      "main": [
+        [
+          {
+            "node": "Blocked",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

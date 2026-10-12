@@ -21,3 +21,4 @@ data/audit/spot_check/audit_cache/
 mlruns/
 results/phase3/judge_cache/
 
+results/ops/

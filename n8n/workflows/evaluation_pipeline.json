@@ -1,0 +1,134 @@
+{
+  "id": "PalrEvaluation01",
+  "name": "palr: evaluation pipeline",
+  "nodes": [
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "start"
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { name: 'answers', params: {} },\n  { name: 'judge', params: { judge: 'gpt' } },\n  { name: 'judge', params: { judge: 'claude' } },\n  { name: 'analyze', params: {} },\n  { name: 'wandb_log', params: { kind: 'evaluation' } },\n].map(json => ({ json }));"
+      },
+      "name": "Steps",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "steps"
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "name": "Each step",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        440,
+        0
+      ],
+      "id": "each-step"
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "PalrRunJob000001",
+          "mode": "id"
+        },
+        "options": {
+          "waitForSubWorkflow": true
+        }
+      },
+      "name": "Run step",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        680,
+        100
+      ],
+      "id": "run-step"
+    },
+    {
+      "parameters": {
+        "jsCode": "const steps = $input.all().map(i => ({ step: i.json.name, status: i.json.status, seconds: i.json.seconds }));\nconst wandb = $input.all().find(i => i.json.name === 'wandb_log');\nreturn [{ json: { steps, wandb_run: wandb ? wandb.json.result : null } }];"
+      },
+      "name": "Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        680,
+        -120
+      ],
+      "id": "summary"
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Steps",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Steps": {
+      "main": [
+        [
+          {
+            "node": "Each step",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Each step": {
+      "main": [
+        [
+          {
+            "node": "Summary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Run step",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run step": {
+      "main": [
+        [
+          {
+            "node": "Each step",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false
+}

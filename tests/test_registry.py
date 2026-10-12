@@ -76,3 +76,8 @@ def test_register_gate_promote_rollback(tmp_path, monkeypatch):
     assert registry.resolve(cfg, "production")["arm"] == "A1"
     assert registry.rollback(cfg) == {"production": "1", "rolled_back_from": "2"}
     assert registry.resolve(cfg, "production")["arm"] == "A0"
+    assert registry.status(cfg)["candidate"] is None
+    assert registry.stage(cfg, "2") == {"candidate": "2", "production": "1"}
+    assert registry.status(cfg)["candidate"]["arm"] == "A1"
+    with pytest.raises(SystemExit):
+        registry.stage(cfg, "1")
