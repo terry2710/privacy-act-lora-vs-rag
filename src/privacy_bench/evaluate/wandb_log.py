@@ -78,8 +78,11 @@ def log(kind: str, payload: dict, files: list[Path], project: str, wandb_module=
     wandb = wandb_module
     if wandb is None:
         import wandb
+    os.environ["WANDB_DATA_DIR"] = "/tmp/wandb"
     git = git_state()
-    run = wandb.init(project=project, job_type=kind, tags=[kind, "n8n"],
+    settings = wandb.Settings(x_disable_meta=True, x_disable_stats=True, x_disable_machine_info=True,
+                              disable_git=True, disable_code=True, host="local")
+    run = wandb.init(project=project, job_type=kind, tags=[kind, "n8n"], settings=settings,
                      name=f"{kind}-{(git['commit'] or 'nogit')[:7]}", config={**payload["config"], "git": git})
     for key, value in payload["summary"].items():
         run.summary[key] = value

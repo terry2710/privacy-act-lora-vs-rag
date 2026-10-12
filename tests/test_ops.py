@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 
@@ -102,6 +103,10 @@ class FakeWandb:
         self.kwargs = kwargs
         return self.run
 
+    class Settings:
+        def __init__(self, **kwargs):
+            self.kwargs = kwargs
+
     class Table:
         def __init__(self, columns, data):
             self.columns, self.data = columns, data
@@ -114,7 +119,8 @@ class FakeWandb:
             self.files.append(name)
 
 
-def test_wandb_evaluation_payload_and_log(tmp_path):
+def test_wandb_evaluation_payload_and_log(tmp_path, monkeypatch):
+    monkeypatch.delenv("WANDB_DATA_DIR", raising=False)
     calibration = {"prompt_version": "judge-v1", "prompt_hashes": {"gpt": "x"}, "models": {"gpt": "m"},
                    "judge_agreement": {"qa": {"kappa_quadratic": 0.92}, "neg": {"kappa": 0.78}}}
     payload = wandb_log.evaluation_payload(ANALYSIS, calibration)
@@ -130,6 +136,8 @@ def test_wandb_evaluation_payload_and_log(tmp_path):
     out = wandb_log.log("evaluation", payload, [file], "proj", wandb_module=fake)
     assert out["url"] == FakeRun.url and fake.run.finished
     assert fake.kwargs["job_type"] == "evaluation" and fake.kwargs["project"] == "proj"
+    assert fake.kwargs["settings"].kwargs["x_disable_meta"] and fake.kwargs["settings"].kwargs["host"] == "local"
+    assert os.environ["WANDB_DATA_DIR"] == "/tmp/wandb"
     assert fake.run.artifacts[0].files == ["analysis.json"] and len(fake.run.logged) == 3
 
 
