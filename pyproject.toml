@@ -24,6 +24,7 @@ rag = ["sentence-transformers>=3.0"]
 api = ["fastapi>=0.110", "uvicorn>=0.29", "httpx>=0.27"]
 registry = ["mlflow>=3.0"]
 ops = ["fastapi>=0.110", "uvicorn>=0.29", "wandb>=0.19"]
+report = ["wandb-workspaces>=0.4.13", "python-dotenv>=1.0"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

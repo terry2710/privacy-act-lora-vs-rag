@@ -12,6 +12,7 @@ A LoRA adapter for Qwen2.5-1.5B-Instruct, fine-tuned to answer questions about t
 | Served format | Merged in float16, converted to Q8_0 GGUF with llama.cpp `9c2e0e4` |
 | GGUF SHA-256 | `9a602ecbea79affd2237e51c9d5c3a0c20c2658d006fa8727b433741dd17bf99` |
 | Training run | W&B `arlives/privacy-act-lora-vs-rag`, run `0wybl49s` (fresh-sweep-6) |
+| Report | [W&B report](https://forge.coreweave.com/wandb/arlives/privacy-act-lora-vs-rag/reports/LoRA-vs-RAG-on-the-Australian-Privacy-Act-a-pre-registered-comparison--VmlldzoxODA5NDM1NA?accessToken=l3hvlmabr1k96qiu3tmid3jkr0lcp6vzabrmtpmr49fcs4xyc599777lb286686d) |
 | Registry | MLflow model `palr-privacy-act-qa`, version 2 |
 | Base model licence | Apache 2.0 |
 

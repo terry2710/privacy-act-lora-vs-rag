@@ -16,7 +16,7 @@ A controlled comparison of LoRA fine-tuning and retrieval-augmented generation (
 | H2 | 0.34 | 0.36 | **1.26** | 0.45 |
 | S-neg, premise corrected | 10% | 0% | **22%** | 0% |
 
-Mean accuracy on a 0–2 scale from a calibrated LLM judge; every ranking holds under a second judge from another model family. Hypotheses, intervals, latency and limitations are in `FINDINGS.md`.
+Mean accuracy on a 0–2 scale from a calibrated LLM judge; every ranking holds under a second judge from another model family. Hypotheses, intervals, latency and limitations are in `FINDINGS.md`. The [W&B report](https://forge.coreweave.com/wandb/arlives/privacy-act-lora-vs-rag/reports/LoRA-vs-RAG-on-the-Australian-Privacy-Act-a-pre-registered-comparison--VmlldzoxODA5NDM1NA?accessToken=l3hvlmabr1k96qiu3tmid3jkr0lcp6vzabrmtpmr49fcs4xyc599777lb286686d) shows the hyperparameter search, the evaluation tables and the promotion gate.
 
 ## Status
 
@@ -68,7 +68,7 @@ Part VIA is excluded from all sets because it structurally mirrors Part IIIC Div
 | `src/privacy_bench/serve` | Adapter merge, GGUF conversion, parity check and the FastAPI answer service |
 | `src/privacy_bench/rag` | Chunking, BM25, dense and hybrid retrieval, retrieval evaluation |
 | `src/privacy_bench/registry` | MLflow registration, staging, promotion gate and rollback |
-| `src/privacy_bench/evaluate`, `judge` | Answer collection, judge rubrics, calibration, scoring and W&B logging |
+| `src/privacy_bench/evaluate`, `judge` | Answer collection, judge rubrics, calibration, scoring, W&B logging and the W&B report |
 | `src/privacy_bench/analysis` | Pre-registered statistical analysis |
 | `src/privacy_bench/ops` | Job service used by the n8n workflows |
 | `n8n/` | Docker Compose file and the evaluation, promotion and job workflows |
